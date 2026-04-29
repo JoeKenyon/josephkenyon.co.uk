@@ -1,0 +1,15 @@
+{
+  "name": "josephkenyon-co-uk",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-04-24",
+  "kv_namespaces": [
+    {
+      "binding": "SITE_STATS",
+      "id": "7f18e7607522482495f58d0a2023821e"
+    }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  }
+}
