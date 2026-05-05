@@ -1,7 +1,6 @@
 ---
 title: "Audio Redesign - Temple of Xian"
 description: "Sound redesign for Tomb Raider II level."
-tags: ["Audio Design", "Game Audio", "Sound Design"]
 videoUrl: "https://www.youtube.com/embed/nVwzv8HauBs"
 ---
 For this project, I took on the challenge of **redesigning** the sounds for the first three minutes of the level, *Temple of Xian*, from the classic video game, *Tomb Raider II*. The original game's soundtrack has always been a major **influence** on my work, and I wanted to recreate the same sense of **emotion** and **atmosphere** I felt as a child. My goal was to create a **hybrid composition** that blends **music** and **foley** sound effects to fully immerse the player.

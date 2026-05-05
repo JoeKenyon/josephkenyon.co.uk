@@ -1,8 +1,8 @@
 ---
 title: "Funnel Head"
 description: "Real-time guitar amplifier VST plugin with JUCE."
-tags: ["Audio Plugin", "C++", "JUCE"]
 videoUrl: "https://www.youtube.com/embed/iBvjCU5gCls"
+image: "../imgs/430725675-3d423e85-8306-47e2-91cd-bf4bd34123c0.png"
 ---
 `"In the Industry, you're what we call a Funnel Head"`
 

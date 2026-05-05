@@ -1,0 +1,26 @@
+---
+title: "Vanity"
+id: "album-3456158827"
+imageUrl: "vanity.jpg"
+url: "https://joekenyon72.bandcamp.com/album/vanity"
+source: "Bandcamp"
+tracks:
+  - title: "Taking My Time"
+    id: "383961969"
+    length: "3:27"
+    url: "https://joekenyon72.bandcamp.com/track/taking-my-time"
+  - title: "Who Knows"
+    id: "279549118"
+    length: "4:21"
+    url: "https://joekenyon72.bandcamp.com/track/who-knows"
+  - title: "Dead Inside"
+    id: "2442421350"
+    length: "2:08"
+    url: "https://joekenyon72.bandcamp.com/track/dead-inside"
+  - title: "Vanity"
+    id: "922986339"
+    length: "0:32"
+    url: "https://joekenyon72.bandcamp.com/track/vanity"
+---
+
+Listen to this release on [Bandcamp](https://joekenyon72.bandcamp.com/album/vanity).

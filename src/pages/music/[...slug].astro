@@ -1,0 +1,71 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getCollectionPaths } from "../../lib";
+import { Image } from 'astro:assets';
+
+export const prerender = true;
+
+export async function getStaticPaths()
+{ 
+	return await getCollectionPaths('music');
+}
+
+const release = Astro.props;
+const { Content } = await render(release);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/music/*.{jpeg,jpg,png,webp}', { eager: true });
+const imagePath = `/src/assets/music/${release.data.imageUrl}`;
+---
+
+<Layout title={release.data.title} description={release.data.title}>
+	<h4>{release.data.title}</h4>
+	
+	{images[imagePath] && (
+			<Image src={images[imagePath].default} alt={release.data.title} width={800} />
+		)}
+	<h5>Tracks</h5>
+	<div>
+		{release.data.tracks.map((track,i) => (
+			<>
+			<iframe class="bcMedium" src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=ff69b4/bgcol=f13400/transparent=true/`}/>
+			</>
+		))}
+	</div>
+
+	<Content />
+</Layout>
+
+<style>
+.bcSmall
+{
+	max-width: 700px;
+	max-height: 42px;
+}
+.bcMedium
+{
+	max-width: 700px;
+	max-height: 120px;
+}
+iframe
+{
+	width: 100%;
+	height: 100%;
+	border-radius: 0pt;
+	border: 0pt solid transparent;
+}
+img
+{
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	place-self: start;
+	aspect-ratio: 1/1;
+}
+div
+{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+</style>

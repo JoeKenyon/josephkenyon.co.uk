@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+const music = await getCollection('music');
+
+import { Image } from 'astro:assets';
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/music/*.{jpeg,jpg,png,webp}', { eager: true });
+---
+
+<Layout title="Music">
+	<div>
+		{music.map((release) => {
+            const  imagePath = `/src/assets/music/${release.data.imageUrl}`;
+            return (
+                <a href={`/music/${release.id}`}>
+                    {images[imagePath] && ( <Image src={images[imagePath].default} alt={release.data.title} width={800} /> )}
+                    <span>{release.data.title}</span>
+                </a>
+            )
+		})}
+	</div>
+</Layout>
+
+<style>
+a
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0rem;
+
+    margin-bottom: 1rem;
+    
+    & img
+    {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        place-self: start;
+        aspect-ratio: 1/1;
+    }
+}
+div
+{
+    margin-top: 1rem;
+	column-count: 3;
+	width: 100%;
+	gap: 1rem;
+}
+</style>

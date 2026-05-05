@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const artData = await getCollection('art');
+
+// Use the eager glob to get all image metadata at once
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp}', { eager: true });
+---
+
+<Layout title="Art">
+    <div id="artcontainer">
+        {artData.map((art) => {
+            // FIX: Use imageName (which includes the extension) instead of title
+            const imagePath = `/src/assets/art/${art.data.imageName}`;
+            const imageAsset = images[imagePath];
+
+            // Skip if asset is missing or is an SVG (SVG requires different handling in Astro)
+            if (!imageAsset || art.data.imageName.endsWith('.svg')) {
+                return null;
+            }
+
+            return (
+                <div class="art-wrapper">
+                    <a href={`/art/${art.id}`}>
+                        <Image 
+                            src={imageAsset.default} 
+                            alt={art.data.title}
+                            width={art.data.width}
+                            height={art.data.height}
+                            loading="lazy"
+                            style={{
+                                aspectRatio: `${art.data.width} / ${art.data.height}`,
+                                backgroundColor: '#f0f0f0'
+                            }}
+                        />
+                    </a>
+                </div>
+            )
+        })}
+    </div>
+</Layout>
+
+<style>
+#artcontainer {
+    column-count: 4;
+    gap: 1rem; /* Give them some breathing room */
+	margin-top: 1rem;
+
+}
+
+.art-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.art-wrapper img {
+    display: block;
+    max-height: 90vh; 
+    max-width: 100%; 
+    width: auto; 
+    height: auto; /* Ensure height can scale with width if max-width is hit */
+    object-fit: contain;
+    
+    &:hover
+    {
+        opacity: 0.8;
+    }
+
+}
+
+img {
+    transition: opacity 0.3s ease-in-out;
+}
+</style>

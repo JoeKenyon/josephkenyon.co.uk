@@ -1,0 +1,39 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getCollectionPaths } from "../../lib";
+
+export const prerender = true;
+
+export async function getStaticPaths()
+{ 
+	return await getCollectionPaths('projects');
+}
+
+const project = Astro.props;
+const { Content } = await render(project);
+---
+
+<Layout title={project.data.title} description={project.data.description}>
+	<h1>{project.data.title}</h1>
+	{project.data.videoUrl && <iframe src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>}
+	<Content />
+</Layout>
+
+<style>
+.h1
+{
+	font-size: 3rem;
+	font-family:Arial, Helvetica, sans-serif;
+	font-style: italic;
+	font-weight: 900;
+	letter-spacing: -5px;
+	text-transform: uppercase;
+}
+iframe
+{
+	width: 100%;
+	height: 25rem;
+	border: solid 0pt white;
+}
+</style>

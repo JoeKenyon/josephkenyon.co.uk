@@ -1,7 +1,7 @@
 ---
 title: "Guitar Effects Pedal"
 description: "Digital signal processing on STM32 hardware."
-tags: ["DSP", "Embedded Systems", "Audio Processing"]
+image: "../imgs/menu_gtr.png"
 ---
 This project focuses on the development of a digital **guitar effects pedal** using a **micro-controller**. I explored **digital signal processing** techniques to apply a variety of effects to an electric guitar's audio signal in real-time.
 

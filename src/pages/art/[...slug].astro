@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+export const prerender = true;
+
+export async function getStaticPaths() 
+{
+  const artEntries = await getCollection('art');
+  
+  // Sort them however you like (e.g., by title or date)
+  const sortedArt = artEntries.sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+  return sortedArt.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { 
+      entry,
+      // Pass the slugs for the neighbors
+      prev: i > 0 ? sortedArt[i - 1].id : sortedArt[sortedArt.length - 1].id,
+      next: i < sortedArt.length - 1 ? sortedArt[i + 1].id : sortedArt[0].id
+    },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content } = await render(entry);
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
+const imagePath = `/src/assets/art/${entry.data.imageName}`;
+---
+
+<Layout title={entry.data.title} description={entry.data.title}>
+    <div id="art-navigation" data-prev={prev} data-next={next}>
+        <h5>{entry.data.title}</h5>
+
+		<div class="nav-controls">
+            <a href={`/art/${prev}`}>← Previous</a>
+            <a href={`/art/${next}`}>Next →</a>
+        </div>
+        
+        <div class="image-container" style={{ aspectRatio: `${entry.data.width} / ${entry.data.height}` }}>
+            {images[imagePath] && ( <Image src={images[imagePath].default} alt={entry.data.title} width={entry.data.width} height={entry.data.height}/>)}
+        </div>
+
+        <div class="description">
+            <Content />
+        </div>
+    </div>
+</Layout>
+
+<script>
+    // Client-side script to handle key presses
+    const nav = document.querySelector('#art-navigation');
+    const prevSlug = nav?.getAttribute('data-prev');
+    const nextSlug = nav?.getAttribute('data-next');
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && prevSlug) {
+            window.location.href = `/art/${prevSlug}`;
+        } else if (e.key === 'ArrowRight' && nextSlug) {
+            window.location.href = `/art/${nextSlug}`;
+        }
+    });
+</script>
+
+<style>
+#art-navigation 
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.image-container 
+{
+	width: fit-content;
+	max-width: 100%;
+}
+img 
+{
+	object-fit: contain;
+	width: 100%;
+	height: auto;
+	max-height: 90svh;
+	background-color: whitesmoke;
+}
+
+.nav-controls 
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 800px;
+	margin-bottom: 1rem;
+}
+</style>

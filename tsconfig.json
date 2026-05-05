@@ -1,31 +1,8 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    
-    /* Change moduleResolution to 'bundler' */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-
-    /* Move alias logic to 'paths' and remove 'baseUrl' */
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src", "worker-configuration.d.ts"],
-  "exclude": ["node_modules", "dist"]
+    "strictNullChecks": true
+  }
 }

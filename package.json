@@ -1,29 +1,23 @@
 {
-  "name": "josephkenyon.co.uk",
-  "private": true,
-  "version": "0.0.0",
+  "name": "joe_site",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "fast": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "deploy": "npm run build && wrangler deploy --assets ./dist",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "wrangler dev",
+    "deploy": "astro build && wrangler pages deploy dist",
+    "astro": "astro",
+    "sync-music": "node scripts/fetch-music.js"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "front-matter": "^4.0.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-markdown": "^9.1.0",
-    "react-router-dom": "^7.0.0"
+    "@astrojs/cloudflare": "^13.3.0",
+    "astro": "^6.1.9",
+    "image-size": "^2.0.2",
+    "jsdom": "^29.1.1",
+    "puppeteer": "^24.42.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "tailwindcss": "^4.0.0",
-    "vite": "^6.1.0",
-    "wrangler": "^4.85.0",
-    "@cloudflare/vite-plugin": "^1.33.2"
+    "wrangler": "^4.87.0"
   }
 }

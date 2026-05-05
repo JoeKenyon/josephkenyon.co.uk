@@ -1,4 +1,0 @@
-user-agent: *
-allow: /
-
-sitemap: https://www.josephkenyon.co.uk/sitemap.txt
