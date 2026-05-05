@@ -46,35 +46,24 @@ const kenyon =
 }
 ---
 <Layout title="Home">
-	<div class="hero">
-		<svg viewBox={joseph.viewBox} xmlns="http://www.w3.org/2000/svg" id="joeIcon1">
-			<g transform={joseph.transform}>
-			    <path d={joseph.path2} />
-			    <path d={joseph.path3} />
-			</g>
-		</svg>
-		<svg viewBox={kenyon.viewBox} xmlns="http://www.w3.org/2000/svg" id="joeIcon2">
-			<g transform={kenyon.transform}>
-				<path d={kenyon.path1} />
-			</g>
-		</svg>
-	</div>
+
 	<p class="intro">Artist, musician, and developer based in Cambridge, UK.</p>
-	<section class="featured-projects">
-		<h4>Projects</h4>
-		<div class="project-grid">
+	<h3>Projects</h3>
+
 			{featuredProjects.map(project => (
-				<a href={`/projects/${project.id}`} class="project-card">
-					<h5 class="project-title">{project.data.title}</h5>
-					<p>{project.data.description}</p>
+				<a href={`/projects/${project.id}`} class="item-card">
+					<h4>{project.data.title}</h4>
+					<span>{project.data.description}</span>
 				</a>
 			))}
-		</div>
-		<a href="/projects" class="view-all">View all projects →</a>
-	</section>
+		<a href="/projects">View all projects →</a>
 
-	<section class="featured-art">
-		<h4>Art</h4>
+		<h4>Technologies</h4>
+		<div class="skills-grid">
+		{skills.map(skill => (<span>{skill}</span>))}
+		</div>
+
+		<h3>Art</h3>
 		<div class="art-grid">
 			{featuredArt.map(art => {
                 // 2. Use art.data.imageName from your new collection schema
@@ -102,14 +91,8 @@ const kenyon =
 			})}
 		</div>
 		<a href="/art" class="view-all">View all art →</a>
-	</section>
 
-	<section class="skills-section">
-		<h4>Technologies</h4>
-		<div class="skills-grid">
-			{skills.map(skill => (<span>{skill}</span>))}
-		</div>
-	</section>
+
 </Layout>
 
 <style>
@@ -120,12 +103,6 @@ const kenyon =
 	width: 300pt;
 	margin: 0 auto;
 }
-.intro
-{
-	text-align: center;
-}
-/*#joeIcon1 {translate: 0rem 40px;}
-#joeIcon2 {translate: 0rem -40px ;}*/
 #joeIcon2 
 {
 	margin-top: -19%;
@@ -134,89 +111,42 @@ const kenyon =
 #joeIcon2 g {
 	fill: var(--accent);
 }
-section {
-	margin-bottom: 4rem;
-}
-h4 {
-	border-bottom: 1px solid var(--accent);
-}
-.project-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1rem;
-}
-.project-card {
-	padding: 1rem;
-	color: inherit;
-	transition: all 0.3s ease;
-}
-.project-card:hover {
-	background-color: var(--accent);
-	color: var(--text);
-	& > .project-title
-	{
-		color: black;
-	}
-}
-.project-card .project-title {
-	color: var(--accent);
-	margin: 0rem;
-	transition: all 0.3s ease;
-}
-.project-card p {
-	margin: 0;
-	font-size: 0.9rem;
-	opacity: 0.8;
-}
-.art-grid {
+.art-grid 
+{
 	display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
-@media (max-width: 600px) {
-    .art-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-img
-{
-	margin: 0rem;
-}
-
 .art-item
 {
 	height: 100%;
+
+	img
+	{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		object-fit: cover;
+		transition: all ease-in-out 0.5s;
+	}
+
+	&:hover
+	{
+		img{opacity: 0.5;}
+	}
 }
 
-.art-item img {
-	height: 100%;
-	width: 100%;
-    display: flex;
-	object-fit: cover;
-	transition: all 0.3s ease;
-    border: 1px solid #333;
-}
-
-.art-item:hover img {
-    opacity: 0.8;
-}
-.skills-grid {
+.skills-grid
+{
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem;
+	justify-content: space-between;
+	span
+	{
+		border: rgba(255, 255, 255, 0.601) 1pt solid;
+		padding: 0.2rem;
+	}
 }
-.skills-grid span {
-	padding: 0.2rem 0.6rem;
-	border: 1px solid #444;
-	font-size: 1rem;
-}
-.view-all {
-	display: block;
-	margin-top: 1rem;
-	text-align: right;
-	text-decoration: none;
-}
-
 </style>

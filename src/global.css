@@ -1,0 +1,181 @@
+:root 
+{
+    --bg: #141414;
+    --text: #dedede;
+    --accent: rgb(248, 46, 147);
+    --accent-bg: #2c2c2c63;
+    --width: 700px;
+}
+html
+{
+    font-size: 9pt;
+    letter-spacing: 0.03rem;
+}
+
+*{padding: 0rem; margin: 0;}
+body 
+{
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.2rem;
+    color: var(--text);
+    background-color: var(--bg);
+    margin: 0 auto;
+}
+img
+{
+    max-height: 90svh;
+    height: 100%;
+}
+p > img 
+{ 
+    max-width: 100%; 
+    height: auto; 
+    background: rgb(255, 255, 255);
+    max-height: 90svh;
+    width: auto;
+    height: 100%;
+    display: flex;
+    margin: 0rem auto;
+}
+#bg
+{ 
+    position: fixed; 
+    inset: 0; 
+    pointer-events: none;
+    z-index: -1; 
+    opacity: 0.03;
+    background-image: url("/imgs/UI-design.svg");
+    background-size: cover;
+    background-position: top;
+    filter: invert(1);
+}
+.md-content
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+main
+{
+    max-width: var(--width);
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+ul, ol
+{
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.0rem;
+}
+.item-card
+{
+    color: var(--accent);
+    opacity: 1;
+    background-color: var(--bg);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+
+    *{padding: 0;margin: 0;}
+
+
+    &:hover
+    {
+        color: black;
+    }
+}
+.item-card-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: var(--width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+a
+{
+    background-color: var(--bg);
+    color: var(--accent);
+    text-decoration: none;
+    transition: all ease-in-out 300ms;
+    &:hover
+    {
+        background-color: var(--accent);
+        color: var(--bg);
+    }
+}
+
+footer
+{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: columns;
+    max-width: var(--width);
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    a
+    {
+        color: var(--accent);
+        background-color: var(--bg);
+
+        &:hover
+        {
+            background-color: var(--accent);
+            color: var(--bg);
+        }
+    }
+}
+nav
+{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+    align-items: end;
+
+    max-width: var(--width);
+    margin: 0 auto;
+    border: black 1pt solid;
+
+    & a
+    {
+        background-color: transparent;
+        & svg > g
+        {
+            fill: var(--accent);
+            transition: all ease-in-out 300ms;
+            opacity: 0.5;
+        }
+
+        &:hover
+        {
+            & svg > g
+            {
+                fill: var(--accent);
+                opacity: 0.9;
+            }
+            background-color: transparent;
+        }
+
+        &.active
+        {
+            & svg > g
+            {
+                fill: var(--accent);
+                opacity: 1;
+            }
+        }
+    }
+}

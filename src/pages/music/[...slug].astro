@@ -19,21 +19,22 @@ const imagePath = `/src/assets/music/${release.data.imageUrl}`;
 ---
 
 <Layout title={release.data.title} description={release.data.title}>
-	<h4>{release.data.title}</h4>
 	
-	{images[imagePath] && (
-			<Image src={images[imagePath].default} alt={release.data.title} width={800} />
-		)}
-	<h5>Tracks</h5>
-	<div>
-		{release.data.tracks.map((track,i) => (
-			<>
-			<iframe class="bcMedium" src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=ff69b4/bgcol=f13400/transparent=true/`}/>
-			</>
-		))}
-	</div>
+		<h4>{release.data.title}</h4>
+		
+		{images[imagePath] && (
+			<div class="imgWrap">
+				<Image src={images[imagePath].default} alt={release.data.title} />
+			</div>
+			)}
+		<h5>Tracks</h5>
+			{release.data.tracks.map((track,i) => (
+				<>
+				<iframe class="bcMedium" src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=ff69b4/bgcol=f13400/transparent=true/`}/>
+				</>
+			))}
 
-	<Content />
+
 </Layout>
 
 <style>
@@ -54,18 +55,28 @@ iframe
 	border-radius: 0pt;
 	border: 0pt solid transparent;
 }
+.imgWrap
+{
+	display: flex;
+	width: 100%;
+}
 img
 {
-	object-fit: cover;
-	height: 100%;
-	width: 100%;
-	place-self: start;
-	aspect-ratio: 1/1;
+	object-fit: contain;
+	width: auto;
+	height: 40%;
+	max-height: 65svh;
+	max-width: 100%;
 }
-div
+section
 {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+}
+div
+{
+	max-width: var(--width);
+	margin: 0 auto;
 }
 </style>

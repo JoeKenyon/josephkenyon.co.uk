@@ -15,25 +15,25 @@ const { Content } = await render(project);
 ---
 
 <Layout title={project.data.title} description={project.data.description}>
-	<h1>{project.data.title}</h1>
+	<div>
+	<h3>{project.data.title}</h3>
 	{project.data.videoUrl && <iframe src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>}
-	<Content />
+	
+	<div class="md-content"><Content /></div>
+	</div>
 </Layout>
 
 <style>
-.h1
-{
-	font-size: 3rem;
-	font-family:Arial, Helvetica, sans-serif;
-	font-style: italic;
-	font-weight: 900;
-	letter-spacing: -5px;
-	text-transform: uppercase;
-}
 iframe
 {
 	width: 100%;
 	height: 25rem;
 	border: solid 0pt white;
+}
+div
+{
+	max-width: var(--width);
+	width: 100%;
+	margin: 0 auto;
 }
 </style>

@@ -8,7 +8,8 @@
     "preview": "wrangler dev",
     "deploy": "astro build && wrangler pages deploy dist",
     "astro": "astro",
-    "sync-music": "node scripts/fetch-music.js"
+    "sync-music": "node scripts/fetch-music.js",
+    "sync-art": "node scripts/fetch-art.js"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.3.0",

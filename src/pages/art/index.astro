@@ -45,8 +45,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{
 <style>
 #artcontainer {
     column-count: 4;
-    gap: 1rem; /* Give them some breathing room */
-	margin-top: 1rem;
+    gap: 0rem; /* Give them some breathing room */
 
 }
 
@@ -54,7 +53,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
 }
 
 .art-wrapper img {
