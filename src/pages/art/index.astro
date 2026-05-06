@@ -1,76 +1,46 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import Container from '@components/Container.astro';
+import ArtIcon from '@components/Titles/ArtIcon.astro';
 
 const artData = await getCollection('art');
 
 // Use the eager glob to get all image metadata at once
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp}', { eager: true });
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
 ---
 
-<Layout title="Art">
-    <div id="artcontainer">
-        {artData.map((art) => {
-            // FIX: Use imageName (which includes the extension) instead of title
-            const imagePath = `/src/assets/art/${art.data.imageName}`;
-            const imageAsset = images[imagePath];
+<Layout title="Art" description='Artwork and visual projects by Joseph Kenyon'>
+    <Container>
+      <section class="py-0 animate">
+        <div class="flex items-end gap-4 mb-12">
+          <h1 class="text-9xl font-bold tracking-tighter mb-4">Art</h1>
+        </div>
 
-            // Skip if asset is missing or is an SVG (SVG requires different handling in Astro)
-            if (!imageAsset || art.data.imageName.endsWith('.svg')) {
-                return null;
-            }
+        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {artData.map((art) => {
+              const imagePath = `/src/assets/art/${art.data.imageName}`;
+              const imageAsset = images[imagePath];
 
-            return (
-                <div class="art-wrapper">
-                    <a href={`/art/${art.id}`}>
-                        <Image 
-                            src={imageAsset.default} 
-                            alt={art.data.title}
-                            width={art.data.width}
-                            height={art.data.height}
-                            loading="lazy"
-                            style={{
-                                aspectRatio: `${art.data.width} / ${art.data.height}`,
-                                backgroundColor: '#f0f0f0'
-                            }}
-                        />
-                    </a>
-                </div>
-            )
-        })}
-    </div>
+              if (!imageAsset || art.data.imageName.endsWith('.svg')) {
+                  return null;
+              }
+
+              return (
+                  <div class="break-inside-avoid">
+                      <a href={`/art/${art.id}`} class="group block overflow-hidden bg-white/5 border border-white/5 hover:border-accent transition-all">
+                          <Image 
+                              src={imageAsset.default} 
+                              alt={art.data.title}
+                              width={400}
+                              class="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                          />
+                      </a>
+                  </div>
+              )
+          })}
+        </div>
+      </section>
+    </Container>
 </Layout>
-
-<style>
-#artcontainer {
-    column-count: 4;
-    gap: 0rem; /* Give them some breathing room */
-
-}
-
-.art-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.art-wrapper img {
-    display: block;
-    max-height: 90vh; 
-    max-width: 100%; 
-    width: auto; 
-    height: auto; /* Ensure height can scale with width if max-width is hit */
-    object-fit: contain;
-    
-    &:hover
-    {
-        opacity: 0.8;
-    }
-
-}
-
-img {
-    transition: opacity 0.3s ease-in-out;
-}
-</style>

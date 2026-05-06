@@ -1,36 +1,27 @@
 ---
-
-interface Props {
+type Props = 
+{
 	title: string;
-	description?: string;
+	description: string;
 }
 
-import Header from '../components/Header.astro';
-
-import '../global.css';
+import Header from '@components/Header.astro';
+import Head from '@components/Head.astro';
+import Footer from '@components/Footer.astro'
+import '@styles/global.css';
 
 const pathname = new URL(Astro.url).pathname;
 const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 
 const { title, description } = Astro.props;
 
-const links = [
-	{ "name": "LinkedIn" , "url": "https://www.linkedin.com/in/joe-kenyon/" },
-	{ "name": "Instagram", "url": "https://instagram.com/kenyon_joe" },
-	{ "name": "GitHub"   , "url": "https://github.com/JoeKenyon" },
-	{ "name": "Email"    , "url": "mailto:joekenyon72@gmail.com"}
-]
+
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" href="imgs/art/camo camo kes.png">
-		<title>Joseph Kenyon | {title}</title>
+		<Head title={`Joseph Kenyon | ${title}`} description={description}/>
 	</head>
 	<body>
 		<div id="bg"/>
@@ -38,10 +29,6 @@ const links = [
 		<main>
 			<slot />
 		</main>
-		<footer>
-		{
-			links.map((link) => (<a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>))
-		}
-		</footer>
+		<Footer/>
 	</body>
 </html>

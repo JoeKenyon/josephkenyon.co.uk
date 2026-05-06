@@ -1,0 +1,32 @@
+---
+import Container from "@components/Container.astro";
+
+const links = [
+	{ "name": "LinkedIn" , "url": "https://www.linkedin.com/in/joe-kenyon/" },
+	{ "name": "Instagram", "url": "https://instagram.com/kenyon_joe" },
+	{ "name": "GitHub"   , "url": "https://github.com/JoeKenyon" },
+	{ "name": "Email"    , "url": "mailto:joekenyon72@gmail.com"}
+]
+---
+<footer class="py-12 border-t border-white/5 mt-auto">
+  <Container>
+    <div class="flex flex-col justify-between items-center gap-6">
+      <div class="flex flex-wrap justify-center gap-6">
+        {links.map((link) => (
+          <a 
+            href={link.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-[10px] md:text-xs uppercase tracking-widest text-white/40 hover:text-accent transition-colors"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+      
+      <p class="text-[10px] text-white/20 uppercase tracking-tighter">
+        &copy; {new Date().getFullYear()} Joseph Kenyon. Built with Astro.
+      </p>
+    </div>
+  </Container>
+</footer>
