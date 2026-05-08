@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
 import { getCollectionPaths } from "@lib";
+import Prose from '@components/Prose.astro';
 
 export const prerender = true;
 
@@ -14,12 +15,9 @@ const project = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Layout title={project.data.title} description={project.data.description}>
-	<div class="max-w-[1200px] w-full mx-auto">
-	<h3>{project.data.title}</h3>
-	{project.data.videoUrl && <iframe class="w-full h-[25rem] border-none" src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>}
-	
-	<div class="md-content"><Content /></div>
-	</div>
+<Layout title={project.data.title}>
+	<Prose>
+			{project.data.videoUrl && <iframe class="h-90" src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>}
+		<Content/>
+	</Prose>
 </Layout>
-

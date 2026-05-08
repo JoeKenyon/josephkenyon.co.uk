@@ -1,25 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
+import SuperHeading from '@components/SuperHeading.astro';
 import Layout from '@layouts/Layout.astro';
-import Container from '@components/Container.astro';
-import ArrowCard from '@components/ArrowCard.astro';
-import ProjectsIcon from '@components/Titles/ProjectsIcon.astro';
-
-const projects = await getCollection('projects');
+const title = "Projects";
+import { getCollection } from 'astro:content';
+const allProjects = await getCollection('projects');
 ---
-
-<Layout title="Projects" description='Software and engineering projects by Joseph Kenyon'>
-	<Container>
-    <section class="py-0">
-      <div class="flex items-end gap-0 mb-12">
-        <h1 class="text-9xl font-bold tracking-tighter mb-5">Projects</h1>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map(project => (
-          <ArrowCard entry={project}/>
-        ))}
-      </div>
-    </section>
-	</Container>
+<Layout title={title}>
+<section>
+    <div class="flex flex-col gap-8">
+    {allProjects.map(project => (
+        <a class="flex flex-col gap-2 hover:invert transition-all duration-100" href={`/projects/${project.id}`}>
+            <h2>{project.data.title}</h2>
+            <h3>{project.data.description}</h3>
+        </a>
+    ))}
+    </div>
+</section>
 </Layout>

@@ -25,18 +25,18 @@ export async function getStaticPaths()
 
 const { entry, prev, next } = Astro.props;
 const { Content } = await render(entry);
-
+const title = "Art";
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
 const imagePath = `/src/assets/art/${entry.data.imageName}`;
 ---
 
-<Layout title={entry.data.title} description={entry.data.title}>
+<Layout title={title}>
     <div id="art-navigation" data-prev={prev} data-next={next} class="flex flex-col items-center max-w-[1200px] w-full min-h-[70svh] mx-auto">
         <h5 class="mb-0">{entry.data.title}</h5>
 
 		<div class="flex justify-between items-center w-full max-w-[1200px] my-2">
-            <a href={`/art/${prev}`} class="hover:underline text-accent">← Previous</a>
-            <a href={`/art/${next}`} class="hover:underline text-accent">Next →</a>
+            <a href={`/art/${prev}`} class="hover:underline text-accent bg-white">← Previous</a>
+            <a href={`/art/${next}`} class="hover:underline text-accent bg-white">Next →</a>
         </div>
         
         <div class="w-full max-w-[1200px] max-h-[60svh] bg-black/30 flex" style={{ aspectRatio: `${entry.data.width} / ${entry.data.height}` }}>

@@ -1,34 +1,35 @@
 ---
-type Props = 
-{
-	title: string;
-	description: string;
-}
-
-import Header from '@components/Header.astro';
-import Head from '@components/Head.astro';
-import Footer from '@components/Footer.astro'
-import '@styles/global.css';
-
-const pathname = new URL(Astro.url).pathname;
-const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
-
-const { title, description } = Astro.props;
-
-
+import Footer from "@components/Footer.astro";
+import Head from "@components/Head.astro";
+import Navigation from "@components/Navigation.astro";
+import Prose from "@components/Prose.astro";
+import SuperHeading from "@components/SuperHeading.astro";
+type Props = { title: string; }
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<Head title={`Joseph Kenyon | ${title}`} description={description}/>
+		<Head title={title}/>
 	</head>
-	<body>
+	<body class="h-svh overflow-y-hidden overflow-x-visible">
+
 		<div id="bg"/>
-		<Header/>
-		<main>
-			<slot />
-		</main>
-		<Footer/>
+
+		<div class="flex flex-col h-full">
+
+			<SuperHeading>{title}</SuperHeading>
+		
+			<main class="h-full flex flex-col lg:flex-col-reverse ">
+				<div class="overflow-y-auto overflow-x-visible h-full flex flex-col lg:flex-row gap-4">
+					<Navigation/>
+					<div class="overflow-y-auto overflow-x-visible h-full flex-1 px-4">
+						<slot/>
+					</div>
+				</div>
+				<Footer/>
+			</main>
+		</div>
 	</body>
 </html>

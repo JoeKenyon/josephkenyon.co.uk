@@ -1,78 +1,119 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
-@theme {
-  --color-accent: #ff69b4; /* hotpink default */
-  --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+@theme 
+{
+  --font-printer: "BankPrinter";
+  --font-label: "ImpactLabel";
+  --font-label-rev: "ImpactLabelReversed";
 }
 
-@layer base {
-  :root {
-    --accent: #ff69b4;
-    --accent-bg: rgba(255, 105, 180, 0.1);
-    --width: 1200px;
-  }
+:root
+{
+    --text: black;
+    --width: 900px;
+}
+html
+{
+}
+body
+{
+    @apply p-2 max-w-7xl mx-auto w-full;
+    @apply font-printer;
+}
+main
+{
+    @apply bg-transparent gap-4 lg:flex-1 flex lg:flex-col flex-col overflow-hidden ;
+}
 
-  body
+@utility prose 
+{
+  --tw-prose-body: var(--text);
+  --tw-prose-headings: var(--text);
+}
+
+#bg
+{
+    background-image: url("/trustme.png");
+    
+    @apply fixed inset-0 pointer-events-none -z-10 opacity-100 bg-cover bg-top;
+}
+
+.prose, body
+{
+      p,ol,ul,div
   {
-    @apply px-4;
+    @apply drop-shadow-[4px_4px_0px] drop-shadow-black;
   }
 
-  html {
-    @apply text-sm antialiased font-sans bg-[#050505] text-[#e5e5e5] tracking-tight;
-    -webkit-text-size-adjust: 100%;
+  p,h1,h2,h3,h4,h5,h6,li,ol,ul
+  {
+    padding:revert;margin:0;
+    font-weight: revert; font-size: revert;
+    @apply font-printer;
+    @apply bg-white w-full;
   }
 
-  #bg {
-    @apply fixed inset-0 pointer-events-none -z-10 opacity-20 bg-[url("/imgs/UI-design.svg")] bg-cover bg-top invert;
+  li::marker
+  {
+    color:black;
+    
   }
 
-  @media (min-width: 768px) {
-    html {
-      @apply text-[15px];
-    }
-  }
+  h1 {@apply text-6xl;}
+  h2 {@apply text-4xl;}
+  h3 {@apply text-3xl;}
+  h4 {@apply text-2xl;}
+  h5 {@apply text-xl;}
+  p,li {@apply text-sm}
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tighter text-white;
-     margin: revert;
-  }
 
-  h2 {
-    @apply text-3xl md:text-5xl;
-     margin: revert;
-  }
 
-  p {
-    @apply opacity-100 leading-relaxed;
+.prose
+{
 
-    margin: revert;
-
-    & > img
+    @apply flex flex-col gap-4 max-w-full;
+    h3,h1,h2
     {
-      @apply mb-4 max-h-[70svh] mx-auto bg-white;
+      @apply font-label bg-white w-fit font-thin overflow-hidden text-pretty leading-none;
     }
 
-  }
 
-  ul, ol, li
-  {
-    margin: revert;
-    padding: revert;
-    list-style-type: revert;
-  }
 
-  a {
-    @apply transition-colors duration-200;
-  }
+    p:has(img)
+    {
+        @apply bg-transparent border-0 flex flex-col gap-4;
+
+        img
+        {
+            @apply bg-white max-h-[90svh] mx-auto my-0;
+        }
+    }
 }
 
-@layer components {
-  /* Hide scrollbar but keep functionality */
-  .scrollbar-hide {
-    @apply [scrollbar-width:none] [-ms-overflow-style:none];
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    @apply hidden;
-  }
+/* FONTS */
+
+/* 3. F25 Bank Printer (Grouped Bold and Regular) */
+@font-face {
+  font-family: 'BankPrinter';
+  src: url('/fonts/F25_Bank_Printer.otf') format('opentype'),
+       url('/fonts/F25_Bank_Printer.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'BankPrinter';
+  src: url('/fonts/F25_Bank_Printer_Bold.otf') format('opentype'),
+       url('/fonts/F25_Bank_Printer_Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+/* 4. Impact Label */
+@font-face {
+  font-family: 'ImpactLabel';
+  src: url('/fonts/Impact Label.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ImpactLabelReversed';
+  src: url('/fonts/Impact Label Reversed.ttf') format('truetype');
 }

@@ -3,6 +3,7 @@ title: "Beatles Music Ontology"
 description: "Metadata exploration of Beatles music using RDF and SPARQL."
 image: "../imgs/art/gdsfgdfgdf.png"
 ---
+
 This project presents an ontology (IRI: `http://example.org/beatles/`) designed to represent and explore metadata related to The Beatles’ music.
 
 The ontology models key musical concepts such as tracks, albums, performers, production roles, and instruments. The ontology was created using **Protégé**, where the core classes and properties (**T-Box**) were defined and saved in OWL (.owl) format.

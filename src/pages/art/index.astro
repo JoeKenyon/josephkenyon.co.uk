@@ -2,45 +2,37 @@
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Container from '@components/Container.astro';
-import ArtIcon from '@components/Titles/ArtIcon.astro';
 
 const artData = await getCollection('art');
-
+const title = "Art"
 // Use the eager glob to get all image metadata at once
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
 ---
 
-<Layout title="Art" description='Artwork and visual projects by Joseph Kenyon'>
-    <Container>
-      <section class="py-0 animate">
-        <div class="flex items-end gap-4 mb-12">
-          <h1 class="text-9xl font-bold tracking-tighter mb-4">Art</h1>
-        </div>
+<Layout title={title}>
 
-        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-          {artData.map((art) => {
-              const imagePath = `/src/assets/art/${art.data.imageName}`;
-              const imageAsset = images[imagePath];
 
-              if (!imageAsset || art.data.imageName.endsWith('.svg')) {
-                  return null;
-              }
+<div class="columns-2 md:columns-3 lg:columns-4 gap-0 space-y-4">
+    {artData.map((art) => {
+        const imagePath = `/src/assets/art/${art.data.imageName}`;
+        const imageAsset = images[imagePath];
 
-              return (
-                  <div class="break-inside-avoid">
-                      <a href={`/art/${art.id}`} class="group block overflow-hidden bg-white/5 border border-white/5 hover:border-accent transition-all">
-                          <Image 
-                              src={imageAsset.default} 
-                              alt={art.data.title}
-                              width={400}
-                              class="w-full h-auto transition-transform duration-500 group-hover:scale-105"
-                          />
-                      </a>
-                  </div>
-              )
-          })}
-        </div>
-      </section>
-    </Container>
+        if (!imageAsset || art.data.imageName.endsWith('.svg')) {
+            return null;
+        }
+
+        return (
+            <div class="break-inside-avoid">
+                <a href={`/art/${art.id}`} class="group block border overflow-hidden bg-white transition-all">
+                    <Image 
+                        src={imageAsset.default} 
+                        alt={art.data.title}
+                        width={400}
+                        class="w-full h-auto  transition-transform duration-500 group-hover:scale-105"
+                    />
+                </a>
+            </div>
+        )
+    })}
+</div>
 </Layout>
