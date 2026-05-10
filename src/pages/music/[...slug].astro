@@ -19,19 +19,19 @@ const imagePath = `/src/assets/music/${release.data.imageUrl}`;
 ---
 
 <Layout title={release.data.title}>
-
+<h1 class="pageTitle">{release.data.title}</h1>
 		{images[imagePath] && (
-			<div class="flex flex-col max-w-[700px] mx-auto gap-0 mb-4">
+			<div class="flex flex-col mx-auto gap-0 shadowBox mb-4">
 				<Image src={images[imagePath].default} alt={release.data.title} class="object-contain w-auto max-h-[35svh] max-w-full" />
 			</div>
 			)}
 		
 		
 		<div class="flex flex-col w-full max-w-[700px] mx-auto gap-4">
-			<h5 class="mt-4">Tracks</h5>
+			<h5 class="mt-0 shadowBox bg-white">Tracks</h5>
 			{release.data.tracks.map((track,i) => (
 				<>
-				<iframe class="w-full h-full rounded-none border-none max-w-[700px] max-h-[120px]" src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}/>
+				<iframe class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]" src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}/>
 				</>
 			))}
 		</div>

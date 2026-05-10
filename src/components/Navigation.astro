@@ -7,55 +7,36 @@ const pages = [
 ];
 
 const pathname = new URL(Astro.url).pathname;
-const isActive = (path: string) => 
-    path === "/" ? pathname === "/" : pathname.startsWith(path);
+const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 ---
 
 
 <nav class="
-    font-black
-    lowercase
-    h-fit 
-
-    lg:flex 
-    lg:flex-col
-
-    text-[6svw]
-
-    lg:text-6xl
-
-    flex flex-cols
-    lg:gap-4
-    justify-between
-
-    max-w-full
-">
-    {pages.map((page, index) => (
-    <a href={page.href} class={`${isActive(page.href) && "active"}`}>
+flex 
+sm:flex-row 
+sm:flex-nowrap
+flex-wrap
+justify-around
+lowercase 
+gap-4
+w-fit
+max-w-screen
+mx-auto 
+pt-0">
+    {pages.map((page) => (
+    <a href={page.href} class={isActive(page.href) ? "active" : ""}>
         {page.name}
     </a>
     ))}
 </nav>
 
 <style>
+@reference "tailwindcss";
 a
 {
-    font-stretch: 200%;
-    width: fit-content;
-
-
-    background-color: white;
-
-    :not(.active)&:hover
-    {
-        color: red;
-    }
-
-    &.active
-    {
-        color: red;
-        font-weight: 900;
-        transform: rotate(-1deg);
-    }
+    @apply bg-white text-[5.5svw] md:text-4xl;
+    @apply drop-shadow-[5px_5px_0px] drop-shadow-black;
+    &.active,:not(.active)&:hover{@apply text-pink-600;}
+    &.active{@apply -rotate-2 origin-top bg-white;}
 }
 </style>

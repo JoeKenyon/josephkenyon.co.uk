@@ -1,44 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import MusicCard from '@components/MusicCard.astro';
 const music = await getCollection('music');
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/music/*.{jpeg,jpg,png,webp,svg}', { eager: true });
 const title = "Music";
 ---
 <Layout title={title}>
 <section class="py-0 animate">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-5">
+        {music.map((release) => {
+            const imagePath = `/src/assets/music/${release.data.imageUrl}`;
+            const isLocal = !release.data.imageUrl.startsWith('http');
+            const imageAsset = isLocal ? images[imagePath]?.default : null;
 
-<div class="grid grid-cols-2 lg:grid-cols-2 gap-10">
-    {music.map((release) => {
-        const imagePath = `/src/assets/music/${release.data.imageUrl}`;
-        const isLocal = !release.data.imageUrl.startsWith('http');
-        const imageAsset = isLocal ? images[imagePath] : null;
-
-        return (
-            <a href={`/music/${release.id}`} class="group flex flex-col gap-4 hover:border-5 hover:opacity-90 transition-all duration-300">
-                <div class="aspect-square overflow-hidden">
-                {isLocal && imageAsset ? (
-                    <Image 
-                    src={imageAsset.default} 
-                    alt={release.data.title} 
-                    width={400}
-                    class="w-full h-full object-cover"
-                    />
-                ) : (
-                    <img 
-                    src={release.data.imageUrl} 
-                    alt={release.data.title} 
-                    class="w-full h-full object-cover"
-                    />
-                )}
-                </div>
-                <div class="flex flex-col gap-0">
-                    <h3 class="truncate">{release.data.title}</h3>
-                </div>
-            </a>
-        )
-    })}
-</div>
+            return (
+                <MusicCard 
+                    id={release.id} 
+                    title={release.data.title} 
+                    imageUrl={release.data.imageUrl} 
+                    imageAsset={imageAsset} 
+                />
+            )
+        })}
+    </div>
 </section>
 </Layout>

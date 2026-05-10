@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  id: string;
+  title: string;
+  imageAsset: any;
+}
+
+const { id, title, imageAsset } = Astro.props;
+---
+
+<div class="break-inside-avoid">
+  <a href={`/art/${id}`} class="hover:invert-100 invert-0 @apply drop-shadow-[10px_10px_0px] drop-shadow-black transition-all duration-200 block">
+    <Image 
+      src={imageAsset} 
+      alt={title}
+      width={400}
+      class="w-full h-auto"
+    />
+  </a>
+</div>

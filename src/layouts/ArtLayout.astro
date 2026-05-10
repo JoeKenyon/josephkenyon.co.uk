@@ -23,16 +23,17 @@ const displayTitle = routeLabels[baseSegment] || title;
 <html lang="en">
 	<Head title={title}/>
 <body class="h-dvh flex flex-col p-1 w-full overflow-hidden overscroll-none"> 
-
     <div id="bg"/>
 
-	<SuperHeading>{displayTitle}</SuperHeading>
-
-    <div class="shrink-0 p-4 sticky top-0 z-10">
+    <SuperHeading>{displayTitle}</SuperHeading>
+    <div class="shrink-0 p-4">
         <Navigation/>
     </div>
 
-    <main id="main-content" class="flex-1 overflow-y-auto overscroll-contain" transition:animate="slide">
+    <!-- 
+       Main content area. We use flex-1 to fill the remaining space.
+    -->
+    <main id="main-content" class="flex-1 min-h-0 mx-auto w-full pb-15" transition:animate="slide">
         <slot/>
     </main>
 
@@ -40,3 +41,4 @@ const displayTitle = routeLabels[baseSegment] || title;
         <Footer/>
     </div>
 </body>
+

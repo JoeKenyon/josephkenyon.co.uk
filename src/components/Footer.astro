@@ -7,11 +7,15 @@ const pages = [
 ]
 ---
 
-
-<footer class="flex flex-row justify-between py-4 px-4">
-    {pages.map((page) => (
-<a href={page.url} class=" -fit hover:underline bg-white">
-    {page.name}
-</a>
-    ))}
+<footer class="bottom-0 left-0 w-full pt-5 pb-0 max-w-svw">
+    <div class="sm:flex sm:flex-row sm:w-fit justify-around flex-wrap flex flex-row sm:flex-nowrap lowercase gap-4 mx-auto">
+        {pages.map((page) => (
+            <a href={page.url} class="
+            bg-white 
+            drop-shadow-[5px_-5px_0px]
+            drop-shadow-black hover:text-red-600">
+                {page.name}
+            </a>
+        ))}
+    </div>
 </footer>

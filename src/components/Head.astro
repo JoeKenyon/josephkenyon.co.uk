@@ -4,6 +4,7 @@ type Props = { title: string; }
 const { title } = Astro.props;
 import ClientRouter from "astro/components/ClientRouter.astro";
 ---
+<head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/kesagians.svg">
@@ -12,3 +13,4 @@ import ClientRouter from "astro/components/ClientRouter.astro";
 <meta name="description" content="Offical portfolio of Joseph Kenyon. Artist, musician, and developer.">
 <title>JOE_SITE | {title}</title>
 <ClientRouter/>
+</head>

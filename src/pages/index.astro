@@ -1,28 +1,12 @@
 ---
-import SuperHeading from '@components/SuperHeading.astro';
 import Layout from '@layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-const title = "Home";
-
-const skills = [
-	"C++", "C", "C#", "Embedded Systems", "DSA", "STM32",
-	"DSP", "Audio Programming", "JUCE", "HTML/CSS", "JS", "ReactJS"
-];
-
-import Image from 'astro/components/Image.astro';
 import Prose from '@components/Prose.astro';
-const artData = await getCollection('art');
-const img = artData.find((art) => art.data.imageName === "some shit.png");
-const imagePath = `/src/assets/art/${img?.data.imageName}`;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
-const imageAsset = images[imagePath];
+const title = "Home";
 ---
 <Layout title={title}>
+    <h1 class="pageTitle">Joseph Kenyon</h1>
 
-  <div class="flex flex-col gap-4">
-    <h1>Joseph Kenyon</h1>
-
-    <h3>Artist, musician, and developer based in Cambridge, UK.</h3>
-  </div>x
-
+    <Prose>
+        <h3>Artist, musician, and developer based in Cambridge, UK.</h3>
+    </Prose>
 </Layout>

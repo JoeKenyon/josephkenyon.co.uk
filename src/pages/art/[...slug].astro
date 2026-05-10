@@ -1,61 +1,84 @@
 ---
-import { getCollection, render } from 'astro:content';
-import Layout from '@layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+import ArtLayout from '@layouts/ArtLayout.astro';
+import ArtNavigation from '@components/ArtNavigation.astro';
 
 export const prerender = true;
 
 export async function getStaticPaths() 
 {
   const artEntries = await getCollection('art');
+  const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
   
   // Sort them however you like (e.g., by title or date)
   const sortedArt = artEntries.sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-  return sortedArt.map((entry, i) => ({
-    params: { slug: entry.id },
-    props: { 
-      entry,
-      // Pass the slugs for the neighbors
-      prev: i > 0 ? sortedArt[i - 1].id : sortedArt[sortedArt.length - 1].id,
-      next: i < sortedArt.length - 1 ? sortedArt[i + 1].id : sortedArt[0].id
-    },
-  }));
+  return sortedArt.map((entry, i) => {
+    const imagePath = `/src/assets/art/${entry.data.imageName}`;
+    const imageAsset = images[imagePath]?.default;
+
+    return {
+      params: { slug: entry.id },
+      props: { 
+        entry,
+        imageAsset,
+        // Pass the slugs for the neighbors
+        prev: i > 0 ? sortedArt[i - 1].id : sortedArt[sortedArt.length - 1].id,
+        next: i < sortedArt.length - 1 ? sortedArt[i + 1].id : sortedArt[0].id
+      },
+    };
+  });
 }
 
-const { entry, prev, next } = Astro.props;
-const { Content } = await render(entry);
+const { entry, prev, next, imageAsset } = Astro.props;
 const title = "Art";
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
-const imagePath = `/src/assets/art/${entry.data.imageName}`;
 ---
-
-<Layout title={title}>
-    <div id="art-navigation" data-prev={prev} data-next={next} class="flex flex-col items-center max-w-[1200px] w-full min-h-[70svh] mx-auto">
-        <h5 class="mb-0">{entry.data.title}</h5>
-
-		<div class="flex justify-between items-center w-full max-w-[1200px] my-2">
-            <a href={`/art/${prev}`} class="hover:underline text-accent bg-white">← Previous</a>
-            <a href={`/art/${next}`} class="hover:underline text-accent bg-white">Next →</a>
-        </div>
+<ArtLayout title={title}>
+    {/* 1. We force the art container to be exactly the height of its parent (main) */}
+    <div id="art-navigation" data-prev={prev} data-next={next} class="h-full border-0 flex flex-col p-0 gap-0 w-full">
         
-        <div class="w-full max-w-[1200px] max-h-[60svh] bg-black/30 flex" style={{ aspectRatio: `${entry.data.width} / ${entry.data.height}` }}>
-            {images[imagePath] && ( <Image src={images[imagePath].default} alt={entry.data.title} width={entry.data.width} height={entry.data.height} class="object-contain w-auto h-full max-h-[90svh] bg-white mx-auto"/>)}
+        <h1 class="pageTitle max-w-2xl w-full shrink-0 text-center overflow-hidden break-all h-10">
+            {entry.data.title}
+        </h1>
+
+        <ArtNavigation prev={prev} next={next} />
+
+        <div class="min-h-0 max-w-full bg-transparent w-full">
+            {imageAsset && ( 
+                <Image 
+                    src={imageAsset} 
+                    alt={entry.data.title} 
+                    width={1200}
+                    quality="high"
+                    class="max-h-full mx-auto object-contain shadowBox bg-white border"
+                />
+            )}
         </div>
     </div>
-    </Layout>
+</ArtLayout>
 
-    <script>
-    // Client-side script to handle key presses
-    const nav = document.querySelector('#art-navigation');
-    const prevSlug = nav?.getAttribute('data-prev');
-    const nextSlug = nav?.getAttribute('data-next');
+<style is:global>
+  /* 
+     This targets the 'main' tag inside Layout.astro 
+     and disables scrolling JUST for this page.
+  */
+  #main-content {
+    overflow: hidden !important;
+  }
+</style>
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && prevSlug) {
-            window.location.href = `/art/${prevSlug}`;
-        } else if (e.key === 'ArrowRight' && nextSlug) {
-            window.location.href = `/art/${nextSlug}`;
-        }
-    });
-    </script>
+<script>
+// Client-side script to handle key presses
+const nav = document.querySelector('#art-navigation');
+const prevSlug = nav?.getAttribute('data-prev');
+const nextSlug = nav?.getAttribute('data-next');
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && prevSlug) {
+        window.location.href = `/art/${prevSlug}`;
+    } else if (e.key === 'ArrowRight' && nextSlug) {
+        window.location.href = `/art/${nextSlug}`;
+    }
+});
+</script>

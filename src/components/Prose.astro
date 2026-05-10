@@ -1,39 +1,23 @@
 <div 
-class="prose">
+class="
+prose
+mx-auto">
   <slot />
 </div>
 
-  <div
-  class="
-  prose
-
-  prose-a:no-underline
-  prose-headings:border
-
-  prose-2xl
-
-  font-mono-type
-
-  prose-headings:font-stretch-200%
-  prose-p:border
-  prose-p:font-printer
-  prose-ul:border
-  prose-ol:border
-  prose-ul:font-printer
-  prose-ol:font-printer
-
-  prose-h1:uppercase
-
-  prose-headings:text-wrap
-
-  prose-headings:font-black
-  prose-headings:w-fit
-
-  prose-headings:bg-white
-  prose-ol:bg-white
-  prose-ul:bg-white
-  prose-p:bg-white
-
-  max-w-full
-
-  "/>
+<style is:global>
+@reference "tailwindcss";
+.prose
+{
+  @apply flex flex-col gap-4;
+  /* font color for everything */
+  & *, & ::marker{ @apply text-black; }
+  :not(p:has(img)),h1,h2,h3,h4,h5,h6{@apply bg-white m-0;}
+  & > :not(p:has(img)){@apply drop-shadow-[10px_10px_0px] drop-shadow-black;}
+  p:has(img){ @apply bg-transparent border-0 flex flex-col gap-4;
+    img{ @apply bg-white max-h-[90svh] mx-auto; }
+    img{@apply drop-shadow-[10px_10px_0px] drop-shadow-black;}
+  }
+  code{@apply wrap-break-word}
+}
+</style>

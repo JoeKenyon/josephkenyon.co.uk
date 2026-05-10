@@ -1,19 +1,22 @@
 ---
-import SuperHeading from '@components/SuperHeading.astro';
+import Prose from '@components/Prose.astro';
 import Layout from '@layouts/Layout.astro';
-const title = "Projects";
+import ProjectCard from '@components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
+
+const title = "Projects";
 const allProjects = await getCollection('projects');
 ---
 <Layout title={title}>
-<section>
-    <div class="flex flex-col gap-8">
-    {allProjects.map(project => (
-        <a class="flex flex-col gap-2 hover:invert transition-all duration-100" href={`/projects/${project.id}`}>
-            <h2>{project.data.title}</h2>
-            <h3>{project.data.description}</h3>
-        </a>
-    ))}
-    </div>
-</section>
+    <>
+        <div class="flex flex-col gap-4 max-w-3xl mx-auto">
+            {allProjects.map(project => (
+                <ProjectCard 
+                    id={project.id} 
+                    title={project.data.title} 
+                    description={project.data.description} 
+                />
+            ))}
+        </div>
+    </>
 </Layout>

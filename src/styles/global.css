@@ -13,84 +13,32 @@
     --text: black;
     --width: 900px;
 }
-html
-{
-}
-body
-{
-    @apply p-2 max-w-7xl mx-auto w-full;
-    @apply font-printer;
-}
-main
-{
-    @apply bg-transparent gap-4 lg:flex-1 flex lg:flex-col flex-col overflow-hidden ;
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none;
 }
 
-@utility prose 
+html
 {
-  --tw-prose-body: var(--text);
-  --tw-prose-headings: var(--text);
+  @apply font-printer;
 }
+.pageTitle
+{
+  @apply  bg-white w-fit text-4xl mx-auto mb-4 p-0;
+  @apply drop-shadow-[5px_5px_0px] drop-shadow-black z-1;
+}
+
+.shadowBox{@apply drop-shadow-[10px_10px_0px] drop-shadow-black;}
+.shadowText{@apply text-shadow-[5px_5px_0px] text-shadow-black;}
+
 
 #bg
 {
     background-image: url("/trustme.png");
-    
-    @apply fixed inset-0 pointer-events-none -z-10 opacity-100 bg-cover bg-top;
+    @apply fixed inset-0 pointer-events-none -z-10 bg-cover bg-top;
 }
 
-.prose, body
-{
-      p,ol,ul,div
-  {
-    @apply drop-shadow-[4px_4px_0px] drop-shadow-black;
-  }
-
-  p,h1,h2,h3,h4,h5,h6,li,ol,ul
-  {
-    padding:revert;margin:0;
-    font-weight: revert; font-size: revert;
-    @apply font-printer;
-    @apply bg-white w-full;
-  }
-
-  li::marker
-  {
-    color:black;
-    
-  }
-
-  h1 {@apply text-6xl;}
-  h2 {@apply text-4xl;}
-  h3 {@apply text-3xl;}
-  h4 {@apply text-2xl;}
-  h5 {@apply text-xl;}
-  p,li {@apply text-sm}
-}
-
-
-
-.prose
-{
-
-    @apply flex flex-col gap-4 max-w-full;
-    h3,h1,h2
-    {
-      @apply font-label bg-white w-fit font-thin overflow-hidden text-pretty leading-none;
-    }
-
-
-
-    p:has(img)
-    {
-        @apply bg-transparent border-0 flex flex-col gap-4;
-
-        img
-        {
-            @apply bg-white max-h-[90svh] mx-auto my-0;
-        }
-    }
-}
 
 /* FONTS */
 

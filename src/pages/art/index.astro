@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import ArtCard from '@components/ArtCard.astro';
 
 const artData = await getCollection('art');
 const title = "Art"
@@ -10,29 +10,22 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{
 ---
 
 <Layout title={title}>
+    <div class="columns-2 md:columns-3 lg:columns-4 gap-8 space-y-8">
+        {artData.map((art) => {
+            const imagePath = `/src/assets/art/${art.data.imageName}`;
+            const imageAsset = images[imagePath];
 
+            if (!imageAsset || art.data.imageName.endsWith('.svg')) {
+                return null;
+            }
 
-<div class="columns-2 md:columns-3 lg:columns-4 gap-0 space-y-4">
-    {artData.map((art) => {
-        const imagePath = `/src/assets/art/${art.data.imageName}`;
-        const imageAsset = images[imagePath];
-
-        if (!imageAsset || art.data.imageName.endsWith('.svg')) {
-            return null;
-        }
-
-        return (
-            <div class="break-inside-avoid">
-                <a href={`/art/${art.id}`} class="group block border overflow-hidden bg-white transition-all">
-                    <Image 
-                        src={imageAsset.default} 
-                        alt={art.data.title}
-                        width={400}
-                        class="w-full h-auto  transition-transform duration-500 group-hover:scale-105"
-                    />
-                </a>
-            </div>
-        )
-    })}
-</div>
+            return (
+                <ArtCard 
+                    id={art.id} 
+                    title={art.data.title} 
+                    imageAsset={imageAsset.default} 
+                />
+            )
+        })}
+    </div>
 </Layout>
