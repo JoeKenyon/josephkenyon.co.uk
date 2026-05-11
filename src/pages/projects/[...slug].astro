@@ -19,7 +19,7 @@ const title = "Projects";
 <Layout title={project.data.title}>
 	<h1 class="pageTitle">{project.data.title}</h1>
 	<Prose>
-		{project.data.videoUrl && <iframe class="h-90" src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>}
+		{project.data.videoUrl && <iframe class="h-90" src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"/>}
 		<Content/>
 	</Prose>
 </Layout>

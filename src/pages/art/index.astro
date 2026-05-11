@@ -11,7 +11,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{
 
 <Layout title={title}>
     <div class="columns-2 md:columns-3 lg:columns-4 gap-8 space-y-8">
-        {artData.map((art) => {
+        {artData.map((art, index) => {
             const imagePath = `/src/assets/art/${art.data.imageName}`;
             const imageAsset = images[imagePath];
 
@@ -24,6 +24,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{
                     id={art.id} 
                     title={art.data.title} 
                     imageAsset={imageAsset.default} 
+                    loading={index < 6 ? "eager" : "lazy"}
                 />
             )
         })}

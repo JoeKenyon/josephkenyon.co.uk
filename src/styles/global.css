@@ -26,10 +26,13 @@ html
 .pageTitle
 {
   @apply  bg-white w-fit text-4xl mx-auto mb-4 p-0;
-  @apply drop-shadow-[5px_5px_0px] drop-shadow-black z-1;
+  box-shadow: 5px 5px 0px 0px black;
+  @apply z-1;
 }
 
-.shadowBox{@apply drop-shadow-[10px_10px_0px] drop-shadow-black;}
+.shadowBox {
+  box-shadow: 10px 10px 0px 0px black;
+}
 .shadowText{@apply text-shadow-[5px_5px_0px] text-shadow-black;}
 
 
@@ -48,20 +51,24 @@ html
   src: url('/fonts/F25_Bank_Printer.otf') format('opentype'),
        url('/fonts/F25_Bank_Printer.ttf') format('truetype');
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'BankPrinter';
   src: url('/fonts/F25_Bank_Printer_Bold.otf') format('opentype'),
        url('/fonts/F25_Bank_Printer_Bold.ttf') format('truetype');
   font-weight: bold;
+  font-display: swap;
 }
 
 /* 4. Impact Label */
 @font-face {
   font-family: 'ImpactLabel';
   src: url('/fonts/Impact Label.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'ImpactLabelReversed';
   src: url('/fonts/Impact Label Reversed.ttf') format('truetype');
+  font-display: swap;
 }

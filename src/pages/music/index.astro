@@ -9,7 +9,7 @@ const title = "Music";
 <Layout title={title}>
 <section class="py-0 animate">
     <div class="grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-5">
-        {music.map((release) => {
+        {music.map((release, index) => {
             const imagePath = `/src/assets/music/${release.data.imageUrl}`;
             const isLocal = !release.data.imageUrl.startsWith('http');
             const imageAsset = isLocal ? images[imagePath]?.default : null;
@@ -20,6 +20,7 @@ const title = "Music";
                     title={release.data.title} 
                     imageUrl={release.data.imageUrl} 
                     imageAsset={imageAsset} 
+                    loading={index < 3 ? "eager" : "lazy"}
                 />
             )
         })}

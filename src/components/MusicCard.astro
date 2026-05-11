@@ -6,9 +6,10 @@ interface Props {
   title: string;
   imageUrl: string;
   imageAsset?: any;
+  loading?: "eager" | "lazy";
 }
 
-const { id, title, imageUrl, imageAsset } = Astro.props;
+const { id, title, imageUrl, imageAsset, loading = "lazy" } = Astro.props;
 const isLocal = !imageUrl.startsWith('http');
 ---
 
@@ -18,12 +19,14 @@ const isLocal = !imageUrl.startsWith('http');
         <Image 
             src={imageAsset} 
             alt={title}
+            loading={loading}
             class="w-full h-full object-cover aspect-square"
         />
     ) : (
         <img 
             src={imageUrl} 
             alt={title} 
+            loading={loading}
             class="w-full h-full object-cover"
         />
     )}

@@ -13,10 +13,10 @@ mx-auto">
   /* font color for everything */
   & *, & ::marker{ @apply text-black; }
   :not(p:has(img)),h1,h2,h3,h4,h5,h6{@apply bg-white m-0;}
-  & > :not(p:has(img)){@apply drop-shadow-[10px_10px_0px] drop-shadow-black;}
+  & > :not(p:has(img)){ box-shadow: 10px 10px 0px 0px black; }
   p:has(img){ @apply bg-transparent border-0 flex flex-col gap-4;
     img{ @apply bg-white max-h-[90svh] mx-auto; }
-    img{@apply drop-shadow-[10px_10px_0px] drop-shadow-black;}
+    img{ box-shadow: 10px 10px 0px 0px black; }
   }
   code{@apply wrap-break-word}
 }

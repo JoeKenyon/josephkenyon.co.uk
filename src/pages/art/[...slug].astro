@@ -51,6 +51,7 @@ const title = "Art";
                     alt={entry.data.title} 
                     width={1200}
                     quality="high"
+                    loading="eager"
                     class="max-h-full mx-auto object-contain shadowBox bg-white border"
                 />
             )}
@@ -69,16 +70,26 @@ const title = "Art";
 </style>
 
 <script>
-// Client-side script to handle key presses
-const nav = document.querySelector('#art-navigation');
-const prevSlug = nav?.getAttribute('data-prev');
-const nextSlug = nav?.getAttribute('data-next');
+import { navigate } from 'astro:transitions/client';
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft' && prevSlug) {
-        window.location.href = `/art/${prevSlug}`;
-    } else if (e.key === 'ArrowRight' && nextSlug) {
-        window.location.href = `/art/${nextSlug}`;
-    }
-});
+function setupNavigation() {
+    const nav = document.querySelector('#art-navigation');
+    if (!nav) return;
+
+    const prevSlug = nav.getAttribute('data-prev');
+    const nextSlug = nav.getAttribute('data-next');
+
+    const handleKeydown = (e) => {
+        if (e.key === 'ArrowLeft' && prevSlug) {
+            navigate(`/art/${prevSlug}`);
+        } else if (e.key === 'ArrowRight' && nextSlug) {
+            navigate(`/art/${nextSlug}`);
+        }
+    };
+
+    document.addEventListener('keydown', handleKeydown, { once: true });
+}
+
+// Run on initial load and after every transition
+document.addEventListener('astro:page-load', setupNavigation);
 </script>

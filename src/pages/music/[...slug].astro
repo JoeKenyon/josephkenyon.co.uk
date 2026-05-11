@@ -1,18 +1,20 @@
 ---
-import { render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import { getCollectionPaths } from "@lib";
 import { Image } from 'astro:assets';
 
 export const prerender = true;
 
 export async function getStaticPaths()
 { 
-	return await getCollectionPaths('music');
+	const musicEntries = await getCollection('music');
+	return musicEntries.map((entry) => ({
+		params: { slug: entry.id },
+		props: entry,
+	}));
 }
 
 const release = Astro.props;
-const { Content } = await render(release);
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/music/*.{jpeg,jpg,png,webp}', { eager: true });
 const imagePath = `/src/assets/music/${release.data.imageUrl}`;
@@ -21,8 +23,13 @@ const imagePath = `/src/assets/music/${release.data.imageUrl}`;
 <Layout title={release.data.title}>
 <h1 class="pageTitle">{release.data.title}</h1>
 		{images[imagePath] && (
-			<div class="flex flex-col mx-auto gap-0 shadowBox mb-4">
-				<Image src={images[imagePath].default} alt={release.data.title} class="object-contain w-auto max-h-[35svh] max-w-full" />
+			<div class="flex flex-col mx-auto gap-0 mb-4">
+				<Image 
+					src={images[imagePath].default} 
+					alt={release.data.title} 
+					loading="eager"
+					class="object-contain w-fit shadowBox mx-auto max-h-[35svh] max-w-full" 
+				/>
 			</div>
 			)}
 		
@@ -31,7 +38,11 @@ const imagePath = `/src/assets/music/${release.data.imageUrl}`;
 			<h5 class="mt-0 shadowBox bg-white">Tracks</h5>
 			{release.data.tracks.map((track,i) => (
 				<>
-				<iframe class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]" src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}/>
+				<iframe 
+					class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]" 
+					src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}
+					loading="lazy"
+				/>
 				</>
 			))}
 		</div>
