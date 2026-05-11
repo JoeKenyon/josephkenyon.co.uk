@@ -6,42 +6,20 @@
   --font-printer: "BankPrinter";
   --font-label: "ImpactLabel";
   --font-label-rev: "ImpactLabelReversed";
-}
 
-:root
-{
-    --text: black;
-    --width: 900px;
-}
-html,
-body {
-  height: 100%;
-  overscroll-behavior: none;
-}
+  --font-mono: Geist mono, monospace;
 
-html
-{
-  @apply font-printer;
-}
-.pageTitle
-{
-  @apply  bg-white w-fit text-4xl mx-auto mb-4 p-0;
-  box-shadow: 5px 5px 0px 0px black;
-  @apply z-1;
-}
+  --animate-marquee: marquee 50s linear infinite;
 
-.shadowBox {
-  box-shadow: 10px 10px 0px 0px black;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 }
-.shadowText{@apply text-shadow-[5px_5px_0px] text-shadow-black;}
-
-
-#bg
-{
-    background-image: url("/trustme.png");
-    @apply fixed inset-0 pointer-events-none -z-10 bg-cover bg-top;
-}
-
 
 /* FONTS */
 

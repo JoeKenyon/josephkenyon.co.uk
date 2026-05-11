@@ -1,32 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import ArtCard from '@components/ArtCard.astro';
-
 const artData = await getCollection('art');
 const title = "Art"
-// Use the eager glob to get all image metadata at once
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/art/*.{jpeg,jpg,png,webp,svg}', { eager: true });
 ---
 
 <Layout title={title}>
-    <div class="columns-2 md:columns-3 lg:columns-4 gap-8 space-y-8">
-        {artData.map((art, index) => {
-            const imagePath = `/src/assets/art/${art.data.imageName}`;
-            const imageAsset = images[imagePath];
-
-            if (!imageAsset || art.data.imageName.endsWith('.svg')) {
-                return null;
-            }
-
-            return (
-                <ArtCard 
-                    id={art.id} 
-                    title={art.data.title} 
-                    imageAsset={imageAsset.default} 
-                    loading={index < 6 ? "eager" : "lazy"}
-                />
-            )
-        })}
-    </div>
 </Layout>

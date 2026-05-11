@@ -2,15 +2,20 @@
 import "@styles/global.css"
 type Props = { title: string; }
 const { title } = Astro.props;
-import ClientRouter from "astro/components/ClientRouter.astro";
 ---
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/kesagians.svg">
-<link rel="icon" type="image/x-icon" href="/kesagians.svg">
-<meta name="generator" content={Astro.generator} />
-<meta name="description" content="Offical portfolio of Joseph Kenyon. Artist, musician, and developer.">
-<title>JOE_SITE | {title}</title>
-<ClientRouter/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/kesagians.svg">
+    <link rel="icon" type="image/x-icon" href="/kesagians.svg">
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Offical portfolio of Joseph Kenyon. Artist, musician, and developer.">
+    <title>JOE_SITE | {title}</title>
+    
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
 </head>

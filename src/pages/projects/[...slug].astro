@@ -1,25 +1,86 @@
 ---
-import { render } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import { getCollectionPaths } from "@lib";
-import Prose from '@components/Prose.astro';
-
+import { getCollectionPaths } from '@lib';
+import { render } from 'astro:content';
 export const prerender = true;
-
-export async function getStaticPaths()
-{ 
-	return await getCollectionPaths('projects');
-}
-
+export async function getStaticPaths(){return await getCollectionPaths('projects'); }
 const project = Astro.props;
 const { Content } = await render(project);
-const title = "Projects";
 ---
 
 <Layout title={project.data.title}>
-	<h1 class="pageTitle">{project.data.title}</h1>
-	<Prose>
-		{project.data.videoUrl && <iframe class="h-90" src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"/>}
+	<h1 class="bg-white w-fit mx-auto text-5xl my-5 text-justify font-black leading-none">{project.data.title}</h1>
+	<div class="prose mx-auto">
+		{project.data.videoUrl && <iframe class="w-full h-80" src={project.data.videoUrl} title={`Video ${project.data.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>}
 		<Content/>
-	</Prose>
+	</div>
 </Layout>
+
+<style>
+@reference 'tailwindcss';
+
+.prose
+{
+	*
+	{
+		@apply leading-none text-black;
+		@apply text-black font-sans;
+	}
+
+	p,h1,h2,h3,h4,h5,h6,img,ol,ul
+	{
+		@apply text-justify bg-white;
+	}
+
+	li
+	{
+		@apply marker:text-black;;
+	}
+
+	p:has(> img)
+	{
+		@apply bg-transparent flex flex-col gap-4;
+		img{@apply bg-white m-0 p-0 max-h-[50svh] w-fit mx-auto object-contain;}
+	}
+}
+
+/*
+.prose
+{
+	*
+	{
+		@apply leading-none text-black;
+		display: revert;
+	}
+
+	strong
+	{
+		@apply font-black;
+	}
+
+	p,ol,ul,li,h1,h2,h3,h4,h5,h6
+	{
+		@apply tracking-tighter font-sans text-4xl font-semibold text-justify;
+	}
+
+	img
+	{
+		@apply border;
+	}
+
+	code
+	{
+		@apply font-sans italic font-light;
+	}
+
+	ul, ol
+	{
+		padding: revert;
+	}
+
+	li
+	{
+		@apply marker:text-black marker:font-semibold;
+	}
+}*/
+</style>

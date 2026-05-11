@@ -10,33 +10,24 @@ const pathname = new URL(Astro.url).pathname;
 const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 ---
 
-
-<nav class="
-flex 
-sm:flex-row 
-sm:flex-nowrap
-flex-wrap
-justify-around
-lowercase 
-gap-4
-w-fit
-max-w-screen
-mx-auto 
-pt-0">
+<header class="sticky top-0 z-50 font-printer mb-5">
+  <div id="menu-items" class="sm:w-fit sm: mx-auto w-full sm:gap-10 justify-between sm:flex sm:p-0 sm:items-center">
     {pages.map((page) => (
-    <a href={page.href} class={isActive(page.href) ? "active" : ""}>
+      <a href={page.href} class:list={["nav-link", { "active text-red-500": isActive(page.href) }]}>
         {page.name}
-    </a>
+      </a>
     ))}
-</nav>
+  </div>
+</header>
 
 <style>
 @reference "tailwindcss";
-a
+.nav-link:not(.active)
 {
-    @apply bg-white text-[5.5svw] md:text-4xl;
-    box-shadow: 5px 5px 0px 0px black;
-    &.active,:not(.active)&:hover{@apply text-pink-600;}
-    &.active{@apply -rotate-2 origin-top bg-white;}
+  @apply block bg-black text-white text-3xl leading-none tracking-tighter hover:text-red-500 w-fit no-underline p-0 ;
+}
+.active
+{
+  @apply block bg-black text-3xl leading-none tracking-tighter hover:text-red-500 w-fit no-underline p-0 ;
 }
 </style>

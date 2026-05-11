@@ -1,49 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
+import { getCollectionPaths } from '@lib';
 export const prerender = true;
-
-export async function getStaticPaths()
-{ 
-	const musicEntries = await getCollection('music');
-	return musicEntries.map((entry) => ({
-		params: { slug: entry.id },
-		props: entry,
-	}));
-}
-
+export async function getStaticPaths(){return await getCollectionPaths('music'); }
 const release = Astro.props;
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/music/*.{jpeg,jpg,png,webp}', { eager: true });
-const imagePath = `/src/assets/music/${release.data.imageUrl}`;
 ---
 
 <Layout title={release.data.title}>
-<h1 class="pageTitle">{release.data.title}</h1>
-		{images[imagePath] && (
-			<div class="flex flex-col mx-auto gap-0 mb-4">
-				<Image 
-					src={images[imagePath].default} 
-					alt={release.data.title} 
-					loading="eager"
-					class="object-contain w-fit shadowBox mx-auto max-h-[35svh] max-w-full" 
-				/>
-			</div>
-			)}
-		
-		
-		<div class="flex flex-col w-full max-w-[700px] mx-auto gap-4">
-			<h5 class="mt-0 shadowBox bg-white">Tracks</h5>
-			{release.data.tracks.map((track,i) => (
-				<>
-				<iframe 
-					class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]" 
-					src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}
-					loading="lazy"
-				/>
-				</>
-			))}
-		</div>
+<h1>{release.data.title}</h1>
 </Layout>

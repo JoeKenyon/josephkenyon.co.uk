@@ -1,12 +1,16 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Prose from '@components/Prose.astro';
+import Marquee from '@components/Marquee.astro';
 const title = "Home";
 ---
 <Layout title={title}>
-    <h1 class="pageTitle">Joseph Kenyon</h1>
-
-    <Prose>
-        <h3>Artist, musician, and developer based in Cambridge, UK.</h3>
-    </Prose>
+    <h2 class="text-white leading-none tracking-tighter text-justify font-black uppercase text-3xl lg:text-8xl relative">
+        Joseph Kenyon
+    </h2>
+    <h1
+    class="text-white leading-none tracking-tighter text-justify font-black uppercase text-3xl lg:text-8xl relative"
+    >
+        Artist, musician, and developer based in Cambridge, UK.
+    </h1>
+    <Marquee message={title} />
 </Layout>
