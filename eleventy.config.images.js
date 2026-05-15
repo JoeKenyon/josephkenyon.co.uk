@@ -45,7 +45,15 @@ export default function (eleventyConfig)
 			let metadata = await eleventyImage(input, 
 			{
 				widths: widths || ["auto"],
-				formats,
+				formats: ["avif", "webp", "jpeg"],
+				sharpOptions: 
+				{
+					pngOptions: 
+					{
+						compressionLevel: 9,
+						quality: 60
+					}
+				},
 				urlPath: "/img/", // URL used in the HTML src
 				outputDir: "./public/img/", // Where the files are saved on disk
 			});

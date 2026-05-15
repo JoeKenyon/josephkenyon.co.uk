@@ -17,7 +17,6 @@ export default async function(eleventyConfig)
 	// --- ASSETS & WATCHING ---
 	
 	// Copy the 'public' folder (where images are processed to) to the root of _site
-	eleventyConfig.addPassthroughCopy({"./public/": "/"});
 	
 	// Watch and copy CSS files
 	eleventyConfig.addWatchTarget("css/**/*.css");
@@ -25,6 +24,7 @@ export default async function(eleventyConfig)
 	
 	// Watch for new images in the content folder to trigger a rebuild
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	eleventyConfig.addPassthroughCopy({"./public/": "/"});
 };
 
 // --- DIRECTORY CONFIG ---
