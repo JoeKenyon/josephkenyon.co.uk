@@ -1,0 +1,186 @@
+/* Defaults */
+@font-face 
+{
+  font-family: 'BankPrinter';
+  src: url('/fonts/F25_Bank_Printer.otf') format('opentype'),
+       url('/fonts/F25_Bank_Printer.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face 
+{
+  font-family: 'BankPrinter';
+  src: url('/fonts/F25_Bank_Printer_Bold.otf') format('opentype'),
+       url('/fonts/F25_Bank_Printer_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face 
+{
+  font-family: 'VCR_OSD_Mono';
+  src: url('/fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+:root 
+{
+	--article-font-size: 1.25rem;
+	--article-h1-size: 2em;
+	--article-h2-size: 1.5em;
+	--article-h3-size: 1.125em;
+	--article-h4-size: 1.0625em;
+	--article-h5-size: 0.9375em;
+	--article-h6-size: 1.25rem;
+	--article-line-height-body: 1.5;
+	--article-line-height-heading: 1.25;
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono,
+		Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
+	--syntax-tab-size: 4;
+	--vspace: 1.5rem;
+
+	--text-color: white;
+	--background-color: black;
+	--text-color-link: white;
+	--text-color-link-visited: lightblue;
+	--text-color-link-highlight: red;
+	--text-color-link-active: darkred;
+
+	--font-vcr: "VCR_OSD_Mono";
+	--font-printer: "BankPrinter";
+}
+
+@view-transition 
+{
+	navigation: auto;
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body 
+{
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: transparent;
+}
+
+html 
+{
+	overflow-y: scroll;
+}
+
+body 
+{
+	min-height: 100vh;
+	min-height: 100dvh;
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+	background-image: url("/rosieNoText.png");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p 
+{
+	margin-block-end: var(--vspace);
+	margin-block-start: var(--vspace);
+	background-color: var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 
+{
+	line-height: var(--article-line-height-heading);
+	width: fit-content;
+}
+
+h1 
+{
+	font-size: var(--article-h1-size);
+}
+
+h2 
+{
+	font-size: var(--article-h2-size);
+}
+
+h3 
+{
+	font-size: var(--article-h3-size);
+}
+
+h4 
+{
+	font-size: var(--article-h4-size);
+}
+
+h5 
+{
+	font-size: var(--article-h5-size);
+	text-transform: uppercase;
+}
+
+h6 
+{
+	font-size: var(--article-h6-size);
+	text-transform: uppercase;
+}
+
+ul:last-of-type, 
+ol:last-of-type, 
+p:last-of-type {
+    margin-bottom: 0;
+    margin-block-end: 0;
+}
+
+article
+{
+	ul:last-of-type, 
+	ol:last-of-type
+	{
+		margin: revert;
+	}
+}
+
+p,
+li, ul
+{
+	line-height: var(--article-line-height-body);
+	background-color: var(--background-color);
+	
+}
+
+a,a span
+{
+	color: var(--text-color-link);
+	background-color: black;
+}
+
+a:focus,
+a:hover
+{
+	color: var(--text-color-link-highlight);
+	span{color: var(--text-color-link-highlight);}
+}
+
+a:active {
+	color: var(--text-color-link-active);
+	span{color: var(--text-color-link-highlight);}
+}

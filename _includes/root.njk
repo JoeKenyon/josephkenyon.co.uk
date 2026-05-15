@@ -1,0 +1,202 @@
+---
+layout: base.njk
+---
+<h1>{{ title }}</h1>
+
+{# Check if the current directory has a collectionKey assigned #}
+{% if collectionKey == "art" %}
+
+    <div class="art-gallery">
+
+        {%- for artwork in images %}
+
+            <div class="art-item">
+                <a href="/art/{{ artwork.slug | slugify }}/">
+                {% image "./imgs/" + artwork.src, artwork.name %}
+                </a>
+            </div>
+
+        {%- endfor %}
+
+    </div>
+
+{% else %}
+
+    <ul class="postlist">
+
+        {% for item in collections[collectionKey] %}
+
+            <li class="postlist-item">
+                <a href="{{ item.url }}">
+
+                    {% if item.data.thumbnail %}
+
+                    <figure>
+                        {% image item.fileSlug + "/" + item.data.thumbnail, item.data.thumbnail %}
+                    </figure>
+
+                    {% endif %}
+
+                    <span>
+
+                        {% if item.data.title %}
+
+                            {{ item.data.title }}
+
+                        {% else %}
+
+                            <code>{{ item.url }}</code>
+                            
+                        {% endif %}
+
+                    </span> 
+                </a>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endif %}
+
+<style>
+.art-gallery 
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.art-item img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 1/1;
+}
+
+.art-item a 
+{
+    display: block;
+    transition: transform 0.2s;
+}
+
+.art-item a:hover 
+{
+    transform: scale(1.02);
+}
+
+.postlist 
+{
+    list-style: none;
+    padding: 0;
+
+    background-color: transparent;
+}
+
+.postlist-item 
+{
+    --thumbnail-size: 128px;
+    --thumbnail-size-sm: 100px;
+
+    display: flex;
+    align-items: center;
+    margin-block-end: 1em;
+
+    line-height: var(--article-line-height-heading);
+
+    background-color: transparent;
+
+    &:last-of-type
+    {
+        margin-block-end: 0em;
+    }
+
+    span
+    {
+        font-size: 1.1875em; /* 19px /16 */
+        font-weight: 700;
+        flex-basis: 100%;
+        text-underline-position: from-font;
+        text-underline-offset: 0;
+        text-decoration-thickness: 1px;
+    }
+
+    figure, img
+    {
+        display: block;
+    }
+
+    figure
+    {
+        margin: 0;
+        margin-inline-end: 1em;
+        min-width: var(--thumbnail-size);
+    }
+
+    img
+    {
+        height: var(--thumbnail-size);
+        width: var(--thumbnail-size);
+        object-fit: cover;
+    }
+
+    &:hover
+    {
+        img{opacity: 0.8;}
+    }
+
+    a
+    {
+        display: flex;
+	    flex-direction: row;
+        background-color: transparent;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 420px) 
+{
+    .postlist-item 
+    {
+        flex-wrap: wrap;
+        width: 100%;
+
+        a
+        {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+
+            span
+            {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        figure
+        {
+            min-width: none;
+            width: 100%;
+            background-color: var(--background-color);
+            display: flex;
+            margin: auto 0;
+        }
+
+        img
+        {
+            object-fit: contain;
+            display: flex;
+            width: 100%;
+        }
+        picture
+        {
+            margin: auto 0;
+            width: 100%;
+        }
+    }
+}
+</style>

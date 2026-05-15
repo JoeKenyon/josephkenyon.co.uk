@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+
+<h1>{{ title }}</h1>
+
+<article>
+{{ content | safe }}
+</article>
+
+{% if pagination %}
+    {# If the page is part of a pagination loop (Art) #}
+    {% include 'components/paginationNavigation.njk' %}
+{% elif collectionKey %}
+    {# If the page is a standard collection item (Projects/Blog) #}
+    {% include 'components/postNavigation.njk' %}
+{% endif %}
