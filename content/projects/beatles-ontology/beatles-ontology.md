@@ -1,7 +1,7 @@
 ---
 title: "Beatles Music Ontology"
 description: "Metadata exploration of Beatles music using RDF and SPARQL."
-image: "./gdsfgdfgdf.png"
+thumbnail: "Pasted image 20260219174401.png"
 ---
 
 This project presents an ontology (IRI: `http://example.org/beatles/`) designed to represent and explore metadata related to The Beatles’ music.

@@ -50,6 +50,34 @@ header
 			}
 		}
 	}
+	@media screen and (max-width: 350px) 
+	{
+		nav
+		{
+			flex-direction: column;
+		}
+	}
+
+	@media screen and (max-width: 600px) 
+	{
+		&
+		{
+			flex-direction: column;
+		}
+		nav
+		{
+			width: 100%;
+			justify-content: space-between;
+			a
+			{
+				margin-inline-end: 0;
+			}
+		}
+		& > a
+		{
+			margin: auto 0;
+		}
+	}
 }
 
 body > div
@@ -150,5 +178,13 @@ main > nav > ul
 	{
 		justify-self: flex-end;
 		text-align: right;
+	}
+}
+
+@media screen and (max-width: 420px)
+{
+	main h1
+	{
+		width: 100%;
 	}
 }

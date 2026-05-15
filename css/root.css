@@ -76,20 +76,14 @@ body
 	margin: 0 auto;
 	font-family: var(--font-family);
 	color: var(--text-color);
-	background-color: transparent;
-}
-
-html 
-{
-	overflow-y: scroll;
+	height: min-content;
 }
 
 body 
 {
-	min-height: 100vh;
-	min-height: 100dvh;
 	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 	background-image: url("/rosieNoText.png");
+	background-size:contain;
 }
 
 h1,

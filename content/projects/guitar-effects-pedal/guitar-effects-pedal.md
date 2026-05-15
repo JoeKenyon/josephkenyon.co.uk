@@ -1,7 +1,7 @@
 ---
 title: "Guitar Effects Pedal"
 description: "Digital signal processing on STM32 hardware."
-image: "../imgs/menu_gtr.png"
+thumbnail: "param_gtr.png"
 ---
 This project focuses on the development of a digital **guitar effects pedal** using a **micro-controller**. 
 
