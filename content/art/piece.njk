@@ -5,16 +5,15 @@ pagination:
   alias: artwork
 permalink: "/art/{{ artwork.slug | slugify }}/index.html"
 eleventyExcludeFromCollections: true
-layout: post.njk
 ---
-<h1>{{ artwork.name }}</h1>
 <div class="artwork-full">
   {# Just add the 'imgs/' folder, don't repeat 'content/art' #}
   {% image "./imgs/" + artwork.src, artwork.name %}
 </div>
 
 <style>
-.artwork-full img {
+.artwork-full img 
+{
 	max-width: 100%;
 	height: auto;
 	display: block;

@@ -64,7 +64,7 @@ layout: base.njk
 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: var(--vspace);
 }
 
 .art-item img
@@ -73,7 +73,6 @@ layout: base.njk
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
     aspect-ratio: 1/1;
 }
 
@@ -143,17 +142,18 @@ layout: base.njk
         object-fit: cover;
     }
 
-    &:hover
-    {
-        img{opacity: 0.8;}
-    }
-
     a
     {
         display: flex;
 	    flex-direction: row;
         background-color: transparent;
         align-items: center;
+        width: fit-content;
+
+        &:hover
+        {
+            img{opacity: 0.8;}
+        }
     }
 }
 

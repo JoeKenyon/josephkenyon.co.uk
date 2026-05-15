@@ -1,13 +1,45 @@
-  <header>
-    <a href="/">{{ meta.siteName }}</a>
-    <nav>
-      {%- for entry in collections.all | eleventyNavigation %}
-        <a href="{{ entry.url }}"
-            {% if entry.url == page.url %} 
-                aria-current="page"
-            {% endif %}>
-        {{ entry.title }}
-        </a>
-      {%- endfor %}
-    </nav>
-  </header>
+<header>
+  <a href="/" id="joe">
+    {% image "./public/kesagians.svg", "joe logo" %}
+  </a>
+  <nav>
+    {%- for entry in collections.all | eleventyNavigation %}
+      <a href="{{ entry.url }}"
+          {% if entry.url == page.url %} 
+              aria-current="page"
+          {% endif %}>
+      {{ entry.title }}
+      </a>
+    {%- endfor %}
+  </nav>
+</header>
+
+<style>
+#joe
+{
+  background-color: transparent;
+  transition: all 0.2s ease;
+
+  &:hover, 
+  &:focus,
+  &:active 
+  {
+    opacity: 0.8;
+    scale: 1.02;
+  }
+
+  picture
+  {
+    height: 2.5rem;
+    display: flex;
+
+    img
+    {
+      object-fit: contain;
+      height: 100%;
+      width: auto;
+
+    }
+  }
+}
+</style>

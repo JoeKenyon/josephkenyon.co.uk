@@ -1,14 +1,19 @@
 import path from "path";
 import eleventyImage from "@11ty/eleventy-img";
 
-// Helper: Resolves image paths relative to the file using them (e.g., projects/my-app/img.png)
+// Optimized helper to prevent "Double Pathing"
 function relativeToInputPath(inputPath, relativeFilePath) 
 {
-	let split = inputPath.split("/");
-	split.pop();
-	return path.resolve(split.join(path.sep), relativeFilePath);
-}
+    // Check for BOTH content and public root-relative paths
+    if (relativeFilePath.startsWith("./content") || relativeFilePath.startsWith("./public")) {
+        return path.resolve(relativeFilePath);
+    }
 
+    let split = inputPath.split("/");
+    split.pop();
+
+    return path.resolve(split.join(path.sep), relativeFilePath);
+}
 // Helper: Checks if the image is a local file or an external URL
 function isFullUrl(url) 
 {

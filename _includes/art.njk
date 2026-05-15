@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+<h1 id="artHeader">{{ artwork.name }}</h1>
+
+<article>
+    {{ content | safe }}
+</article>
+
+{% include 'components/paginationNavigation.njk' %}
+
+<style>
+#artHeader
+{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-decoration: none;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+}
+</style>

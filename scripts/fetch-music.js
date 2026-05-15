@@ -3,9 +3,8 @@ import path from 'path';
 import { JSDOM } from 'jsdom';
 import puppeteer from 'puppeteer';
 
-const CONTENT_DIR = "./src/content/music";
 const BANDCAMP_URL = "https://joekenyon72.bandcamp.com/music";
-const MUSIC_ASSETS_DIR = "./src/assets/music"; 
+const MUSIC_DIR = "./content/music"; 
 
 async function downloadImage(url, dest) 
 {
@@ -19,8 +18,7 @@ async function downloadImage(url, dest)
 
 async function run() {
 
-    if (!fs.existsSync(CONTENT_DIR)) fs.mkdirSync(CONTENT_DIR, { recursive: true });
-    if (!fs.existsSync(MUSIC_ASSETS_DIR)) fs.mkdirSync(MUSIC_ASSETS_DIR, { recursive: true });
+    if (!fs.existsSync(MUSIC_DIR)) fs.mkdirSync(MUSIC_DIR, { recursive: true });
 
     console.log("Starting Bandcamp to Markdown sync...");
 
@@ -75,13 +73,17 @@ async function run() {
                 }) || [];
             }
 
+            const REAL_MUSIC_DIR = path.join(MUSIC_DIR, slug , "/");
+            if (!fs.existsSync(REAL_MUSIC_DIR)) fs.mkdirSync(REAL_MUSIC_DIR, { recursive: true });
+
+
             let imageUrl = img?.getAttribute('data-original') || img?.getAttribute('src');
             if (imageUrl)
             {
                 imageUrl = imageUrl.replace('2.jpg', '10.jpg'); // 10.jpg is usually higher res than 1.jpg
                 const imageExt = path.extname(imageUrl.split('?')[0]) || '.jpg';
                 const imageFileName = `${slug}${imageExt}`;
-                const imagePath = path.join(MUSIC_ASSETS_DIR, imageFileName);
+                const imagePath = path.join(REAL_MUSIC_DIR, imageFileName);
 
                 try 
                 {
@@ -102,7 +104,7 @@ async function run() {
             // append top-level keys (no indentation)
             frontmatter += `title: "${title.replace(/"/g, '\\"')}"\n`;
             frontmatter += `id: "${item.getAttribute('data-item-id')}"\n`;
-            frontmatter += `imageUrl: "${imageUrl}"\n`;
+            frontmatter += `thumbnail: "${imageUrl}"\n`;
             frontmatter += `url: "${fullUrl}"\n`;
             frontmatter += `source: "Bandcamp"\n`;
 
@@ -118,13 +120,12 @@ async function run() {
 
             // close frontmatter and add body
             frontmatter += "---\n\n";
-            frontmatter += `Listen to this release on [Bandcamp](${fullUrl}).`;
-            
+
             const fileName = `${slug}.md`;
-            fs.writeFileSync(path.join(CONTENT_DIR, fileName), frontmatter);
+            fs.writeFileSync(path.join(REAL_MUSIC_DIR, fileName), frontmatter);
         }
 
-        console.log(`Success! Created Markdown files in ${CONTENT_DIR}`);
+        console.log(`Success! Created Markdown files in ${REAL_MUSIC_DIR}`);
 
     } catch (err) {
         console.error("Error:", err.message);

@@ -1,7 +1,7 @@
 ---
 title: "Digital Box"
 description: "A hybrid acoustic-digital string instrument."
-videoUrl: "https://www.youtube.com/embed/VjRkfHHMrPk"
+video: "https://www.youtube.com/embed/VjRkfHHMrPk"
 thumbnail: "Pasted image 20260219175142.png"
 ---
 I have a deep interest in the guitar, which inspired me to design a string-based instrument. I wanted to build an instrument that blends acoustic textures with synthesised digital sounds. To achieve this, I created both a physical and a digital component. 
