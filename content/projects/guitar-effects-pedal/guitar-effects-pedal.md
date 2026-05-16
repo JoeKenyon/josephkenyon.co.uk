@@ -25,7 +25,11 @@ Firmware was developed in **C** for real-time efficiency. **DMA** automates audi
 The *Effect* struct contains all data for a single effect, including its name, an array of its Parameters, and a pointer to the audio processing function. 
 
 The firmware's core logic is managed by two **DMA** callbacks:
-`BSP_AUDIO_IN_HalfTransfer_CallBack()` and `BSP_AUDIO_IN_TransferComplete_CallBack()`. 
+
+``` c
+BSP_AUDIO_IN_HalfTransfer_CallBack()
+BSP_AUDIO_IN_TransferComplete_CallBack()
+```
 
 This **double buffering** ensures that while the audio codec is playing one buffer, another is filled with processed audio, preventing audible delays. 
 

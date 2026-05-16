@@ -2,7 +2,7 @@
 
     {% set previousPost = collections[collectionKey] | getPreviousCollectionItem %}
     {% set nextPost = collections[collectionKey] | getNextCollectionItem %}
-    
+
     {% if nextPost or previousPost %}
 
         <nav>

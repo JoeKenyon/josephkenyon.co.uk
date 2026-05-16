@@ -16,7 +16,6 @@ export default async function(eleventyConfig)
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
-
 	// --- ASSETS & WATCHING ---
 	
 	// watch and copy CSS files

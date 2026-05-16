@@ -188,3 +188,12 @@ main > nav > ul
 		width: 100%;
 	}
 }
+
+pre[class*="language-"],
+code[class*="language-"] 
+{
+  font-size: 1rem !important;        /* Change this to your preferred size */
+  line-height: 1.5rem !important;                     /* Gives the code some breathing room */
+  font-family: var(--font-vcr) !important; /* Optional: enforce your preferred code font */
+  border-radius: 0 !important;
+}

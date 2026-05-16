@@ -4,6 +4,7 @@ export default
   language: "en",
   description: "Official portfolio of Joseph Kenyon. Artist, Musician and Developer.",
   siteName: "Joseph Kenyon",
+  keywords: "Joe, Kenyon, Joe Kenyon, Joseph Kenyon, Cambridge, Music, Art, Programming, Developer, Portfolio",
   author: 
   {
     name: "Joseph Kenyon",

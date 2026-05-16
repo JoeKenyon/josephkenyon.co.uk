@@ -5,15 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joseph Kenyon | Guitar Effects Pedal</title>
+    <meta name="author" content="Joseph Kenyon" />
+    <meta
+      name="keywords"
+      content="Joe, Kenyon, Joe Kenyon, Joseph Kenyon, Cambridge, Music, Art, Programming, Developer, Portfolio"
+    />
+    <meta name="description" content="Official portfolio of Joseph Kenyon. Artist, Musician and Developer." />
     <link rel="stylesheet" href="/root.css" />
     <link rel="stylesheet" href="/index.css" />
     <link rel="icon" type="image/svg+xml" href="/kesagians.svg" />
     <link rel="icon" type="image/x-icon" href="/kesagians.svg" />
-    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet" />
-
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-tomorrow.css" rel="stylesheet" />
     <link rel="canonical" href="https://josephkenyon.co.uk/projects/guitar-effects-pedal/" />
   </head>
   <body>
+    <picture
+      ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
+      <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
+      <img src="/img/rUOng7YLLB-1400.jpeg" alt="background" loading="lazy" decoding="async" width="1400" height="1400"
+    /></picture>
+
+    <style>
+      picture:has(img[alt="background"]) {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -10;
+        display: block;
+      }
+
+      picture:has(img[alt="background"]) img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
     <div>
       <header>
         <a href="/" id="joe">
@@ -38,6 +64,8 @@
           <a href="/music/"> Music </a>
 
           <a href="/art/"> Art </a>
+
+          <a href="/about/"> About </a>
         </nav>
       </header>
 
@@ -127,10 +155,11 @@
             The <em>Effect</em> struct contains all data for a single effect, including its name, an array of its
             Parameters, and a pointer to the audio processing function.
           </p>
-          <p>
-            The firmware's core logic is managed by two <strong>DMA</strong> callbacks:
-            <code>BSP_AUDIO_IN_HalfTransfer_CallBack()</code> and <code>BSP_AUDIO_IN_TransferComplete_CallBack()</code>.
-          </p>
+          <p>The firmware's core logic is managed by two <strong>DMA</strong> callbacks:</p>
+          <pre
+            class="language-c"
+          ><code class="language-c"><span class="token function">BSP_AUDIO_IN_HalfTransfer_CallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">BSP_AUDIO_IN_TransferComplete_CallBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
           <p>
             This <strong>double buffering</strong> ensures that while the audio codec is playing one buffer, another is
             filled with processed audio, preventing audible delays.
