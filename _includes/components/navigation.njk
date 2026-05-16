@@ -1,11 +1,25 @@
 <header>
+
   <a href="/" id="joe">
     {% image "./public/kesagians.svg", "joe logo" %}
   </a>
+
   <nav>
-    {%- for entry in collections.all | eleventyNavigation %}
-      <a href="{{ entry.url }}" {%- if entry.url == page.url -%} aria-current="page"{%- endif -%}>{{ entry.title }}</a>
-    {%- endfor %}
+
+    {% for entry in collections.all | eleventyNavigation %}
+
+      <a href="{{ entry.url }}"
+
+        {% if entry.url == page.url %} 
+          aria-current="page"
+        {% endif %}
+
+      >
+        {{ entry.title }}
+      </a>
+    
+    {% endfor %}
+
   </nav>
 </header>
 

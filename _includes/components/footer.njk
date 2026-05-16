@@ -1,14 +1,21 @@
 <footer>
     <p>&copy; {{ meta.siteName }}</p>
+
     <div>
-        {%- for entry in meta.socials -%}
-        {%- set socialName = entry.split("::")[0] -%}
-        {%- set socialUrl = entry.split("::")[1] %}
-        <a href="{{ socialUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ socialName }}">
-            {{ icons[socialName] | safe }}
-        </a>
-        {%- endfor %}
+
+        {% for entry in meta.socials %}
+
+            {% set socialName = entry.split("::")[0] %}
+            {% set socialUrl = entry.split("::")[1] %}
+            
+            <a href="{{ socialUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ socialName }}">
+                {{ icons[socialName] | safe }}
+            </a>
+
+        {% endfor %}
+
     </div>
+
 </footer>
 
 <style>

@@ -1,22 +1,28 @@
-{%- if collections[collectionKey] %}
-    {%- set previousPost = collections[collectionKey] | getPreviousCollectionItem %}
-    {%- set nextPost = collections[collectionKey] | getNextCollectionItem %}
-    
-    {%- if nextPost or previousPost %}
-    <nav>
-        <ul>
-            {%- if previousPost %}
-                <li><a href="{{ previousPost.url }}">← Previous<br><span>{{ previousPost.data.title }}</span></a></li>
-            {%- else %}
-                <li><a href="/{{ collectionKey }}">← Back to index</a></li>
-            {% endif %}
+{% if collections[collectionKey] %}
 
-            {%- if nextPost %}
-                <li><a href="{{ nextPost.url }}">Next →<br><span>{{ nextPost.data.title }}</span></a></li>
-            {%- else %}
-                <li><a href="/{{ collectionKey }}">Back to index →</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {%- endif %}
-{%- endif %}
+    {% set previousPost = collections[collectionKey] | getPreviousCollectionItem %}
+    {% set nextPost = collections[collectionKey] | getNextCollectionItem %}
+    
+    {% if nextPost or previousPost %}
+
+        <nav>
+            <ul>
+
+                {% if previousPost %}
+                    <li><a href="{{ previousPost.url }}">← Previous<br><span>{{ previousPost.data.title }}</span></a></li>
+                {% else %}
+                    <li><a href="/{{ collectionKey }}">← Back to index</a></li>
+                {% endif %}
+
+                {% if nextPost %}
+                    <li><a href="{{ nextPost.url }}">Next →<br><span>{{ nextPost.data.title }}</span></a></li>
+                {% else %}
+                    <li><a href="/{{ collectionKey }}">Back to index →</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+
+    {% endif %}
+
+{% endif %}

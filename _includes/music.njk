@@ -4,20 +4,31 @@ layout: base.njk
 <h1>{{ title }}</h1>
 
 <article>
+
     {% if thumbnail %}
-        <p><figure id="albumCover">
-        {% image thumbnail, title %}
-        </figure></p>
+
+        <p>
+            <figure id="albumCover">
+                {% image thumbnail, title %}
+            </figure>
+        </p>
+        
     {% endif %}
+
     <div id="tracks">
+
         {% for track in tracks %}
+
             <iframe 
             class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]" 
             src="https://bandcamp.com/EmbeddedPlayer/track={{track.id}}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
             loading="lazy"
             ></iframe>
+
         {% endfor %}
+
     </div>
+    
     {{ content | safe }}
 </article>
 

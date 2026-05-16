@@ -1,5 +1,6 @@
 <nav>
     <ul>
+        
         {# Previous Link #}
         {% if pagination.href.previous %}
             <li><a href="{{ pagination.href.previous }}">← Previous</a></li>
@@ -13,5 +14,6 @@
         {% else %}
             <li><a href="/{{collectionKey}}">Back to index →</a></li>
         {% endif %}
+
     </ul>
 </nav>

@@ -18,8 +18,8 @@
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-navigation": "^1.0.5",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "html-minifier-next": "^6.2.6",
     "jsdom": "^29.1.1",
+    "prettier": "^3.8.3",
     "puppeteer": "^25.0.2"
   },
   "devDependencies": {
