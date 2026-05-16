@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include 'components/head.njk' %}
+{% include 'components/head.njk' %}
 <body>
 
-  <div>
+<div>
 
-    {% include 'components/navigation.njk' %}
+{% include 'components/navigation.njk' %}
 
-    <main>
-      {{ content | safe }}
-    </main>
+<main>
 
-    {% include 'components/footer.njk' %}
+{{ content | safe }}
 
-  </div>
+</main>
+
+{% include 'components/footer.njk' %}
+
+</div>
 
 </body>
 </html>

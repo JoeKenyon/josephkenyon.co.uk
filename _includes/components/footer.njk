@@ -1,17 +1,14 @@
 <footer>
-        <p>&copy; {{ meta.siteName }}{% if meta.author.name %}{% endif %}</p>
-        <div>
-            {%- for entry in meta.socials %}
-                {# Split the "name::url" string #}
-                {% set socialName = entry.split("::")[0] %}
-                {% set socialUrl = entry.split("::")[1] %}
-
-                <a href="{{ socialUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ socialName }}">
-                    {# Look up the icon using the socialName as the key #}
-                    {{ icons[socialName] | safe }}
-                </a>
-            {% endfor %}
-        </div>
+    <p>&copy; {{ meta.siteName }}</p>
+    <div>
+        {%- for entry in meta.socials -%}
+        {%- set socialName = entry.split("::")[0] -%}
+        {%- set socialUrl = entry.split("::")[1] %}
+        <a href="{{ socialUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ socialName }}">
+            {{ icons[socialName] | safe }}
+        </a>
+        {%- endfor %}
+    </div>
 </footer>
 
 <style>
@@ -35,7 +32,7 @@ footer
 
         gap: 1rem;
 
-        background-color: var(--background-color)
+        background-color: var(--background-color);
 
         a 
         {
