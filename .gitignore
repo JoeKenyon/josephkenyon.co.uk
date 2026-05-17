@@ -1,5 +1,5 @@
 # build output
-/site_
+site_/
 
 # generated types
 .astro/
