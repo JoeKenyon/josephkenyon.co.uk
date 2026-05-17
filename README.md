@@ -102,4 +102,7 @@ Images should be placed within their respective folders in `content/` or `public
 
 ## License
 
-This project is licensed under the ISC License - see the [package.json](package.json) file for details.
+This project is splits its components under a **Dual-License** structure to protect creative artwork while keeping the implementation code open-source. See the root [LICENSE](LICENSE) file for full terms:
+
+* **Source Code & Scripts:** Licensed under the open **MIT License**.
+* **Creative Assets, Graphics & UI Design:** Licensed strictly under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)**.
