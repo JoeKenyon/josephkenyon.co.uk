@@ -46,7 +46,7 @@ My portfolio website.
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/JoeKenyon/josephkenyon.co.uk.git
     cd josephkenyon.co.uk
     ```
 
