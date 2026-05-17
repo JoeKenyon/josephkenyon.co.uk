@@ -1,82 +1,63 @@
 ---
 layout: base.njk
 ---
-<h1>{{ title }}</h1>
+<div class="page-title-wrapper">
+    <h1 class="page-title">{{ title }}</h1>
+</div>
 
-{% if collectionKey == "art" %}
-
-    <div class="art-gallery">
-
-        {% for artwork in images %}
-
-            <div class="art-item">
-                <a href="/art/{{ artwork.slug | slugify }}/">
-                    {% image "./imgs/" + artwork.src, artwork.name %}
-                </a>
-            </div>
-
-        {% endfor %}
-
-    </div>
-
-{% else %}
-
-    <ul class="postlist">
-
-        {% for item in collections[collectionKey] %}
-
-        <li class="postlist-item">
-
-            <a href="{{ item.url }}">
-
-                {% if item.data.thumbnail %}
-
-                    <figure>
-                        {% image item.fileSlug + "/" + item.data.thumbnail, item.data.thumbnail %}
-                    </figure>
-
-                {% endif %}
-
-                <div>
-                    <span>
-
-                        {% if item.data.title %}
-
-                            {{ item.data.title }}
-
-                        {% else %}
-
-                            <code>{{ item.url }}</code>
-
+<div class="page-content">
+    {% if collectionKey == "art" %}
+        <div class="art-grid">
+            {% for artwork in images %}
+                <div class="art-grid-item">
+                    <a href="/art/{{ artwork.slug | slugify }}/" class="art-grid-link">
+                        {% image "./imgs/" + artwork.src, artwork.name %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <ul class="post-list">
+            {% for item in collections[collectionKey] %}
+                <li class="post-list-item">
+                    <a href="{{ item.url }}" class="post-list-link">
+                        {% if item.data.thumbnail %}
+                            <figure class="post-list-thumbnail">
+                                {% image item.fileSlug + "/" + item.data.thumbnail, item.data.thumbnail %}
+                            </figure>
                         {% endif %}
 
-                    </span>
+                        <div class="post-list-content">
+                            <span class="post-list-title">
+                                {% if item.data.title %}
+                                    {{ item.data.title }}
+                                {% else %}
+                                    <code>{{ item.url }}</code>
+                                {% endif %}
+                            </span>
 
-                    {% if item.data.description %}
+                            {% if item.data.description %}
+                                <summary class="post-list-description">{{ item.data.description }}</summary> 
+                            {% endif %}
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
-                        <summary>{{ item.data.description }}</summary> 
-
-                    {% endif %}
-
-                </div>
-            </a>
-        </li>
-        
-    {% endfor %}
-
-    </ul>
-
-{% endif %}
+{{ content | safe }}
+</div>
 
 <style>
-.art-gallery 
+.art-grid 
 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: var(--vspace);
 }
 
-.art-item img
+.art-grid-item img
 {
     width: 100%;
     height: 100%;
@@ -85,26 +66,25 @@ layout: base.njk
     aspect-ratio: 1/1;
 }
 
-.art-item a 
+.art-grid-link 
 {
     display: block;
     transition: transform 0.2s;
 }
 
-.art-item a:hover 
+.art-grid-link:hover 
 {
     transform: scale(1.02);
 }
 
-.postlist 
+.post-list 
 {
     list-style: none;
     padding: 0;
-
     background-color: transparent;
 }
 
-.postlist-item 
+.post-list-item 
 {
     --thumbnail-size: 128px;
     --thumbnail-size-sm: 100px;
@@ -122,13 +102,13 @@ layout: base.njk
         margin-block-end: 0em;
     }
 
-    a div
+    .post-list-content
     {
         display: flex;
         flex-direction: column;
     }
 
-    summary
+    .post-list-description
     {
         font-size: 1em; /* 19px /16 */
         font-weight: 500;
@@ -139,7 +119,7 @@ layout: base.njk
         background-color: var(--background-color);
     }
 
-    span
+    .post-list-title
     {
         font-size: 1.1875em; /* 19px /16 */
         font-weight: 700;
@@ -149,12 +129,12 @@ layout: base.njk
         text-decoration-thickness: 1px;
     }
 
-    figure, img
+    .post-list-thumbnail, img
     {
         display: block;
     }
 
-    figure
+    .post-list-thumbnail
     {
         margin: 0;
         margin-inline-end: 1em;
@@ -168,7 +148,7 @@ layout: base.njk
         object-fit: cover;
     }
 
-    a
+    .post-list-link
     {
         display: flex;
 	    flex-direction: row;
@@ -185,25 +165,25 @@ layout: base.njk
 
 @media screen and (max-width: 420px) 
 {
-    .postlist-item 
+    .post-list-item 
     {
         flex-wrap: wrap;
         width: 100%;
 
-        a
+        .post-list-link
         {
             flex-direction: column;
             width: 100%;
             align-items: center;
 
-            span
+            .post-list-title
             {
                 width: 100%;
                 text-align: center;
             }
         }
 
-        figure
+        .post-list-thumbnail
         {
             min-width: none;
             width: 100%;

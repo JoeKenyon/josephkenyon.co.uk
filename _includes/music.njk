@@ -1,26 +1,24 @@
 ---
 layout: base.njk
 ---
-<h1>{{ title }}</h1>
+<div class="page-title-wrapper">
+    <h1 class="page-title">{{ title }}</h1>
+</div>
 
-<article>
+<article class="page-content">
 
     {% if thumbnail %}
-
-        <p>
-            <figure id="albumCover">
-                {% image thumbnail, title %}
-            </figure>
-        </p>
-        
+        <figure class="album-cover">
+            {% image thumbnail, title %}
+        </figure>
     {% endif %}
 
-    <div id="tracks">
+    <div class="music-tracks">
 
         {% for track in tracks %}
 
             <iframe 
-            class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]" 
+            class="music-track-iframe" 
             src="https://bandcamp.com/EmbeddedPlayer/track={{track.id}}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
             loading="lazy"
             ></iframe>
@@ -28,20 +26,24 @@ layout: base.njk
         {% endfor %}
 
     </div>
-    
-    {{ content | safe }}
 </article>
 
 {% include 'components/postNavigation.njk' %}
 
 <style>
-#albumCover
+.album-cover-wrapper
+{
+    margin: 0;
+}
+.album-cover
 {
         
     width: 100%;
     max-height: 50svh;
     aspect-ratio: 1/1;
     height: 100%;
+
+    padding-bottom: var(--vspace);
 
     margin: 0;
 
@@ -63,7 +65,7 @@ layout: base.njk
     }
 
 }
-#tracks
+.music-tracks
 {
     display: flex;
     flex-direction: column;
@@ -72,7 +74,7 @@ layout: base.njk
 
     width: 100%;
 
-    iframe
+    .music-track-iframe
     {
         max-height: 120px;
         max-width: 700px;

@@ -19,30 +19,9 @@
     <link rel="canonical" href="https://josephkenyon.co.uk/art/" />
   </head>
   <body>
-    <picture
-      ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
-      <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
-      <img src="/img/rUOng7YLLB-1400.jpeg" alt="background" loading="lazy" decoding="async" width="1400" height="1400"
-    /></picture>
-
-    <style>
-      picture:has(img[alt="background"]) {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -10;
-        display: block;
-      }
-
-      picture:has(img[alt="background"]) img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
-    <div>
-      <header>
-        <a href="/" id="joe">
+    <div class="site-wrapper">
+      <header class="site-header">
+        <a href="/" id="joe" class="site-logo">
           <picture
             ><source type="image/avif" srcset="/img/QIs_9MMmbs-2148.avif 2148w" />
             <source type="image/webp" srcset="/img/QIs_9MMmbs-2148.webp 2148w" />
@@ -56,21 +35,23 @@
           /></picture>
         </a>
 
-        <nav>
-          <a href="/"> Home </a>
+        <nav class="site-nav">
+          <a href="/" class="site-nav-link"> Home </a>
 
-          <a href="/projects/"> Projects </a>
+          <a href="/projects/" class="site-nav-link"> Projects </a>
 
-          <a href="/music/"> Music </a>
+          <a href="/music/" class="site-nav-link"> Music </a>
 
-          <a href="/art/" aria-current="page"> Art </a>
+          <a href="/art/" class="site-nav-link" aria-current="page"> Art </a>
 
-          <a href="/about/"> About </a>
+          <a href="/about/" class="site-nav-link"> About </a>
         </nav>
       </header>
 
       <style>
         #joe {
+          --logo-size: 2.5rem;
+
           background-color: transparent;
           transition: all 0.2s ease;
 
@@ -82,7 +63,7 @@
           }
 
           picture {
-            height: 2.5rem;
+            height: var(--logo-size);
             display: flex;
 
             img {
@@ -93,595 +74,599 @@
           }
         }
       </style>
-      <main>
-        <h1>Art</h1>
+      <main class="site-main">
+        <div class="page-title-wrapper">
+          <h1 class="page-title">Art</h1>
+        </div>
 
-        <div class="art-gallery">
-          <div class="art-item">
-            <a href="/art/1/">
-              <picture
-                ><source type="image/avif" srcset="/img/gssRJVStNV-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/gssRJVStNV-1400.webp 1400w" />
-                <img
-                  src="/img/gssRJVStNV-1400.jpeg"
-                  alt="1.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+        <div class="page-content">
+          <div class="art-grid">
+            <div class="art-grid-item">
+              <a href="/art/1/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/gssRJVStNV-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/gssRJVStNV-1400.webp 1400w" />
+                  <img
+                    src="/img/gssRJVStNV-1400.jpeg"
+                    alt="1.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/2/">
-              <picture
-                ><source type="image/avif" srcset="/img/yRTN7g2LYY-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/yRTN7g2LYY-1400.webp 1400w" />
-                <img
-                  src="/img/yRTN7g2LYY-1400.jpeg"
-                  alt="2.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/2/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/yRTN7g2LYY-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/yRTN7g2LYY-1400.webp 1400w" />
+                  <img
+                    src="/img/yRTN7g2LYY-1400.jpeg"
+                    alt="2.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20231117-123005-1/">
-              <picture
-                ><source type="image/avif" srcset="/img/pfPoTI4bPQ-4032.avif 4032w" />
-                <source type="image/webp" srcset="/img/pfPoTI4bPQ-4032.webp 4032w" />
-                <img
-                  src="/img/pfPoTI4bPQ-4032.jpeg"
-                  alt="20231117_123005-1.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="4032"
-                  height="1908"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20231117-123005-1/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/pfPoTI4bPQ-4032.avif 4032w" />
+                  <source type="image/webp" srcset="/img/pfPoTI4bPQ-4032.webp 4032w" />
+                  <img
+                    src="/img/pfPoTI4bPQ-4032.jpeg"
+                    alt="20231117_123005-1.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="4032"
+                    height="1908"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20231117-123046/">
-              <picture
-                ><source type="image/avif" srcset="/img/evPkn6ARdU-2836.avif 2836w" />
-                <source type="image/webp" srcset="/img/evPkn6ARdU-2836.webp 2836w" />
-                <img
-                  src="/img/evPkn6ARdU-2836.jpeg"
-                  alt="20231117_123046.jpg"
-                  loading="lazy"
-                  decoding="async"
-                  width="2836"
-                  height="1523"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20231117-123046/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/evPkn6ARdU-2836.avif 2836w" />
+                  <source type="image/webp" srcset="/img/evPkn6ARdU-2836.webp 2836w" />
+                  <img
+                    src="/img/evPkn6ARdU-2836.jpeg"
+                    alt="20231117_123046.jpg"
+                    loading="lazy"
+                    decoding="async"
+                    width="2836"
+                    height="1523"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20231208-213655-1/">
-              <picture
-                ><source type="image/avif" srcset="/img/JxYXkpLp3A-2259.avif 2259w" />
-                <source type="image/webp" srcset="/img/JxYXkpLp3A-2259.webp 2259w" />
-                <img
-                  src="/img/JxYXkpLp3A-2259.jpeg"
-                  alt="20231208_213655-1.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2259"
-                  height="1000"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20231208-213655-1/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/JxYXkpLp3A-2259.avif 2259w" />
+                  <source type="image/webp" srcset="/img/JxYXkpLp3A-2259.webp 2259w" />
+                  <img
+                    src="/img/JxYXkpLp3A-2259.jpeg"
+                    alt="20231208_213655-1.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2259"
+                    height="1000"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20231208-21cxvcx3655-1/">
-              <picture
-                ><source type="image/avif" srcset="/img/sgpira4zbJ-2260.avif 2260w" />
-                <source type="image/webp" srcset="/img/sgpira4zbJ-2260.webp 2260w" />
-                <img
-                  src="/img/sgpira4zbJ-2260.jpeg"
-                  alt="20231208_21cxvcx3655-1.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2260"
-                  height="1000"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20231208-21cxvcx3655-1/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/sgpira4zbJ-2260.avif 2260w" />
+                  <source type="image/webp" srcset="/img/sgpira4zbJ-2260.webp 2260w" />
+                  <img
+                    src="/img/sgpira4zbJ-2260.jpeg"
+                    alt="20231208_21cxvcx3655-1.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2260"
+                    height="1000"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20240417-195356/">
-              <picture
-                ><source type="image/avif" srcset="/img/I9Nxyw7ifG-1632.avif 1632w" />
-                <source type="image/webp" srcset="/img/I9Nxyw7ifG-1632.webp 1632w" />
-                <img
-                  src="/img/I9Nxyw7ifG-1632.jpeg"
-                  alt="20240417_195356.jpg"
-                  loading="lazy"
-                  decoding="async"
-                  width="1632"
-                  height="2044"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20240417-195356/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/I9Nxyw7ifG-1632.avif 1632w" />
+                  <source type="image/webp" srcset="/img/I9Nxyw7ifG-1632.webp 1632w" />
+                  <img
+                    src="/img/I9Nxyw7ifG-1632.jpeg"
+                    alt="20240417_195356.jpg"
+                    loading="lazy"
+                    decoding="async"
+                    width="1632"
+                    height="2044"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20240417-195438/">
-              <picture
-                ><source type="image/avif" srcset="/img/xQKdKW86kH-1639.avif 1639w" />
-                <source type="image/webp" srcset="/img/xQKdKW86kH-1639.webp 1639w" />
-                <img
-                  src="/img/xQKdKW86kH-1639.jpeg"
-                  alt="20240417_195438.jpg"
-                  loading="lazy"
-                  decoding="async"
-                  width="1639"
-                  height="2041"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20240417-195438/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/xQKdKW86kH-1639.avif 1639w" />
+                  <source type="image/webp" srcset="/img/xQKdKW86kH-1639.webp 1639w" />
+                  <img
+                    src="/img/xQKdKW86kH-1639.jpeg"
+                    alt="20240417_195438.jpg"
+                    loading="lazy"
+                    decoding="async"
+                    width="1639"
+                    height="2041"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/20240417-195450/">
-              <picture
-                ><source type="image/avif" srcset="/img/wkmqAZYf2r-1638.avif 1638w" />
-                <source type="image/webp" srcset="/img/wkmqAZYf2r-1638.webp 1638w" />
-                <img
-                  src="/img/wkmqAZYf2r-1638.jpeg"
-                  alt="20240417_195450.jpg"
-                  loading="lazy"
-                  decoding="async"
-                  width="1638"
-                  height="2057"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/20240417-195450/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/wkmqAZYf2r-1638.avif 1638w" />
+                  <source type="image/webp" srcset="/img/wkmqAZYf2r-1638.webp 1638w" />
+                  <img
+                    src="/img/wkmqAZYf2r-1638.jpeg"
+                    alt="20240417_195450.jpg"
+                    loading="lazy"
+                    decoding="async"
+                    width="1638"
+                    height="2057"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/just-one-more/">
-              <picture
-                ><source type="image/avif" srcset="/img/icm4_inJC6-3508.avif 3508w" />
-                <source type="image/webp" srcset="/img/icm4_inJC6-3508.webp 3508w" />
-                <img
-                  src="/img/icm4_inJC6-3508.jpeg"
-                  alt="Just one More.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="3508"
-                  height="4961"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/just-one-more/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/icm4_inJC6-3508.avif 3508w" />
+                  <source type="image/webp" srcset="/img/icm4_inJC6-3508.webp 3508w" />
+                  <img
+                    src="/img/icm4_inJC6-3508.jpeg"
+                    alt="Just one More.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="3508"
+                    height="4961"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/snapchakeso-art-thing/">
-              <picture
-                ><source type="image/avif" srcset="/img/_MQwFawBIq-732.avif 732w" />
-                <source type="image/webp" srcset="/img/_MQwFawBIq-732.webp 732w" />
-                <img
-                  src="/img/_MQwFawBIq-732.jpeg"
-                  alt="Snapchakeso art thing.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="732"
-                  height="310"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/snapchakeso-art-thing/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/_MQwFawBIq-732.avif 732w" />
+                  <source type="image/webp" srcset="/img/_MQwFawBIq-732.webp 732w" />
+                  <img
+                    src="/img/_MQwFawBIq-732.jpeg"
+                    alt="Snapchakeso art thing.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="732"
+                    height="310"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/snapchat-12144graff-keso52804/">
-              <picture
-                ><source type="image/avif" srcset="/img/XzsLEyvhIr-1920.avif 1920w" />
-                <source type="image/webp" srcset="/img/XzsLEyvhIr-1920.webp 1920w" />
-                <img
-                  src="/img/XzsLEyvhIr-1920.jpeg"
-                  alt="Snapchat-12144graff keso52804.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1920"
-                  height="1080"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/snapchat-12144graff-keso52804/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/XzsLEyvhIr-1920.avif 1920w" />
+                  <source type="image/webp" srcset="/img/XzsLEyvhIr-1920.webp 1920w" />
+                  <img
+                    src="/img/XzsLEyvhIr-1920.jpeg"
+                    alt="Snapchat-12144graff keso52804.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1920"
+                    height="1080"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/talk-to-us-4/">
-              <picture
-                ><source type="image/avif" srcset="/img/jx_u2-YlKf-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/jx_u2-YlKf-1400.webp 1400w" />
-                <img
-                  src="/img/jx_u2-YlKf-1400.jpeg"
-                  alt="Talk_to_us_4.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/talk-to-us-4/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/jx_u2-YlKf-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/jx_u2-YlKf-1400.webp 1400w" />
+                  <img
+                    src="/img/jx_u2-YlKf-1400.jpeg"
+                    alt="Talk_to_us_4.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/a-shit-throwie-kes/">
-              <picture
-                ><source type="image/avif" srcset="/img/LdSqXIFY8p-3600.avif 3600w" />
-                <source type="image/webp" srcset="/img/LdSqXIFY8p-3600.webp 3600w" />
-                <img
-                  src="/img/LdSqXIFY8p-3600.jpeg"
-                  alt="a shit throwie kes.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="3600"
-                  height="2311"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/a-shit-throwie-kes/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/LdSqXIFY8p-3600.avif 3600w" />
+                  <source type="image/webp" srcset="/img/LdSqXIFY8p-3600.webp 3600w" />
+                  <img
+                    src="/img/LdSqXIFY8p-3600.jpeg"
+                    alt="a shit throwie kes.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="3600"
+                    height="2311"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/abstrac52/">
-              <picture
-                ><source type="image/avif" srcset="/img/5BEn6NFt2j-1920.avif 1920w" />
-                <source type="image/webp" srcset="/img/5BEn6NFt2j-1920.webp 1920w" />
-                <img
-                  src="/img/5BEn6NFt2j-1920.jpeg"
-                  alt="abstrac52.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1920"
-                  height="1080"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/abstrac52/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/5BEn6NFt2j-1920.avif 1920w" />
+                  <source type="image/webp" srcset="/img/5BEn6NFt2j-1920.webp 1920w" />
+                  <img
+                    src="/img/5BEn6NFt2j-1920.jpeg"
+                    alt="abstrac52.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1920"
+                    height="1080"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/abstract1/">
-              <picture
-                ><source type="image/avif" srcset="/img/fm5_7LZByp-2550.avif 2550w" />
-                <source type="image/webp" srcset="/img/fm5_7LZByp-2550.webp 2550w" />
-                <img
-                  src="/img/fm5_7LZByp-2550.jpeg"
-                  alt="abstract1.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2550"
-                  height="3300"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/abstract1/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/fm5_7LZByp-2550.avif 2550w" />
+                  <source type="image/webp" srcset="/img/fm5_7LZByp-2550.webp 2550w" />
+                  <img
+                    src="/img/fm5_7LZByp-2550.jpeg"
+                    alt="abstract1.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2550"
+                    height="3300"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/agfainmile/">
-              <picture
-                ><source type="image/avif" srcset="/img/pFPS4QSZ9u-1656.avif 1656w" />
-                <source type="image/webp" srcset="/img/pFPS4QSZ9u-1656.webp 1656w" />
-                <img
-                  src="/img/pFPS4QSZ9u-1656.jpeg"
-                  alt="agfainmile.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1656"
-                  height="2208"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/agfainmile/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/pFPS4QSZ9u-1656.avif 1656w" />
+                  <source type="image/webp" srcset="/img/pFPS4QSZ9u-1656.webp 1656w" />
+                  <img
+                    src="/img/pFPS4QSZ9u-1656.jpeg"
+                    alt="agfainmile.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1656"
+                    height="2208"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/alone/">
-              <picture
-                ><source type="image/avif" srcset="/img/JefbwYPQJV-768.avif 768w" />
-                <source type="image/webp" srcset="/img/JefbwYPQJV-768.webp 768w" />
-                <img
-                  src="/img/JefbwYPQJV-768.jpeg"
-                  alt="alone.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="768"
-                  height="448"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/alone/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/JefbwYPQJV-768.avif 768w" />
+                  <source type="image/webp" srcset="/img/JefbwYPQJV-768.webp 768w" />
+                  <img
+                    src="/img/JefbwYPQJV-768.jpeg"
+                    alt="alone.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="768"
+                    height="448"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/box-conv-line/">
-              <picture
-                ><source type="image/avif" srcset="/img/g4kcqBLS3c-3824.avif 3824w" />
-                <source type="image/webp" srcset="/img/g4kcqBLS3c-3824.webp 3824w" />
-                <img
-                  src="/img/g4kcqBLS3c-3824.jpeg"
-                  alt="box_conv_line.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="3824"
-                  height="2304"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/box-conv-line/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/g4kcqBLS3c-3824.avif 3824w" />
+                  <source type="image/webp" srcset="/img/g4kcqBLS3c-3824.webp 3824w" />
+                  <img
+                    src="/img/g4kcqBLS3c-3824.jpeg"
+                    alt="box_conv_line.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="3824"
+                    height="2304"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/camo-camo-kes/">
-              <picture
-                ><source type="image/avif" srcset="/img/Uj9RTBz5rW-2199.avif 2199w" />
-                <source type="image/webp" srcset="/img/Uj9RTBz5rW-2199.webp 2199w" />
-                <img
-                  src="/img/Uj9RTBz5rW-2199.jpeg"
-                  alt="camo camo kes.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2199"
-                  height="1152"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/camo-camo-kes/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/Uj9RTBz5rW-2199.avif 2199w" />
+                  <source type="image/webp" srcset="/img/Uj9RTBz5rW-2199.webp 2199w" />
+                  <img
+                    src="/img/Uj9RTBz5rW-2199.jpeg"
+                    alt="camo camo kes.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2199"
+                    height="1152"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/convolution13/">
-              <picture
-                ><source type="image/avif" srcset="/img/mVrcVdlMSL-2699.avif 2699w" />
-                <source type="image/webp" srcset="/img/mVrcVdlMSL-2699.webp 2699w" />
-                <img
-                  src="/img/mVrcVdlMSL-2699.jpeg"
-                  alt="convolution13.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2699"
-                  height="2304"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/convolution13/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/mVrcVdlMSL-2699.avif 2699w" />
+                  <source type="image/webp" srcset="/img/mVrcVdlMSL-2699.webp 2699w" />
+                  <img
+                    src="/img/mVrcVdlMSL-2699.jpeg"
+                    alt="convolution13.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2699"
+                    height="2304"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/keso-throwie-or-somethign-aganm/">
-              <picture
-                ><source type="image/avif" srcset="/img/lsYFpEFZ6p-450.avif 450w" />
-                <source type="image/webp" srcset="/img/lsYFpEFZ6p-450.webp 450w" />
-                <img
-                  src="/img/lsYFpEFZ6p-450.jpeg"
-                  alt="keso throwie or somethign aganm.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="450"
-                  height="216"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/keso-throwie-or-somethign-aganm/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/lsYFpEFZ6p-450.avif 450w" />
+                  <source type="image/webp" srcset="/img/lsYFpEFZ6p-450.webp 450w" />
+                  <img
+                    src="/img/lsYFpEFZ6p-450.jpeg"
+                    alt="keso throwie or somethign aganm.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="450"
+                    height="216"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/kesoagainbig/">
-              <picture
-                ><source type="image/avif" srcset="/img/TzNRpytKQy-1797.avif 1797w" />
-                <source type="image/webp" srcset="/img/TzNRpytKQy-1797.webp 1797w" />
-                <img
-                  src="/img/TzNRpytKQy-1797.jpeg"
-                  alt="kesoagainbig.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1797"
-                  height="1373"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/kesoagainbig/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/TzNRpytKQy-1797.avif 1797w" />
+                  <source type="image/webp" srcset="/img/TzNRpytKQy-1797.webp 1797w" />
+                  <img
+                    src="/img/TzNRpytKQy-1797.jpeg"
+                    alt="kesoagainbig.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1797"
+                    height="1373"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/perspective/">
-              <picture
-                ><source type="image/avif" srcset="/img/afA1hnIGEJ-3508.avif 3508w" />
-                <source type="image/webp" srcset="/img/afA1hnIGEJ-3508.webp 3508w" />
-                <img
-                  src="/img/afA1hnIGEJ-3508.jpeg"
-                  alt="perspective.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="3508"
-                  height="4961"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/perspective/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/afA1hnIGEJ-3508.avif 3508w" />
+                  <source type="image/webp" srcset="/img/afA1hnIGEJ-3508.webp 3508w" />
+                  <img
+                    src="/img/afA1hnIGEJ-3508.jpeg"
+                    alt="perspective.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="3508"
+                    height="4961"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/rosienotext/">
-              <picture
-                ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
-                <img
-                  src="/img/rUOng7YLLB-1400.jpeg"
-                  alt="rosieNoText.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/rosienotext/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
+                  <img
+                    src="/img/rUOng7YLLB-1400.jpeg"
+                    alt="rosieNoText.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/scrib2/">
-              <picture
-                ><source type="image/avif" srcset="/img/_49JV8KJoH-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/_49JV8KJoH-1400.webp 1400w" />
-                <img
-                  src="/img/_49JV8KJoH-1400.jpeg"
-                  alt="scrib2.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/scrib2/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/_49JV8KJoH-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/_49JV8KJoH-1400.webp 1400w" />
+                  <img
+                    src="/img/_49JV8KJoH-1400.jpeg"
+                    alt="scrib2.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/scrib6/">
-              <picture
-                ><source type="image/avif" srcset="/img/NLvqSlXDfI-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/NLvqSlXDfI-1400.webp 1400w" />
-                <img
-                  src="/img/NLvqSlXDfI-1400.jpeg"
-                  alt="scrib6.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/scrib6/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/NLvqSlXDfI-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/NLvqSlXDfI-1400.webp 1400w" />
+                  <img
+                    src="/img/NLvqSlXDfI-1400.jpeg"
+                    alt="scrib6.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/seao1/">
-              <picture
-                ><source type="image/avif" srcset="/img/OMNDVoq9S2-2480.avif 2480w" />
-                <source type="image/webp" srcset="/img/OMNDVoq9S2-2480.webp 2480w" />
-                <img
-                  src="/img/OMNDVoq9S2-2480.jpeg"
-                  alt="seao1.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2480"
-                  height="2480"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/seao1/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/OMNDVoq9S2-2480.avif 2480w" />
+                  <source type="image/webp" srcset="/img/OMNDVoq9S2-2480.webp 2480w" />
+                  <img
+                    src="/img/OMNDVoq9S2-2480.jpeg"
+                    alt="seao1.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2480"
+                    height="2480"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/shapessa/">
-              <picture
-                ><source type="image/avif" srcset="/img/0tVF3LZ0JK-1123.avif 1123w" />
-                <source type="image/webp" srcset="/img/0tVF3LZ0JK-1123.webp 1123w" />
-                <img
-                  src="/img/0tVF3LZ0JK-1123.jpeg"
-                  alt="shapessa.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1123"
-                  height="794"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/shapessa/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/0tVF3LZ0JK-1123.avif 1123w" />
+                  <source type="image/webp" srcset="/img/0tVF3LZ0JK-1123.webp 1123w" />
+                  <img
+                    src="/img/0tVF3LZ0JK-1123.jpeg"
+                    alt="shapessa.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1123"
+                    height="794"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/shit-shitkes-green/">
-              <picture
-                ><source type="image/avif" srcset="/img/owNsH_OKjf-1920.avif 1920w" />
-                <source type="image/webp" srcset="/img/owNsH_OKjf-1920.webp 1920w" />
-                <img
-                  src="/img/owNsH_OKjf-1920.jpeg"
-                  alt="shit shitkes green.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1920"
-                  height="1080"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/shit-shitkes-green/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/owNsH_OKjf-1920.avif 1920w" />
+                  <source type="image/webp" srcset="/img/owNsH_OKjf-1920.webp 1920w" />
+                  <img
+                    src="/img/owNsH_OKjf-1920.jpeg"
+                    alt="shit shitkes green.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1920"
+                    height="1080"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/shit-shitkes/">
-              <picture
-                ><source type="image/avif" srcset="/img/89Ywa0S6oL-1920.avif 1920w" />
-                <source type="image/webp" srcset="/img/89Ywa0S6oL-1920.webp 1920w" />
-                <img
-                  src="/img/89Ywa0S6oL-1920.jpeg"
-                  alt="shit shitkes.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1920"
-                  height="1080"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/shit-shitkes/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/89Ywa0S6oL-1920.avif 1920w" />
+                  <source type="image/webp" srcset="/img/89Ywa0S6oL-1920.webp 1920w" />
+                  <img
+                    src="/img/89Ywa0S6oL-1920.jpeg"
+                    alt="shit shitkes.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1920"
+                    height="1080"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/skin-rings/">
-              <picture
-                ><source type="image/avif" srcset="/img/-5Vqan-HTy-2480.avif 2480w" />
-                <source type="image/webp" srcset="/img/-5Vqan-HTy-2480.webp 2480w" />
-                <img
-                  src="/img/-5Vqan-HTy-2480.jpeg"
-                  alt="skin rings.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="2480"
-                  height="2480"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/skin-rings/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/-5Vqan-HTy-2480.avif 2480w" />
+                  <source type="image/webp" srcset="/img/-5Vqan-HTy-2480.webp 2480w" />
+                  <img
+                    src="/img/-5Vqan-HTy-2480.jpeg"
+                    alt="skin rings.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="2480"
+                    height="2480"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/some-shit/">
-              <picture
-                ><source type="image/avif" srcset="/img/O4uT_XhMHj-3508.avif 3508w" />
-                <source type="image/webp" srcset="/img/O4uT_XhMHj-3508.webp 3508w" />
-                <img
-                  src="/img/O4uT_XhMHj-3508.jpeg"
-                  alt="some shit.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="3508"
-                  height="2481"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/some-shit/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/O4uT_XhMHj-3508.avif 3508w" />
+                  <source type="image/webp" srcset="/img/O4uT_XhMHj-3508.webp 3508w" />
+                  <img
+                    src="/img/O4uT_XhMHj-3508.jpeg"
+                    alt="some shit.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="3508"
+                    height="2481"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/text-text-text/">
-              <picture
-                ><source type="image/avif" srcset="/img/R8vkxqvr-b-960.avif 960w" />
-                <source type="image/webp" srcset="/img/R8vkxqvr-b-960.webp 960w" />
-                <img
-                  src="/img/R8vkxqvr-b-960.jpeg"
-                  alt="text_text_text.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="960"
-                  height="540"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/text-text-text/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/R8vkxqvr-b-960.avif 960w" />
+                  <source type="image/webp" srcset="/img/R8vkxqvr-b-960.webp 960w" />
+                  <img
+                    src="/img/R8vkxqvr-b-960.jpeg"
+                    alt="text_text_text.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="960"
+                    height="540"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/trustme/">
-              <picture
-                ><source type="image/avif" srcset="/img/mcgzvA9jpX-1400.avif 1400w" />
-                <source type="image/webp" srcset="/img/mcgzvA9jpX-1400.webp 1400w" />
-                <img
-                  src="/img/mcgzvA9jpX-1400.jpeg"
-                  alt="trustme.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1400"
-              /></picture>
-            </a>
-          </div>
+            <div class="art-grid-item">
+              <a href="/art/trustme/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/mcgzvA9jpX-1400.avif 1400w" />
+                  <source type="image/webp" srcset="/img/mcgzvA9jpX-1400.webp 1400w" />
+                  <img
+                    src="/img/mcgzvA9jpX-1400.jpeg"
+                    alt="trustme.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1400"
+                /></picture>
+              </a>
+            </div>
 
-          <div class="art-item">
-            <a href="/art/unknown-7/">
-              <picture
-                ><source type="image/avif" srcset="/img/oCqkbUU3aH-617.avif 617w" />
-                <source type="image/webp" srcset="/img/oCqkbUU3aH-617.webp 617w" />
-                <img
-                  src="/img/oCqkbUU3aH-617.jpeg"
-                  alt="unknown-7.png"
-                  loading="lazy"
-                  decoding="async"
-                  width="617"
-                  height="407"
-              /></picture>
-            </a>
+            <div class="art-grid-item">
+              <a href="/art/unknown-7/" class="art-grid-link">
+                <picture
+                  ><source type="image/avif" srcset="/img/oCqkbUU3aH-617.avif 617w" />
+                  <source type="image/webp" srcset="/img/oCqkbUU3aH-617.webp 617w" />
+                  <img
+                    src="/img/oCqkbUU3aH-617.jpeg"
+                    alt="unknown-7.png"
+                    loading="lazy"
+                    decoding="async"
+                    width="617"
+                    height="407"
+                /></picture>
+              </a>
+            </div>
           </div>
         </div>
 
         <style>
-          .art-gallery {
+          .art-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: var(--vspace);
           }
 
-          .art-item img {
+          .art-grid-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -689,23 +674,22 @@
             aspect-ratio: 1/1;
           }
 
-          .art-item a {
+          .art-grid-link {
             display: block;
             transition: transform 0.2s;
           }
 
-          .art-item a:hover {
+          .art-grid-link:hover {
             transform: scale(1.02);
           }
 
-          .postlist {
+          .post-list {
             list-style: none;
             padding: 0;
-
             background-color: transparent;
           }
 
-          .postlist-item {
+          .post-list-item {
             --thumbnail-size: 128px;
             --thumbnail-size-sm: 100px;
 
@@ -721,12 +705,12 @@
               margin-block-end: 0em;
             }
 
-            a div {
+            .post-list-content {
               display: flex;
               flex-direction: column;
             }
 
-            summary {
+            .post-list-description {
               font-size: 1em; /* 19px /16 */
               font-weight: 500;
               flex-basis: 100%;
@@ -736,7 +720,7 @@
               background-color: var(--background-color);
             }
 
-            span {
+            .post-list-title {
               font-size: 1.1875em; /* 19px /16 */
               font-weight: 700;
               flex-basis: 100%;
@@ -745,12 +729,12 @@
               text-decoration-thickness: 1px;
             }
 
-            figure,
+            .post-list-thumbnail,
             img {
               display: block;
             }
 
-            figure {
+            .post-list-thumbnail {
               margin: 0;
               margin-inline-end: 1em;
               min-width: var(--thumbnail-size);
@@ -762,7 +746,7 @@
               object-fit: cover;
             }
 
-            a {
+            .post-list-link {
               display: flex;
               flex-direction: row;
               background-color: transparent;
@@ -778,22 +762,22 @@
           }
 
           @media screen and (max-width: 420px) {
-            .postlist-item {
+            .post-list-item {
               flex-wrap: wrap;
               width: 100%;
 
-              a {
+              .post-list-link {
                 flex-direction: column;
                 width: 100%;
                 align-items: center;
 
-                span {
+                .post-list-title {
                   width: 100%;
                   text-align: center;
                 }
               }
 
-              figure {
+              .post-list-thumbnail {
                 min-width: none;
                 width: 100%;
                 background-color: var(--background-color);
@@ -814,11 +798,17 @@
           }
         </style>
       </main>
-      <footer>
-        <p>&copy; Joseph Kenyon</p>
+      <footer class="site-footer">
+        <p class="site-footer-copy">&copy; Joseph Kenyon</p>
 
-        <div>
-          <a href="mailto:joekenyon72@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="email">
+        <div class="site-footer-socials">
+          <a
+            href="mailto:joekenyon72@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="email"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -832,6 +822,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="linkedIn"
+            class="site-footer-link"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
@@ -841,7 +832,13 @@
             </svg>
           </a>
 
-          <a href="https://instagram.com/kenyon_joe" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+          <a
+            href="https://instagram.com/kenyon_joe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="instagram"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -850,7 +847,13 @@
             </svg>
           </a>
 
-          <a href="https://github.com/JoeKenyon" target="_blank" rel="noopener noreferrer" aria-label="gitHub">
+          <a
+            href="https://github.com/JoeKenyon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="gitHub"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path

@@ -19,30 +19,9 @@
     <link rel="canonical" href="https://josephkenyon.co.uk/projects/" />
   </head>
   <body>
-    <picture
-      ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
-      <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
-      <img src="/img/rUOng7YLLB-1400.jpeg" alt="background" loading="lazy" decoding="async" width="1400" height="1400"
-    /></picture>
-
-    <style>
-      picture:has(img[alt="background"]) {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -10;
-        display: block;
-      }
-
-      picture:has(img[alt="background"]) img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
-    <div>
-      <header>
-        <a href="/" id="joe">
+    <div class="site-wrapper">
+      <header class="site-header">
+        <a href="/" id="joe" class="site-logo">
           <picture
             ><source type="image/avif" srcset="/img/QIs_9MMmbs-2148.avif 2148w" />
             <source type="image/webp" srcset="/img/QIs_9MMmbs-2148.webp 2148w" />
@@ -56,21 +35,23 @@
           /></picture>
         </a>
 
-        <nav>
-          <a href="/"> Home </a>
+        <nav class="site-nav">
+          <a href="/" class="site-nav-link"> Home </a>
 
-          <a href="/projects/" aria-current="page"> Projects </a>
+          <a href="/projects/" class="site-nav-link" aria-current="page"> Projects </a>
 
-          <a href="/music/"> Music </a>
+          <a href="/music/" class="site-nav-link"> Music </a>
 
-          <a href="/art/"> Art </a>
+          <a href="/art/" class="site-nav-link"> Art </a>
 
-          <a href="/about/"> About </a>
+          <a href="/about/" class="site-nav-link"> About </a>
         </nav>
       </header>
 
       <style>
         #joe {
+          --logo-size: 2.5rem;
+
           background-color: transparent;
           transition: all 0.2s ease;
 
@@ -82,7 +63,7 @@
           }
 
           picture {
-            height: 2.5rem;
+            height: var(--logo-size);
             display: flex;
 
             img {
@@ -93,173 +74,180 @@
           }
         }
       </style>
-      <main>
-        <h1>Projects</h1>
+      <main class="site-main">
+        <div class="page-title-wrapper">
+          <h1 class="page-title">Projects</h1>
+        </div>
 
-        <ul class="postlist">
-          <li class="postlist-item">
-            <a href="/projects/beatles-ontology/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/lVfrvPSnGQ-1280.avif 1280w" />
-                  <source type="image/webp" srcset="/img/lVfrvPSnGQ-1280.webp 1280w" />
-                  <img
-                    src="/img/lVfrvPSnGQ-1280.jpeg"
-                    alt="Pasted image 20260219174401.png"
-                    loading="lazy"
-                    decoding="async"
-                    width="1280"
-                    height="731"
-                /></picture>
-              </figure>
+        <div class="page-content">
+          <ul class="post-list">
+            <li class="post-list-item">
+              <a href="/projects/beatles-ontology/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/lVfrvPSnGQ-1280.avif 1280w" />
+                    <source type="image/webp" srcset="/img/lVfrvPSnGQ-1280.webp 1280w" />
+                    <img
+                      src="/img/lVfrvPSnGQ-1280.jpeg"
+                      alt="Pasted image 20260219174401.png"
+                      loading="lazy"
+                      decoding="async"
+                      width="1280"
+                      height="731"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Beatles Music Ontology </span>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Beatles Music Ontology </span>
 
-                <summary>Metadata exploration of Beatles music using RDF and SPARQL.</summary>
-              </div>
-            </a>
-          </li>
+                  <summary class="post-list-description">
+                    Metadata exploration of Beatles music using RDF and SPARQL.
+                  </summary>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/projects/digital-box/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/UsZgSjw1O9-1280.avif 1280w" />
-                  <source type="image/webp" srcset="/img/UsZgSjw1O9-1280.webp 1280w" />
-                  <img
-                    src="/img/UsZgSjw1O9-1280.jpeg"
-                    alt="Pasted image 20260219175142.png"
-                    loading="lazy"
-                    decoding="async"
-                    width="1280"
-                    height="701"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/projects/digital-box/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/UsZgSjw1O9-1280.avif 1280w" />
+                    <source type="image/webp" srcset="/img/UsZgSjw1O9-1280.webp 1280w" />
+                    <img
+                      src="/img/UsZgSjw1O9-1280.jpeg"
+                      alt="Pasted image 20260219175142.png"
+                      loading="lazy"
+                      decoding="async"
+                      width="1280"
+                      height="701"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Digital Box </span>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Digital Box </span>
 
-                <summary>A hybrid acoustic-digital string instrument.</summary>
-              </div>
-            </a>
-          </li>
+                  <summary class="post-list-description">A hybrid acoustic-digital string instrument.</summary>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/projects/funnel-head/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/uE9IB2TORR-975.avif 975w" />
-                  <source type="image/webp" srcset="/img/uE9IB2TORR-975.webp 975w" />
-                  <img
-                    src="/img/uE9IB2TORR-975.jpeg"
-                    alt="funnel-head-thumbnail.png"
-                    loading="lazy"
-                    decoding="async"
-                    width="975"
-                    height="433"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/projects/funnel-head/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/uE9IB2TORR-975.avif 975w" />
+                    <source type="image/webp" srcset="/img/uE9IB2TORR-975.webp 975w" />
+                    <img
+                      src="/img/uE9IB2TORR-975.jpeg"
+                      alt="funnel-head-thumbnail.png"
+                      loading="lazy"
+                      decoding="async"
+                      width="975"
+                      height="433"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Funnel Head </span>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Funnel Head </span>
 
-                <summary>Real-time guitar amplifier VST plugin with JUCE.</summary>
-              </div>
-            </a>
-          </li>
+                  <summary class="post-list-description">Real-time guitar amplifier VST plugin with JUCE.</summary>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/projects/guitar-effects-pedal/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/U-tdwNni7B-1114.avif 1114w" />
-                  <source type="image/webp" srcset="/img/U-tdwNni7B-1114.webp 1114w" />
-                  <img
-                    src="/img/U-tdwNni7B-1114.jpeg"
-                    alt="param_gtr.png"
-                    loading="lazy"
-                    decoding="async"
-                    width="1114"
-                    height="752"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/projects/guitar-effects-pedal/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/U-tdwNni7B-1114.avif 1114w" />
+                    <source type="image/webp" srcset="/img/U-tdwNni7B-1114.webp 1114w" />
+                    <img
+                      src="/img/U-tdwNni7B-1114.jpeg"
+                      alt="param_gtr.png"
+                      loading="lazy"
+                      decoding="async"
+                      width="1114"
+                      height="752"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Guitar Effects Pedal </span>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Guitar Effects Pedal </span>
 
-                <summary>Digital signal processing on STM32 hardware.</summary>
-              </div>
-            </a>
-          </li>
+                  <summary class="post-list-description">Digital signal processing on STM32 hardware.</summary>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/projects/temple-of-xian/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/cvxoWbIZUi-800.avif 800w" />
-                  <source type="image/webp" srcset="/img/cvxoWbIZUi-800.webp 800w" />
-                  <img
-                    src="/img/cvxoWbIZUi-800.jpeg"
-                    alt="temple-of-xian.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="800"
-                    height="600"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/projects/temple-of-xian/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/cvxoWbIZUi-800.avif 800w" />
+                    <source type="image/webp" srcset="/img/cvxoWbIZUi-800.webp 800w" />
+                    <img
+                      src="/img/cvxoWbIZUi-800.jpeg"
+                      alt="temple-of-xian.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Audio Redesign - Temple of Xian </span>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Audio Redesign - Temple of Xian </span>
 
-                <summary>Sound redesign for Tomb Raider II level.</summary>
-              </div>
-            </a>
-          </li>
+                  <summary class="post-list-description">Sound redesign for Tomb Raider II level.</summary>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/projects/engine-audio/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/Z_pA5el9Zo-1020.avif 1020w" />
-                  <source type="image/webp" srcset="/img/Z_pA5el9Zo-1020.webp 1020w" />
-                  <img
-                    src="/img/Z_pA5el9Zo-1020.jpeg"
-                    alt="Pasted image 20260219173509.png"
-                    loading="lazy"
-                    decoding="async"
-                    width="1020"
-                    height="755"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/projects/engine-audio/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/Z_pA5el9Zo-1020.avif 1020w" />
+                    <source type="image/webp" srcset="/img/Z_pA5el9Zo-1020.webp 1020w" />
+                    <img
+                      src="/img/Z_pA5el9Zo-1020.jpeg"
+                      alt="Pasted image 20260219173509.png"
+                      loading="lazy"
+                      decoding="async"
+                      width="1020"
+                      height="755"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Engine Audio </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Engine Audio </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/projects/thread-safe-memory-manager/">
-              <div>
-                <span> Thread-Safe Memory Manager </span>
+            <li class="post-list-item">
+              <a href="/projects/thread-safe-memory-manager/" class="post-list-link">
+                <div class="post-list-content">
+                  <span class="post-list-title"> Thread-Safe Memory Manager </span>
 
-                <summary>
-                  A bare-metal C memory allocator featuring boundary-tag mechanics and pluggable allocation algorithms.
-                </summary>
-              </div>
-            </a>
-          </li>
-        </ul>
+                  <summary class="post-list-description">
+                    A bare-metal C memory allocator featuring boundary-tag mechanics and pluggable allocation
+                    algorithms.
+                  </summary>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
 
         <style>
-          .art-gallery {
+          .art-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: var(--vspace);
           }
 
-          .art-item img {
+          .art-grid-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -267,23 +255,22 @@
             aspect-ratio: 1/1;
           }
 
-          .art-item a {
+          .art-grid-link {
             display: block;
             transition: transform 0.2s;
           }
 
-          .art-item a:hover {
+          .art-grid-link:hover {
             transform: scale(1.02);
           }
 
-          .postlist {
+          .post-list {
             list-style: none;
             padding: 0;
-
             background-color: transparent;
           }
 
-          .postlist-item {
+          .post-list-item {
             --thumbnail-size: 128px;
             --thumbnail-size-sm: 100px;
 
@@ -299,12 +286,12 @@
               margin-block-end: 0em;
             }
 
-            a div {
+            .post-list-content {
               display: flex;
               flex-direction: column;
             }
 
-            summary {
+            .post-list-description {
               font-size: 1em; /* 19px /16 */
               font-weight: 500;
               flex-basis: 100%;
@@ -314,7 +301,7 @@
               background-color: var(--background-color);
             }
 
-            span {
+            .post-list-title {
               font-size: 1.1875em; /* 19px /16 */
               font-weight: 700;
               flex-basis: 100%;
@@ -323,12 +310,12 @@
               text-decoration-thickness: 1px;
             }
 
-            figure,
+            .post-list-thumbnail,
             img {
               display: block;
             }
 
-            figure {
+            .post-list-thumbnail {
               margin: 0;
               margin-inline-end: 1em;
               min-width: var(--thumbnail-size);
@@ -340,7 +327,7 @@
               object-fit: cover;
             }
 
-            a {
+            .post-list-link {
               display: flex;
               flex-direction: row;
               background-color: transparent;
@@ -356,22 +343,22 @@
           }
 
           @media screen and (max-width: 420px) {
-            .postlist-item {
+            .post-list-item {
               flex-wrap: wrap;
               width: 100%;
 
-              a {
+              .post-list-link {
                 flex-direction: column;
                 width: 100%;
                 align-items: center;
 
-                span {
+                .post-list-title {
                   width: 100%;
                   text-align: center;
                 }
               }
 
-              figure {
+              .post-list-thumbnail {
                 min-width: none;
                 width: 100%;
                 background-color: var(--background-color);
@@ -392,11 +379,17 @@
           }
         </style>
       </main>
-      <footer>
-        <p>&copy; Joseph Kenyon</p>
+      <footer class="site-footer">
+        <p class="site-footer-copy">&copy; Joseph Kenyon</p>
 
-        <div>
-          <a href="mailto:joekenyon72@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="email">
+        <div class="site-footer-socials">
+          <a
+            href="mailto:joekenyon72@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="email"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -410,6 +403,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="linkedIn"
+            class="site-footer-link"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
@@ -419,7 +413,13 @@
             </svg>
           </a>
 
-          <a href="https://instagram.com/kenyon_joe" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+          <a
+            href="https://instagram.com/kenyon_joe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="instagram"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -428,7 +428,13 @@
             </svg>
           </a>
 
-          <a href="https://github.com/JoeKenyon" target="_blank" rel="noopener noreferrer" aria-label="gitHub">
+          <a
+            href="https://github.com/JoeKenyon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="gitHub"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path

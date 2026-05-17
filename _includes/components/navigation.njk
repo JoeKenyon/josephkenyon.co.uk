@@ -1,15 +1,15 @@
-<header>
+<header class="site-header">
 
-  <a href="/" id="joe">
+  <a href="/" id="joe" class="site-logo">
     {% image "./public/kesagians.svg", "joe logo" %}
   </a>
 
-  <nav>
+  <nav class="site-nav">
 
     {% for entry in collections.all | eleventyNavigation %}
 
       <a href="{{ entry.url }}"
-
+        class="site-nav-link"
         {% if entry.url == page.url %} 
           aria-current="page"
         {% endif %}
@@ -26,6 +26,8 @@
 <style>
 #joe
 {
+  --logo-size: 2.5rem;
+
   background-color: transparent;
   transition: all 0.2s ease;
 
@@ -39,7 +41,7 @@
 
   picture
   {
-    height: 2.5rem;
+    height: var(--logo-size);
     display: flex;
 
     img

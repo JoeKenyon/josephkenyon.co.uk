@@ -5,19 +5,31 @@
 
     {% if nextPost or previousPost %}
 
-        <nav>
-            <ul>
+        <nav class="post-navigation">
+            <ul class="post-navigation-list">
 
                 {% if previousPost %}
-                    <li><a href="{{ previousPost.url }}">← Previous<br><span>{{ previousPost.data.title }}</span></a></li>
+                    <li class="post-navigation-item post-navigation-prev">
+                        <a href="{{ previousPost.url }}" class="post-navigation-link">
+                            ← Previous<br><span class="post-navigation-title">{{ previousPost.data.title }}</span>
+                        </a>
+                    </li>
                 {% else %}
-                    <li><a href="/{{ collectionKey }}">← Back to index</a></li>
+                    <li class="post-navigation-item post-navigation-back">
+                        <a href="/{{ collectionKey }}" class="post-navigation-link">← Back to index</a>
+                    </li>
                 {% endif %}
 
                 {% if nextPost %}
-                    <li><a href="{{ nextPost.url }}">Next →<br><span>{{ nextPost.data.title }}</span></a></li>
+                    <li class="post-navigation-item post-navigation-next">
+                        <a href="{{ nextPost.url }}" class="post-navigation-link">
+                            Next →<br><span class="post-navigation-title">{{ nextPost.data.title }}</span>
+                        </a>
+                    </li>
                 {% else %}
-                    <li><a href="/{{ collectionKey }}">Back to index →</a></li>
+                    <li class="post-navigation-item post-navigation-back">
+                        <a href="/{{ collectionKey }}" class="post-navigation-link">Back to index →</a>
+                    </li>
                 {% endif %}
 
             </ul>

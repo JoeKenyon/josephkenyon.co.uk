@@ -19,30 +19,9 @@
     <link rel="canonical" href="https://josephkenyon.co.uk/music/out-for-delivery/" />
   </head>
   <body>
-    <picture
-      ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
-      <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
-      <img src="/img/rUOng7YLLB-1400.jpeg" alt="background" loading="lazy" decoding="async" width="1400" height="1400"
-    /></picture>
-
-    <style>
-      picture:has(img[alt="background"]) {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -10;
-        display: block;
-      }
-
-      picture:has(img[alt="background"]) img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
-    <div>
-      <header>
-        <a href="/" id="joe">
+    <div class="site-wrapper">
+      <header class="site-header">
+        <a href="/" id="joe" class="site-logo">
           <picture
             ><source type="image/avif" srcset="/img/QIs_9MMmbs-2148.avif 2148w" />
             <source type="image/webp" srcset="/img/QIs_9MMmbs-2148.webp 2148w" />
@@ -56,21 +35,23 @@
           /></picture>
         </a>
 
-        <nav>
-          <a href="/"> Home </a>
+        <nav class="site-nav">
+          <a href="/" class="site-nav-link"> Home </a>
 
-          <a href="/projects/"> Projects </a>
+          <a href="/projects/" class="site-nav-link"> Projects </a>
 
-          <a href="/music/"> Music </a>
+          <a href="/music/" class="site-nav-link"> Music </a>
 
-          <a href="/art/"> Art </a>
+          <a href="/art/" class="site-nav-link"> Art </a>
 
-          <a href="/about/"> About </a>
+          <a href="/about/" class="site-nav-link"> About </a>
         </nav>
       </header>
 
       <style>
         #joe {
+          --logo-size: 2.5rem;
+
           background-color: transparent;
           transition: all 0.2s ease;
 
@@ -82,7 +63,7 @@
           }
 
           picture {
-            height: 2.5rem;
+            height: var(--logo-size);
             display: flex;
 
             img {
@@ -93,12 +74,13 @@
           }
         }
       </style>
-      <main>
-        <h1>Out for Delivery</h1>
+      <main class="site-main">
+        <div class="page-title-wrapper">
+          <h1 class="page-title">Out for Delivery</h1>
+        </div>
 
-        <article>
-          <p></p>
-          <figure id="albumCover">
+        <article class="page-content">
+          <figure class="album-cover">
             <picture
               ><source type="image/avif" srcset="/img/0fF27VL6JG-1200.avif 1200w" />
               <source type="image/webp" srcset="/img/0fF27VL6JG-1200.webp 1200w" />
@@ -111,65 +93,73 @@
                 height="1200"
             /></picture>
           </figure>
-          <p></p>
 
-          <div id="tracks">
+          <div class="music-tracks">
             <iframe
-              class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]"
+              class="music-track-iframe"
               src="https://bandcamp.com/EmbeddedPlayer/track=2163207299/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
               loading="lazy"
             ></iframe>
 
             <iframe
-              class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]"
+              class="music-track-iframe"
               src="https://bandcamp.com/EmbeddedPlayer/track=4047239795/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
               loading="lazy"
             ></iframe>
 
             <iframe
-              class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]"
+              class="music-track-iframe"
               src="https://bandcamp.com/EmbeddedPlayer/track=827452385/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
               loading="lazy"
             ></iframe>
 
             <iframe
-              class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]"
+              class="music-track-iframe"
               src="https://bandcamp.com/EmbeddedPlayer/track=248941394/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
               loading="lazy"
             ></iframe>
 
             <iframe
-              class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]"
+              class="music-track-iframe"
               src="https://bandcamp.com/EmbeddedPlayer/track=4229804961/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
               loading="lazy"
             ></iframe>
 
             <iframe
-              class="w-full h-full shadowBox rounded-none border-none max-w-[700px] max-h-[120px]"
+              class="music-track-iframe"
               src="https://bandcamp.com/EmbeddedPlayer/track=1840622859/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/"
               loading="lazy"
             ></iframe>
           </div>
         </article>
 
-        <nav>
-          <ul>
-            <li>
-              <a href="/music/everything-must-exist/">← Previous<br /><span>Everything Must Exist</span></a>
+        <nav class="post-navigation">
+          <ul class="post-navigation-list">
+            <li class="post-navigation-item post-navigation-prev">
+              <a href="/music/everything-must-exist/" class="post-navigation-link">
+                ← Previous<br /><span class="post-navigation-title">Everything Must Exist</span>
+              </a>
             </li>
 
-            <li>
-              <a href="/music/vanity/">Next →<br /><span>Vanity</span></a>
+            <li class="post-navigation-item post-navigation-next">
+              <a href="/music/vanity/" class="post-navigation-link">
+                Next →<br /><span class="post-navigation-title">Vanity</span>
+              </a>
             </li>
           </ul>
         </nav>
 
         <style>
-          #albumCover {
+          .album-cover-wrapper {
+            margin: 0;
+          }
+          .album-cover {
             width: 100%;
             max-height: 50svh;
             aspect-ratio: 1/1;
             height: 100%;
+
+            padding-bottom: var(--vspace);
 
             margin: 0;
 
@@ -188,7 +178,7 @@
               margin: 0 auto;
             }
           }
-          #tracks {
+          .music-tracks {
             display: flex;
             flex-direction: column;
 
@@ -196,7 +186,7 @@
 
             width: 100%;
 
-            iframe {
+            .music-track-iframe {
               max-height: 120px;
               max-width: 700px;
               height: 100%;
@@ -207,11 +197,17 @@
           }
         </style>
       </main>
-      <footer>
-        <p>&copy; Joseph Kenyon</p>
+      <footer class="site-footer">
+        <p class="site-footer-copy">&copy; Joseph Kenyon</p>
 
-        <div>
-          <a href="mailto:joekenyon72@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="email">
+        <div class="site-footer-socials">
+          <a
+            href="mailto:joekenyon72@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="email"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -225,6 +221,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="linkedIn"
+            class="site-footer-link"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
@@ -234,7 +231,13 @@
             </svg>
           </a>
 
-          <a href="https://instagram.com/kenyon_joe" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+          <a
+            href="https://instagram.com/kenyon_joe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="instagram"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -243,7 +246,13 @@
             </svg>
           </a>
 
-          <a href="https://github.com/JoeKenyon" target="_blank" rel="noopener noreferrer" aria-label="gitHub">
+          <a
+            href="https://github.com/JoeKenyon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="gitHub"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path

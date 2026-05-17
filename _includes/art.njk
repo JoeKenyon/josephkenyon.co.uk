@@ -1,16 +1,18 @@
 ---
 layout: base.njk
 ---
-<h1 id="artHeader">{{ artwork.name }}</h1>
+<div class="page-title-wrapper">
+    <h1 class="page-title">{{ artwork.name }}</h1>
+</div>
 
-<article>
+<article class="page-content">
     {{ content | safe }}
 </article>
 
 {% include 'components/paginationNavigation.njk' %}
 
 <style>
-#artHeader
+.page-title
 {
     overflow: hidden;
     display: -webkit-box;

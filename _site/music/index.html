@@ -19,30 +19,9 @@
     <link rel="canonical" href="https://josephkenyon.co.uk/music/" />
   </head>
   <body>
-    <picture
-      ><source type="image/avif" srcset="/img/rUOng7YLLB-1400.avif 1400w" />
-      <source type="image/webp" srcset="/img/rUOng7YLLB-1400.webp 1400w" />
-      <img src="/img/rUOng7YLLB-1400.jpeg" alt="background" loading="lazy" decoding="async" width="1400" height="1400"
-    /></picture>
-
-    <style>
-      picture:has(img[alt="background"]) {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -10;
-        display: block;
-      }
-
-      picture:has(img[alt="background"]) img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
-    <div>
-      <header>
-        <a href="/" id="joe">
+    <div class="site-wrapper">
+      <header class="site-header">
+        <a href="/" id="joe" class="site-logo">
           <picture
             ><source type="image/avif" srcset="/img/QIs_9MMmbs-2148.avif 2148w" />
             <source type="image/webp" srcset="/img/QIs_9MMmbs-2148.webp 2148w" />
@@ -56,21 +35,23 @@
           /></picture>
         </a>
 
-        <nav>
-          <a href="/"> Home </a>
+        <nav class="site-nav">
+          <a href="/" class="site-nav-link"> Home </a>
 
-          <a href="/projects/"> Projects </a>
+          <a href="/projects/" class="site-nav-link"> Projects </a>
 
-          <a href="/music/" aria-current="page"> Music </a>
+          <a href="/music/" class="site-nav-link" aria-current="page"> Music </a>
 
-          <a href="/art/"> Art </a>
+          <a href="/art/" class="site-nav-link"> Art </a>
 
-          <a href="/about/"> About </a>
+          <a href="/about/" class="site-nav-link"> About </a>
         </nav>
       </header>
 
       <style>
         #joe {
+          --logo-size: 2.5rem;
+
           background-color: transparent;
           transition: all 0.2s ease;
 
@@ -82,7 +63,7 @@
           }
 
           picture {
-            height: 2.5rem;
+            height: var(--logo-size);
             display: flex;
 
             img {
@@ -93,195 +74,199 @@
           }
         }
       </style>
-      <main>
-        <h1>Music</h1>
+      <main class="site-main">
+        <div class="page-title-wrapper">
+          <h1 class="page-title">Music</h1>
+        </div>
 
-        <ul class="postlist">
-          <li class="postlist-item">
-            <a href="/music/everything-must-exist/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/mp7Z9rHCFF-1200.avif 1200w" />
-                  <source type="image/webp" srcset="/img/mp7Z9rHCFF-1200.webp 1200w" />
-                  <img
-                    src="/img/mp7Z9rHCFF-1200.jpeg"
-                    alt="everything-must-exist.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="1200"
-                    height="1199"
-                /></picture>
-              </figure>
+        <div class="page-content">
+          <ul class="post-list">
+            <li class="post-list-item">
+              <a href="/music/everything-must-exist/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/mp7Z9rHCFF-1200.avif 1200w" />
+                    <source type="image/webp" srcset="/img/mp7Z9rHCFF-1200.webp 1200w" />
+                    <img
+                      src="/img/mp7Z9rHCFF-1200.jpeg"
+                      alt="everything-must-exist.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="1200"
+                      height="1199"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Everything Must Exist </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Everything Must Exist </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/out-for-delivery/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/0fF27VL6JG-1200.avif 1200w" />
-                  <source type="image/webp" srcset="/img/0fF27VL6JG-1200.webp 1200w" />
-                  <img
-                    src="/img/0fF27VL6JG-1200.jpeg"
-                    alt="out-for-delivery.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="1200"
-                    height="1200"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/out-for-delivery/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/0fF27VL6JG-1200.avif 1200w" />
+                    <source type="image/webp" srcset="/img/0fF27VL6JG-1200.webp 1200w" />
+                    <img
+                      src="/img/0fF27VL6JG-1200.jpeg"
+                      alt="out-for-delivery.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="1200"
+                      height="1200"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Out for Delivery </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Out for Delivery </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/vanity/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/JUJlIivC-K-1200.avif 1200w" />
-                  <source type="image/webp" srcset="/img/JUJlIivC-K-1200.webp 1200w" />
-                  <img
-                    src="/img/JUJlIivC-K-1200.jpeg"
-                    alt="vanity.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="1200"
-                    height="1200"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/vanity/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/JUJlIivC-K-1200.avif 1200w" />
+                    <source type="image/webp" srcset="/img/JUJlIivC-K-1200.webp 1200w" />
+                    <img
+                      src="/img/JUJlIivC-K-1200.jpeg"
+                      alt="vanity.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="1200"
+                      height="1200"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> Vanity </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> Vanity </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/d005/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/KOV95haRs--796.avif 796w" />
-                  <source type="image/webp" srcset="/img/KOV95haRs--796.webp 796w" />
-                  <img
-                    src="/img/KOV95haRs--796.jpeg"
-                    alt="d005.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="796"
-                    height="1200"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/d005/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/KOV95haRs--796.avif 796w" />
+                    <source type="image/webp" srcset="/img/KOV95haRs--796.webp 796w" />
+                    <img
+                      src="/img/KOV95haRs--796.jpeg"
+                      alt="d005.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="796"
+                      height="1200"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> D005 </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> D005 </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/d004/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/e94rhgnaYD-900.avif 900w" />
-                  <source type="image/webp" srcset="/img/e94rhgnaYD-900.webp 900w" />
-                  <img
-                    src="/img/e94rhgnaYD-900.jpeg"
-                    alt="d004.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="900"
-                    height="1200"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/d004/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/e94rhgnaYD-900.avif 900w" />
+                    <source type="image/webp" srcset="/img/e94rhgnaYD-900.webp 900w" />
+                    <img
+                      src="/img/e94rhgnaYD-900.jpeg"
+                      alt="d004.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="900"
+                      height="1200"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> D004 </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> D004 </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/d003/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/drcKPuE9N--900.avif 900w" />
-                  <source type="image/webp" srcset="/img/drcKPuE9N--900.webp 900w" />
-                  <img
-                    src="/img/drcKPuE9N--900.jpeg"
-                    alt="d003.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="900"
-                    height="1200"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/d003/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/drcKPuE9N--900.avif 900w" />
+                    <source type="image/webp" srcset="/img/drcKPuE9N--900.webp 900w" />
+                    <img
+                      src="/img/drcKPuE9N--900.jpeg"
+                      alt="d003.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="900"
+                      height="1200"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> D003 </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> D003 </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/d002/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/ZxC7e3b0TI-1200.avif 1200w" />
-                  <source type="image/webp" srcset="/img/ZxC7e3b0TI-1200.webp 1200w" />
-                  <img
-                    src="/img/ZxC7e3b0TI-1200.jpeg"
-                    alt="d002.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="1200"
-                    height="503"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/d002/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/ZxC7e3b0TI-1200.avif 1200w" />
+                    <source type="image/webp" srcset="/img/ZxC7e3b0TI-1200.webp 1200w" />
+                    <img
+                      src="/img/ZxC7e3b0TI-1200.jpeg"
+                      alt="d002.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="1200"
+                      height="503"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> D002 </span>
-              </div>
-            </a>
-          </li>
+                <div class="post-list-content">
+                  <span class="post-list-title"> D002 </span>
+                </div>
+              </a>
+            </li>
 
-          <li class="postlist-item">
-            <a href="/music/d001/">
-              <figure>
-                <picture
-                  ><source type="image/avif" srcset="/img/ybd3EkKT8K-900.avif 900w" />
-                  <source type="image/webp" srcset="/img/ybd3EkKT8K-900.webp 900w" />
-                  <img
-                    src="/img/ybd3EkKT8K-900.jpeg"
-                    alt="d001.jpg"
-                    loading="lazy"
-                    decoding="async"
-                    width="900"
-                    height="1200"
-                /></picture>
-              </figure>
+            <li class="post-list-item">
+              <a href="/music/d001/" class="post-list-link">
+                <figure class="post-list-thumbnail">
+                  <picture
+                    ><source type="image/avif" srcset="/img/ybd3EkKT8K-900.avif 900w" />
+                    <source type="image/webp" srcset="/img/ybd3EkKT8K-900.webp 900w" />
+                    <img
+                      src="/img/ybd3EkKT8K-900.jpeg"
+                      alt="d001.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      width="900"
+                      height="1200"
+                  /></picture>
+                </figure>
 
-              <div>
-                <span> D001 </span>
-              </div>
-            </a>
-          </li>
-        </ul>
+                <div class="post-list-content">
+                  <span class="post-list-title"> D001 </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
 
         <style>
-          .art-gallery {
+          .art-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: var(--vspace);
           }
 
-          .art-item img {
+          .art-grid-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -289,23 +274,22 @@
             aspect-ratio: 1/1;
           }
 
-          .art-item a {
+          .art-grid-link {
             display: block;
             transition: transform 0.2s;
           }
 
-          .art-item a:hover {
+          .art-grid-link:hover {
             transform: scale(1.02);
           }
 
-          .postlist {
+          .post-list {
             list-style: none;
             padding: 0;
-
             background-color: transparent;
           }
 
-          .postlist-item {
+          .post-list-item {
             --thumbnail-size: 128px;
             --thumbnail-size-sm: 100px;
 
@@ -321,12 +305,12 @@
               margin-block-end: 0em;
             }
 
-            a div {
+            .post-list-content {
               display: flex;
               flex-direction: column;
             }
 
-            summary {
+            .post-list-description {
               font-size: 1em; /* 19px /16 */
               font-weight: 500;
               flex-basis: 100%;
@@ -336,7 +320,7 @@
               background-color: var(--background-color);
             }
 
-            span {
+            .post-list-title {
               font-size: 1.1875em; /* 19px /16 */
               font-weight: 700;
               flex-basis: 100%;
@@ -345,12 +329,12 @@
               text-decoration-thickness: 1px;
             }
 
-            figure,
+            .post-list-thumbnail,
             img {
               display: block;
             }
 
-            figure {
+            .post-list-thumbnail {
               margin: 0;
               margin-inline-end: 1em;
               min-width: var(--thumbnail-size);
@@ -362,7 +346,7 @@
               object-fit: cover;
             }
 
-            a {
+            .post-list-link {
               display: flex;
               flex-direction: row;
               background-color: transparent;
@@ -378,22 +362,22 @@
           }
 
           @media screen and (max-width: 420px) {
-            .postlist-item {
+            .post-list-item {
               flex-wrap: wrap;
               width: 100%;
 
-              a {
+              .post-list-link {
                 flex-direction: column;
                 width: 100%;
                 align-items: center;
 
-                span {
+                .post-list-title {
                   width: 100%;
                   text-align: center;
                 }
               }
 
-              figure {
+              .post-list-thumbnail {
                 min-width: none;
                 width: 100%;
                 background-color: var(--background-color);
@@ -414,11 +398,17 @@
           }
         </style>
       </main>
-      <footer>
-        <p>&copy; Joseph Kenyon</p>
+      <footer class="site-footer">
+        <p class="site-footer-copy">&copy; Joseph Kenyon</p>
 
-        <div>
-          <a href="mailto:joekenyon72@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="email">
+        <div class="site-footer-socials">
+          <a
+            href="mailto:joekenyon72@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="email"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -432,6 +422,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="linkedIn"
+            class="site-footer-link"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
@@ -441,7 +432,13 @@
             </svg>
           </a>
 
-          <a href="https://instagram.com/kenyon_joe" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+          <a
+            href="https://instagram.com/kenyon_joe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="instagram"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path
@@ -450,7 +447,13 @@
             </svg>
           </a>
 
-          <a href="https://github.com/JoeKenyon" target="_blank" rel="noopener noreferrer" aria-label="gitHub">
+          <a
+            href="https://github.com/JoeKenyon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="gitHub"
+            class="site-footer-link"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
               <path

@@ -76,14 +76,30 @@ body
 	margin: 0 auto;
 	font-family: var(--font-family);
 	color: var(--text-color);
-	height: min-content;
+}
+
+html 
+{
+    background-image: url("./background.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+	height: 100vh;
+	height: 100svh;
+
+	border: 4pt hotpink solid;
+	overflow: hidden;
 }
 
 body 
 {
 	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-	background-image: url("/rosieNoText.png");
-	background-size:contain;
+    height: 100%; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 h1,
@@ -147,9 +163,23 @@ h6
 	text-transform: uppercase;
 }
 
+
+ul:first-of-type, 
+ol:first-of-type, 
+p:first-of-type,
+h1:first-of-type,
+h2:first-of-type,
+h3:first-of-type,
+h4:first-of-type,
+h5:first-of-type,
+h6:first-of-type
+{
+	margin-block-start: 0;
+}
+
 ul:last-of-type, 
 ol:last-of-type, 
-p:last-of-type {
+p:last-child {
     margin-bottom: 0;
     margin-block-end: 0;
 }

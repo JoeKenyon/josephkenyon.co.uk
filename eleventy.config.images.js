@@ -44,24 +44,37 @@ export default function (eleventyConfig)
 				input = src;
 			} else 
 			{
+				if (!this.page || !this.page.inputPath) {
+					console.error("DEBUG: this.page.inputPath is missing for src:", src);
+					return ""; 
+				}
 				input = relativeToInputPath(this.page.inputPath, src);
 			}
 
-			let metadata = await eleventyImage(input, 
+			let metadata;
+			try 
 			{
-				widths: widths || ["auto"],
-				formats: ["avif", "webp", "jpeg"],
-				sharpOptions: 
+				metadata = await eleventyImage(input, 
 				{
-					pngOptions: 
+					widths: widths || ["auto"],
+					formats: ["avif", "webp", "jpeg"],
+					sharpOptions: 
 					{
-						compressionLevel: 9,
-						quality: 60
-					}
-				},
-				urlPath: "/img/", // URL used in the HTML src
-				outputDir: "./public/img/", // Where the files are saved on disk
-			});
+						pngOptions: 
+						{
+							compressionLevel: 9,
+							quality: 60
+						}
+					},
+					urlPath: "/img/", // URL used in the HTML src
+					outputDir: "./public/img/", // Where the files are saved on disk
+				});
+			} 
+			catch (e) 
+			{
+				console.error("DEBUG: eleventyImage failed for input:", input, e.message);
+				return ""; // Return empty string on failure
+			}
 
 			let imageAttributes = 
 			{
