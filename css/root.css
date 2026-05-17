@@ -44,12 +44,17 @@
 	--syntax-tab-size: 4;
 	--vspace: 1.5rem;
 
+	--heading-background-color: black;
+	--heading-text-color: white;
+
 	--text-color: white;
-	--background-color: black;
-	--text-color-link: white;
-	--text-color-link-visited: lightblue;
-	--text-color-link-highlight: red;
-	--text-color-link-active: darkred;
+	--text-background-color: black;
+
+	--link-text-color: white;
+	--link-text-color-visited: purple;
+	--link-text-color-highlight: hotpink;
+	--link-text-color-active: hotpink;
+	--link-background-color: black;
 
 	--font-vcr: "VCR_OSD_Mono";
 	--font-printer: "BankPrinter";
@@ -89,7 +94,6 @@ html
 	height: 100vh;
 	height: 100svh;
 
-	border: 4pt hotpink solid;
 	overflow: hidden;
 }
 
@@ -112,7 +116,6 @@ p
 {
 	margin-block-end: var(--vspace);
 	margin-block-start: var(--vspace);
-	background-color: var(--background-color);
 }
 
 h1
@@ -129,6 +132,8 @@ h6
 {
 	line-height: var(--article-line-height-heading);
 	width: fit-content;
+	background-color: var(--heading-background-color);
+	color: var(--heading-text-color);
 }
 
 h1 
@@ -194,30 +199,36 @@ article
 }
 
 p,
-li, ul
+li, ul, ol
 {
 	line-height: var(--article-line-height-body);
-	background-color: var(--background-color);
-	
+	color: var(--text-color);
+	background-color: var(--text-background-color);
 }
 
-a,a span
+a,
+a span, 
+a summary
 {
-	color: var(--text-color-link);
-	background-color: black;
+	color: var(--link-text-color);
+	background-color: var(--link-background-color);
 }
 
 a span:focus,
 a span:hover
 a:focus,
-a:hover
+a:hover,
+a summary:focus,
+a summary:hover
 {
-	color: var(--text-color-link-highlight);
-	span{color: var(--text-color-link-highlight);}
+	color: var(--link-text-color-highlight);
+	span{color: var(--link-text-color-highlight);}
+	summary{color: var(--link-text-color-highlight);}
 }
 
 a span:active
 a:active {
-	color: var(--text-color-link-active);
-	span{color: var(--text-color-link-highlight);}
+	color: var(--link-text-color-active);
+	span{color: var(--link-text-color-active);}
+	summary{color: var(--link-text-color-active);}
 }

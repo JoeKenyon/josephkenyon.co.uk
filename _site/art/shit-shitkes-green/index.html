@@ -16,7 +16,7 @@
     <link rel="icon" type="image/svg+xml" href="/kesagians.svg" />
     <link rel="icon" type="image/x-icon" href="/kesagians.svg" />
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-tomorrow.css" rel="stylesheet" />
-    <link rel="canonical" href="https://josephkenyon.co.uk/art/shit-shitkes-green/" />
+    <link rel="canonical" href="https://www.josephkenyon.co.uk/art/shit-shitkes-green/" />
   </head>
   <body>
     <div class="site-wrapper">
@@ -244,3 +244,32 @@
     </div>
   </body>
 </html>
+
+<script src="https://unpkg.com/@famebot/chromagen/dist/chromagen.umd.js"></script>
+<script>
+  const colorScheme = chromagen();
+
+  const docstyle = document.documentElement.style;
+
+  // create a few helper strings to keep the code readable
+  const baseBg = `hsl(${colorScheme.hue}, ${colorScheme.saturation}, ${colorScheme.darkness})`;
+  const baseText = `hsl(${colorScheme.hue}, ${colorScheme.saturation}, ${colorScheme.lighter})`;
+
+  const analogBg = `hsl(${colorScheme.analogous}, ${colorScheme.saturation}, ${colorScheme.darker})`;
+  const analogText = `hsl(${colorScheme.analogous}, ${colorScheme.saturation}, ${colorScheme.lightness})`;
+
+  const compBg = `hsl(${colorScheme.complement}, ${colorScheme.saturation}, ${colorScheme.darkness})`;
+  const compText = `hsl(${colorScheme.complement}, ${colorScheme.saturation}, ${colorScheme.lighter})`;
+  const compBright = `hsl(${colorScheme.complement}, ${colorScheme.saturation}, ${colorScheme.lightness})`;
+
+  // set specific target properties
+  docstyle.setProperty("--heading-background-color", compBg);
+  docstyle.setProperty("--heading-text-color", compText);
+  docstyle.setProperty("--text-color", baseText);
+  docstyle.setProperty("--text-background-color", baseBg);
+  docstyle.setProperty("--link-text-color", analogText);
+  docstyle.setProperty("--link-text-color-visited", analogBg);
+  docstyle.setProperty("--link-text-color-highlight", compBright);
+  docstyle.setProperty("--link-text-color-active", compBright);
+  docstyle.setProperty("--link-background-color", analogBg);
+</script>

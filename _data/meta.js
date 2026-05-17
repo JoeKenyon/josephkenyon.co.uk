@@ -1,6 +1,6 @@
 export default
 {
-  url: "https://josephkenyon.co.uk",
+  url: "https://www.josephkenyon.co.uk",
   language: "en",
   description: "Official portfolio of Joseph Kenyon. Artist, Musician and Developer.",
   siteName: "Joseph Kenyon",
@@ -9,7 +9,7 @@ export default
   {
     name: "Joseph Kenyon",
     email: "joekenyon72@gmail.com",
-    url: "https://josephkenyon.co.uk",
+    url: "https://www.josephkenyon.co.uk",
   },
 
   socials: [

@@ -51,6 +51,7 @@
 			&[aria-current="page"] 
 			{
 				text-decoration: underline;
+				color: var(--link-text-color-active);
 			}
 		}
 	}
@@ -102,10 +103,10 @@
 	position: relative;
 }
 
-.page-content.site-main ol, 
-.page-content.site-main ul
+article .page-content ol, 
+article .page-content ul
 {
-	background-color: var(--background-color);
+	background-color: var(--text-background-color);
 }
 
 .site-main 
@@ -215,7 +216,7 @@
 {
 	width: 100%;
 	height: 100%;
-	background-color: black;
+	background-color: var(--heading-background-color);
 	margin: 0;
 }
 
