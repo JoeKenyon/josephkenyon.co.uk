@@ -1,24 +1,29 @@
-# Joseph Kenyon Portfolio
-
-My portfolio website.
+# Portfolio website
 
 ## Tech Stack
 
 - **Static Site Generator:** [Eleventy (11ty)](https://www.11ty.dev/) (v3.1.5+)
 - **Templating Engine:** [Nunjucks](https://mozilla.github.io/nunjucks/)
+
 - **Deployment:** [Cloudflare Pages](https://pages.cloudflare.com/) via [Wrangler](https://developers.cloudflare.com/workers/wrangler/)
+
 - **Image Optimization:** [@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/) (generates AVIF, WebP, and JPEG formats with responsive `<picture>` tags)
+
 - **Styling:** Vanilla CSS (Modern CSS features, custom properties)
+
 - **Automation:** Node.js, Puppeteer, and JSDOM for content syncing.
 
 ## Key Features
 
 - **Automated Music Syncing:** A custom script (`scripts/fetch-music.js`) scrapes Bandcamp using Puppeteer to automatically generate portfolio entries for new music releases.
+
 - **Responsive Images:** All images are processed through Eleventy's image plugin, ensuring they are resized and converted to modern formats (AVIF/WebP) for optimal performance.
+
 - **HTML Prettification:** Output HTML is automatically formatted using Prettier during the build process.
+
 - **SEO Ready:** Includes a sitemap, robots.txt, and metadata-rich `<head>` (via `_data/meta.js`).
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 ├── _data/              # Global data files (meta, about, icons)
