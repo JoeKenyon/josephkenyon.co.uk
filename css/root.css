@@ -194,7 +194,7 @@ article
 	ul:last-of-type, 
 	ol:last-of-type
 	{
-		margin: revert;
+		margin-bottom: 0;
 	}
 }
 

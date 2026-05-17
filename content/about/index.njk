@@ -6,4 +6,44 @@ layout: post.njk
 title: About
 ---
 <h2>Education</h2>
+<ul class="cv-list">
+  {% for edu in about.education %}
+    <li>
+      <div><strong>{{ edu.title }}</strong></div>
+      <em>{{ edu.institution }}</em>
+      <small>({{ edu.date }})</small>
+      <p>{{ edu.desc }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>Awards & Recognition</h2>
+<ul class="cv-list">
+  {% for award in about.awards %}
+    <li>
+      <div><strong>{{ award.title }}</strong></div>
+      <em><small>{{ award.host }}</small></em>
+      <small>({{ award.date }})</small>
+      <p>{{ award.desc }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>Professional Experience</h2>
+{% for job in about.experience %}
+<ul class="cv-list">
+  
+    <li>
+      <div><strong>{{ job.role }}</strong></div>
+      <em><small>{{ job.company }}</small></em>
+      <small>({{ job.date }})</small>
+      <div>
+        {% for line in job.highlights %}
+        {{ line }}<br>
+        {% endfor %}
+      </div>
+    </li>
+
+</ul>
+{% endfor %}
 

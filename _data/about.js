@@ -1,27 +1,74 @@
 export default
 {
-  education: [
+  "education": [
     {
       "title": "MSc in Sound and Music Computing",
       "institution": "Queen Mary University of London",
-      "desc": "Specialized in digital signal processing (DSP) and semantic audio architectures."
+      "date": "Sep 2024 - Dec 2025",
+      "desc": "Specializing in C++ audio programming, real-time DSP applications, advanced audio algorithms, interactive systems, music information retrieval, and data semantics."
     },
     {
-      "title": "BEng in Computer Systems Engineering (First-Class)",
+      "title": "BEng in Computer Systems Engineering (First-Class Honours)",
       "institution": "University of East Anglia",
-      "desc": "Focused on embedded hardware architecture, electronics theory, and low-level C/C++."
+      "date": "Sep 2018 - May 2021",
+      "desc": "Acquired core competencies in embedded systems architecture, low-level digital electronics, network fundamentals, data structures, and computer operating systems."
+    },
+    {
+      "title": "BTEC Extended Diploma (QCF) in IT (D*D*D*)",
+      "institution": "Cambridge Regional College",
+      "date": "Sep 2016 - May 2018",
+      "desc": "Focused on foundational IT systems and software fundamentals."
     }
   ],
-  awards: [
+  "awards": [
     {
       "title": "\"Ready for Muse Hub\" Award",
-      "host": "AEC Hackathon",
-      "description": "Co-developed Ambiful, an immersive granular synthesis audio plugin. Won for UI design and platform readiness."
+      "host": "MuseHub",
+      "date": "Dec 2024",
+      "desc": "Won for 'Ambiful', a real-time granular synthesis plugin developed during a 24-hour hackathon in partnership with the Centre for Digital Music and supported by The Audio Programmer."
     },
     {
-      "title": "First Place: Creative Audio Engineering Prize",
-      "host": "University Project Showcase",
-      "description": "Awarded for the hardware-firmware implementation of a custom STM32 digital guitar effects pedal."
+      "title": "IET Year 3 CSE Prize",
+      "host": "University of East Anglia",
+      "date": "Jul 2021",
+      "desc": "Awarded for the best overall academic performance in the Computer Systems Engineering degree programme."
+    },
+    {
+      "title": "Cambridgeshire Young Artist of the Year (CAYAC)",
+      "host": "CAYAC",
+      "date": "Jan 2014",
+      "desc": "Won the county-wide young artist award for a piece completed during GCSE Art."
+    },
+    {
+      "title": "UK Bebras Challenge Distinction",
+      "host": "Bebras",
+      "date": "Feb 2017",
+      "desc": "Awarded a certificate of distinction in the national computing challenge testing computational thinking."
     }
-  ]
-};
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "company": "Cambridge Electronic Design Limited",
+      "date": "Nov 2021 - May 2022",
+      "highlights": [
+        "Maintained and extended core C++ desktop applications using MFC, improving system stability and integrating new user features.",
+        "Diagnosed and resolved critical bugs in complex data importers to preserve format compatibility with standard and proprietary formats.",
+        "Enhanced UI reliability by debugging layout, alignment, and control configurations.",
+        "Deployed physical and virtual machine environments to manage dedicated multi-version Windows testing configurations.",
+        "Collaborated within a team utilizing TortoiseHg for distributed version control."
+      ]
+    }/*,
+    {
+      "role": "Customer Assistant (Seasonal)",
+      "company": "Marks & Spencer plc",
+      "date": "Dec 2023 - Jan 2024",
+      "highlights": [
+        "Managed daily retail and café operations, ensuring high hygiene standards during food preparation and maintaining floor presentations."
+      ]
+    }*/
+  ],
+  "freelance": {
+    "music": "Self-taught multi-instrumentalist (drums, guitar, bass, vocals) who writes, records, mixes, and masters original music. Provided freelance composition services, including contributing a featured track to the Steam game 7 Days."
+  }
+}
