@@ -8,29 +8,27 @@
         <nav class="post-navigation">
             <ul class="post-navigation-list">
 
-                {% if previousPost %}
-                    <li class="post-navigation-item post-navigation-prev">
+                <li class="post-navigation-item post-navigation-prev">
+                    {% if previousPost %}   
                         <a href="{{ previousPost.url }}" class="post-navigation-link">
-                            ← Previous<br><span class="post-navigation-title">{{ previousPost.data.title }}</span>
+                            ← Previous<br><!--<span class="post-navigation-title">{{ previousPost.data.title }}</span>-->
                         </a>
-                    </li>
-                {% else %}
-                    <li class="post-navigation-item post-navigation-back">
-                        <a href="/{{ collectionKey }}" class="post-navigation-link">← Back to index</a>
-                    </li>
-                {% endif %}
+                    {% endif %}
+                </li>
 
-                {% if nextPost %}
-                    <li class="post-navigation-item post-navigation-next">
+                <li class="post-navigation-item post-navigation-index">
+                    <a href="/{{ collectionKey }}" class="post-navigation-link">
+                        Back to index<br>
+                    </a>
+                </li>
+            
+                <li class="post-navigation-item post-navigation-next">
+                    {% if nextPost %}
                         <a href="{{ nextPost.url }}" class="post-navigation-link">
-                            Next →<br><span class="post-navigation-title">{{ nextPost.data.title }}</span>
+                            Next →<!--<br><span class="post-navigation-title">{{ nextPost.data.title }}</span>-->
                         </a>
-                    </li>
-                {% else %}
-                    <li class="post-navigation-item post-navigation-back">
-                        <a href="/{{ collectionKey }}" class="post-navigation-link">Back to index →</a>
-                    </li>
-                {% endif %}
+                    {% endif %}
+                </li>
 
             </ul>
         </nav>
@@ -42,27 +40,24 @@
     <ul class="post-navigation-list">
         
         {# Previous Link #}
-        {% if pagination.href.previous %}
-            <li class="post-navigation-item post-navigation-prev">
+        <li class="post-navigation-item post-navigation-prev">
+            {% if pagination.href.previous %}
                 <a href="{{ pagination.href.previous }}" class="post-navigation-link">← Previous</a>
-            </li>
-        {% else %}
-            <li class="post-navigation-item post-navigation-back">
-                <a href="/{{collectionKey}}" class="post-navigation-link">← Back to index</a>
-            </li>
-        {% endif %}
+            {% endif %}
+        </li>
+        
+         {# Back to index Link #}
+        <li class="post-navigation-item post-navigation-index">
+            <a href="/{{collectionKey}}" class="post-navigation-link">Back to index</a>
+        </li>
+        
 
         {# Next Link #}
-        {% if pagination.href.next %}
-            <li class="post-navigation-item post-navigation-next">
+        <li class="post-navigation-item post-navigation-next">
+            {% if pagination.href.next %}
                 <a href="{{ pagination.href.next }}" class="post-navigation-link">Next →</a>
-            </li>
-        {% else %}
-            <li class="post-navigation-item post-navigation-back">
-                <a href="/{{collectionKey}}" class="post-navigation-link">Back to index →</a>
-            </li>
-        {% endif %}
-
+            {% endif %}
+        </li>
     </ul>
 </nav>
 {% endif %}

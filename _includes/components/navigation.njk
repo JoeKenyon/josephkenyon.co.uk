@@ -10,7 +10,7 @@
 
       <a href="{{ entry.url }}"
         class="site-nav-link"
-        {% if entry.url == page.url %} 
+        {% if collectionKey in entry.url or entry.url == page.url %} 
           aria-current="page"
         {% endif %}
 

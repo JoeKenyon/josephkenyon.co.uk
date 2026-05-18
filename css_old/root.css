@@ -26,7 +26,7 @@
 
 :root 
 {
-	--article-font-size: 0.89rem;
+	--article-font-size: 1rem;
 	--article-h1-size: 2em;
 	--article-h2-size: 1.5em;
 	--article-h3-size: 1.25em;
@@ -34,9 +34,9 @@
 	--article-h5-size: 1.06125em;
 	--article-h6-size: 1em;
 
-	--nav-link-size: var(--article-h2-size);
+	--nav-link-size: var(--article-h3-size);
 
-	--article-code-size: 0.95em;
+	--article-code-size: 0.9em;
 
 	--post-list-title-size: var(--article-h2-size);
 	--post-list-desc-size: var(--article-font-size);
@@ -45,49 +45,46 @@
 	--article-line-height-heading: 1.25;
 
 
-	--main-font: monospace;
-	--navigation-font: arial;
-	--copyright-font: arial;
-	--heading-font: arial;
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono,
+		Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
 	--syntax-tab-size: 4;
 
-	--site-background-color: rgba(255, 255, 255, 0);
-
-	--heading-background-color: transparent;
+	--heading-background-color: black;
 	--heading-text-color: white;
 
 	--text-color: white;
-	--text-background-color: transparent;
+	--text-background-color: black;
 
-	--link-text-color: rgb(250, 164, 207);
+	--link-text-color: white;
 	--link-text-color-visited: purple;
-	--link-text-color-highlight: rgb(249, 49, 149);
-	--link-text-color-active: var(--link-text-color-highlight);
-	--link-background-color: transparent;
-
-	--img-background-color: whitesmoke;
+	--link-text-color-highlight: hotpink;
+	--link-text-color-active: hotpink;
+	--link-background-color: black;
 
 	--font-vcr: "VCR_OSD_Mono";
 	--font-printer: "BankPrinter";
 
-	--article-line-height-body: 1.25;
-	--article-line-height-heading: 1.8;
+	--article-line-height-body: 1.5;
+	--article-line-height-heading: 1.25;
 
 	--max-site-width: 80ch;
 
-	--vspace: 1.5em;
+	--vspace: 0.5em;
 
 	--video-height: 20em;
 	--max-img-height: 40em;
 	--list-padding: 2.5em;
 	
-	--article-font-vspace: calc(var(--vspace)*0.55);
-	--article-h1-vspace:   calc(var(--vspace)*0.9);
-	--article-h2-vspace:   calc(var(--vspace)*0.5);
-	--article-h3-vspace:   calc(var(--vspace)*0.4);
-	--article-h4-vspace:   calc(var(--vspace)*0.25);
-	--article-h5-vspace:   calc(var(--vspace)*0.25);
-	--article-h6-vspace:   calc(var(--vspace)*0.25);
+	--article-font-vspace: calc(var(--vspace)*1);
+	--article-h1-vspace:   calc(var(--vspace)*2);
+	--article-h2-vspace:   calc(var(--vspace)*1.5);
+	--article-h3-vspace:   calc(var(--vspace)*1.25);
+	--article-h4-vspace:   calc(var(--vspace)*1);
+	--article-h5-vspace:   calc(var(--vspace)*1);
+	--article-h6-vspace:   calc(var(--vspace)*1);
 }
 
 @view-transition 
@@ -105,16 +102,14 @@ body
 {
 	padding: 0;
 	margin: 0 auto;
-	font-family: var(--main-font);
+	font-family: var(--font-family);
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
 	color: var(--text-color);
-
-	font-size: var(--article-font-size);
 }
 
 html 
 {
-    /*background-image: url("./background.png");*/
-
+    background-image: url("./background.png");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -124,21 +119,6 @@ html
 	height: 100svh;
 
 	overflow: hidden;
-
-	background-color: black;
-}
-
-#bg
-{ 
-	position: fixed; 
-	inset: 0; 
-	pointer-events: none;
-	z-index: -1; 
-	opacity: 0.1;
-	background-image: url("./UI-design.svg");
-	background-size: cover;
-	background-position: top;
-	filter: invert(1);
 }
 
 body 
@@ -148,7 +128,6 @@ body
     overflow-y: auto; 
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-	/*background-color: var(--site-background-color);*/
 }
 
 h1{ margin-block-end: var(--article-h1-vspace);  font-size: var(--article-h1-size);}
@@ -167,7 +146,6 @@ h1,h2,h3,h4,h5,h6
 	width: fit-content;
 	background-color: var(--heading-background-color);
 	color: var(--heading-text-color);
-	font-family: var(--heading-font);
 }
 
 ul:first-child, 
@@ -206,13 +184,6 @@ p,li, ul, ol
 	background-color: var(--text-background-color);
 	color: var(--text-color);
 }
-
-li
-{
-	margin-bottom: var(--article-font-vspace);
-}
-
-li:last-child{margin-bottom:0;}
 
 ul, menu, dir,ol
 {

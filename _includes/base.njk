@@ -2,6 +2,7 @@
 <html lang="en">
     {% include 'components/head.njk' %}
     <body>
+        <div id="bg"></div>
         <div class="site-wrapper">
             {% include 'components/navigation.njk' %}
             <main class="site-main">
@@ -11,10 +12,10 @@
         </div>
     </body>
 </html>
-
 <script src="https://unpkg.com/@famebot/chromagen/dist/chromagen.umd.js">
 </script>
 <script>
+    /*
     const colorScheme = chromagen();
 
     const docstyle = document.documentElement.style;
@@ -40,4 +41,5 @@
     docstyle.setProperty('--link-text-color-highlight', compBright);
     docstyle.setProperty('--link-text-color-active', compBright);
     docstyle.setProperty('--link-background-color', analogBg);
+    */
 </script>
