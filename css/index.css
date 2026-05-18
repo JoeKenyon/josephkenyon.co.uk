@@ -1,8 +1,7 @@
 .site-header
 {
-    padding-bottom: var(--vspace);
-	padding-block: var(--vspace);
-    padding-top: calc(var(--vspace) / 2);
+    padding-bottom: var(--article-h1-vspace);
+    padding-top: var(--article-h1-vspace);
 
 	--nav-link-height: calc(var(--nav-link-size) + 1em);
 	--logo-size: var(--nav-link-height );
@@ -49,9 +48,10 @@
 		display: flex;
 		height: var(--nav-link-height);
 
+		gap: var(--article-h1-vspace);
+
 		.site-nav-link
 		{
-			margin-inline-end: var(--vspace);
 			text-decoration: none;
 			font-size: var(--nav-link-size);
 			font-family: var(--font-printer);
@@ -81,14 +81,14 @@
 			flex-direction: column;
 			width: 100%;
 			justify-content: unset;
-			gap: var(--vspace);
+			gap: var(--article-h1-vspace);
 		}
 
 		.site-nav
 		{
 			margin: auto 0;
 			width: fit-content;
-			gap: var(--vspace);
+			gap: var(--article-h1-vspace);
 			.site-nav-link
 			{
 				margin-inline-end: 0;
@@ -107,11 +107,23 @@
 	}
 
 	/* even smaller */
-	@media screen and (max-width: 350px) 
+	@media screen and (max-width: 425px) 
 	{
+		&
+		{
+			height: 100%;
+		}
 		.site-nav
 		{
 			flex-direction: column;
+			height: 100%;
+			width: 100%;
+
+			.site-nav-link
+			{
+				width: 100%;
+				height: calc(var(--nav-link-height) * 0.8);
+			}
 		}
 	}
 }
@@ -167,8 +179,8 @@ article .page-content ul
 .site-footer 
 {
 	/* Layout & Spacing */
-	padding-top: var(--vspace);
-	padding-bottom: calc(var(--vspace) / 2);
+	padding-top: var(--article-h1-vspace);
+	padding-bottom: var(--article-h1-vspace);;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -177,7 +189,8 @@ article .page-content ul
 	/* Component Variables & Internal Styles */
 	--icon-size: 1.9rem;
 
-	.site-footer-copy {
+	.site-footer-copy 
+	{
 		margin: 0;
 		line-height: var(--icon-size);
 		font-size: var(--article-h3-size);
@@ -188,7 +201,7 @@ article .page-content ul
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		gap: var(--vspace);
+		gap: var(--article-h1-vspace);
 		background-color: var(--background-color);
 
 		.site-footer-link {
@@ -211,7 +224,7 @@ article .page-content ul
 @media screen and (max-width: 720px) {
 	.site-footer {
 		flex-direction: column;
-		gap: var(--vspace);
+		gap: var(--article-h1-vspace);
 		justify-content: center;
 
 		p {
@@ -225,7 +238,7 @@ article .page-content ul
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	list-style: none;
-	padding: var(--vspace) 0 0 0;
+	padding: var(--article-h1-vspace) 0 0 0;
 	margin: 0;
 	height: 100%;
 
@@ -300,11 +313,16 @@ code[class*="language-"]
 pre[class*="language-"]
 {
 	margin: 0 !important;
+	margin-bottom: var(--article-font-vspace) !important;
+}
+pre[class*="language-"]:last-child
+{
+	margin-bottom: 0 !important;
 }
 
 .page-content
 {
-	padding-top: var(--vspace);
+	padding-top: 0;
 }
 
 /* Extracted from _includes/components/navigation.njk */
@@ -315,7 +333,7 @@ pre[class*="language-"]
 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: var(--vspace);
+    gap: var(--article-h1-vspace);
 }
 
 .art-grid-item img
@@ -335,7 +353,7 @@ pre[class*="language-"]
 
 .art-grid-link:hover 
 {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .post-list 
@@ -343,6 +361,9 @@ pre[class*="language-"]
     list-style: none;
     padding: 0;
     background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	gap: var(--article-h1-vspace);
 }
 
 .post-list-item 
@@ -352,7 +373,6 @@ pre[class*="language-"]
 
     display: flex;
     align-items: center;
-    margin-block-end: var(--vspace);
 
     line-height: var(--article-line-height-heading);
 
@@ -398,7 +418,7 @@ pre[class*="language-"]
     .post-list-thumbnail
     {
         margin: 0;
-        margin-inline-end: var(--vspace);
+        margin-inline-end: var(--article-h1-vspace);
         min-width: var(--thumbnail-size);
     }
 
@@ -480,7 +500,7 @@ pre[class*="language-"]
     aspect-ratio: 1/1;
     height: 100%;
 
-    padding-bottom: var(--vspace);
+    padding-bottom: var(--article-h1-vspace);
 
     margin: 0;
 
@@ -528,9 +548,9 @@ pre[class*="language-"]
     width: 100%;
     height: var(--video-height);
     border: none;
-    padding-bottom: var(--vspace);
+    padding-block: var(--article-font-vspace);
     margin: 0;
-	background-color: red;
+	background-color: transparent;
 
 	iframe
 	{
@@ -542,6 +562,10 @@ pre[class*="language-"]
 }
 
 /* Extracted from _includes/art.njk */
+.page-title-wrapper
+{
+	margin-block-end: var(--article-h1-vspace);
+}
 .page-title
 {
     overflow: hidden;
