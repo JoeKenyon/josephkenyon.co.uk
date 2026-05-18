@@ -9,16 +9,4 @@ layout: base.njk
     {{ content | safe }}
 </article>
 
-{% include 'components/paginationNavigation.njk' %}
-
-<style>
-.page-title
-{
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    text-decoration: none;
-    line-clamp: 1;
-    -webkit-line-clamp: 1;
-}
-</style>
+{% include 'components/postNavigation.njk' %}

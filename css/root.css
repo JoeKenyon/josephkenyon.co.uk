@@ -26,15 +26,25 @@
 
 :root 
 {
-	--article-font-size: 1.25rem;
+	font-size: 20px;
+	--article-font-size: 1rem;
 	--article-h1-size: 2em;
 	--article-h2-size: 1.5em;
-	--article-h3-size: 1.125em;
-	--article-h4-size: 1.0625em;
-	--article-h5-size: 0.9375em;
-	--article-h6-size: 1.25rem;
+	--article-h3-size: 1.25em;
+	--article-h4-size: 1.125em;
+	--article-h5-size: 1.06125em;
+	--article-h6-size: 1em;
+
+	--nav-link-size: var(--article-h2-size);
+
+	--article-code-size: 0.8em;
+
+	--post-list-title-size: var(--article-h2-size);
+	--post-list-desc-size: var(--article-font-size);
+
 	--article-line-height-body: 1.5;
 	--article-line-height-heading: 1.25;
+
 
 	--font-family: -apple-system, system-ui, sans-serif;
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono,
@@ -59,9 +69,14 @@
 	--font-vcr: "VCR_OSD_Mono";
 	--font-printer: "BankPrinter";
 
-	--vspace: 2rem;
+	--vspace: 0em;
+	--video-height: 20em;
+	--max-img-height: 50em;
+	--list-padding: 1.5em;
 	--article-line-height-body: 1.5;
 	--article-line-height-heading: 1.25;
+
+	--max-site-width: 80ch;
 }
 
 @view-transition 
@@ -80,6 +95,7 @@ body
 	padding: 0;
 	margin: 0 auto;
 	font-family: var(--font-family);
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
 	color: var(--text-color);
 }
 
@@ -182,7 +198,7 @@ h6:first-of-type
 	margin-block-start: 0;
 }
 
-ul:last-of-type, 
+ul:last-child, 
 ol:last-of-type, 
 p:last-child {
     margin-bottom: 0;
@@ -191,7 +207,7 @@ p:last-child {
 
 article
 {
-	ul:last-of-type, 
+	ul:last-child, 
 	ol:last-of-type
 	{
 		margin-bottom: 0;
@@ -204,6 +220,13 @@ li, ul, ol
 	line-height: var(--article-line-height-body);
 	color: var(--text-color);
 	background-color: var(--text-background-color);
+}
+
+ul, menu, dir 
+{
+	margin-block-start: var(--vspace);
+	margin-block-end: var(--vspace);
+	padding-inline-start: calc(var(--list-padding));
 }
 
 a,

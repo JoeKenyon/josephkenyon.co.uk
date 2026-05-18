@@ -1,4 +1,4 @@
-{% if collections[collectionKey] %}
+{% if collections[collectionKey] and not pagination %}
 
     {% set previousPost = collections[collectionKey] | getPreviousCollectionItem %}
     {% set nextPost = collections[collectionKey] | getNextCollectionItem %}
@@ -37,4 +37,32 @@
 
     {% endif %}
 
+{% else %}
+<nav class="post-navigation">
+    <ul class="post-navigation-list">
+        
+        {# Previous Link #}
+        {% if pagination.href.previous %}
+            <li class="post-navigation-item post-navigation-prev">
+                <a href="{{ pagination.href.previous }}" class="post-navigation-link">← Previous</a>
+            </li>
+        {% else %}
+            <li class="post-navigation-item post-navigation-back">
+                <a href="/{{collectionKey}}" class="post-navigation-link">← Back to index</a>
+            </li>
+        {% endif %}
+
+        {# Next Link #}
+        {% if pagination.href.next %}
+            <li class="post-navigation-item post-navigation-next">
+                <a href="{{ pagination.href.next }}" class="post-navigation-link">Next →</a>
+            </li>
+        {% else %}
+            <li class="post-navigation-item post-navigation-back">
+                <a href="/{{collectionKey}}" class="post-navigation-link">Back to index →</a>
+            </li>
+        {% endif %}
+
+    </ul>
+</nav>
 {% endif %}
