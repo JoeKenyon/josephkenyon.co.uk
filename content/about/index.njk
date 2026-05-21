@@ -8,43 +8,69 @@ collectionKey: about
 ---
 <h2>Education</h2>
 <ul class="cv-list">
-  {% for edu in about.education %}
-    <li>
-      <div><strong>{{ edu.title }}</strong></div>
-      <em>{{ edu.institution }}</em>
-      <small>({{ edu.date }})</small>
-      <p>{{ edu.desc }}</p>
+  {% for item in about.education %}
+
+    <li class="cv-list-item">
+
+      <div>
+        <span class="cv-list-title">{{ item.title }}</span>
+        <span class="cv-list-date">{{ item.date }}</span>
+      </div>
+      
+      <span class="cv-list-subhead">{{ item.subhead }}</span>
+
+      <ul class="cv-list-desc">
+        {% for line in item.desc %}
+          <li class="cv-list-desc-item">{{ line }}</li>
+        {% endfor %}
+      </ul>
+
     </li>
   {% endfor %}
 </ul>
 
 <h2>Awards & Recognition</h2>
 <ul class="cv-list">
-  {% for award in about.awards %}
-    <li>
-      <div><strong>{{ award.title }}</strong></div>
-      <em><small>{{ award.host }}</small></em>
-      <small>({{ award.date }})</small>
-      <p>{{ award.desc }}</p>
+  {% for item in about.awards %}
+
+    <li class="cv-list-item">
+
+      <div>
+        <span class="cv-list-title">{{ item.title }}</span>
+        <span class="cv-list-date">{{ item.date }}</span>
+      </div>
+      
+      <span class="cv-list-subhead">{{ item.subhead }}</span>
+
+      <ul class="cv-list-desc">
+        {% for line in item.desc %}
+          <li class="cv-list-desc-item">{{ line }}</li>
+        {% endfor %}
+      </ul>
+
     </li>
   {% endfor %}
 </ul>
 
 <h2>Professional Experience</h2>
-{% for job in about.experience %}
 <ul class="cv-list">
-  
-    <li>
-      <div><strong>{{ job.role }}</strong></div>
-      <em><small>{{ job.company }}</small></em>
-      <small>({{ job.date }})</small>
+  {% for item in about.experience %}
+
+    <li class="cv-list-item">
+
       <div>
-        {% for line in job.highlights %}
-        <p>{{ line }}</p>
-        {% endfor %}
+        <span class="cv-list-title">{{ item.title }}</span>
+        <span class="cv-list-date">{{ item.date }}</span>
       </div>
+
+      <span class="cv-list-subhead">{{ item.subhead }}</span>
+
+      <ul class="cv-list-desc">
+        {% for line in item.desc %}
+          <li class="cv-list-desc-item">{{ line }}</li>
+        {% endfor %}
+      </ul>
+
     </li>
-
+  {% endfor %}
 </ul>
-{% endfor %}
-

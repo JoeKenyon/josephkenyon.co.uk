@@ -3,55 +3,55 @@ export default
   "education": [
     {
       "title": "MSc in Sound and Music Computing",
-      "institution": "Queen Mary University of London",
+      "subhead": "Queen Mary University of London",
       "date": "Sep 2024 - Dec 2025",
-      "desc": "Specializing in C++ audio programming, real-time DSP applications, advanced audio algorithms, interactive systems, music information retrieval, and data semantics."
+      "desc": ["Specializing in C++ audio programming, real-time DSP applications, advanced audio algorithms, interactive systems, music information retrieval, and data semantics."]
     },
     {
       "title": "BEng in Computer Systems Engineering (First-Class Honours)",
-      "institution": "University of East Anglia",
+      "subhead": "University of East Anglia",
       "date": "Sep 2018 - May 2021",
-      "desc": "Acquired core competencies in embedded systems architecture, low-level digital electronics, network fundamentals, data structures, and computer operating systems."
+      "desc": ["Acquired core competencies in embedded systems architecture, low-level digital electronics, network fundamentals, data structures, and computer operating systems."]
     },
     {
       "title": "BTEC Extended Diploma (QCF) in IT (D*D*D*)",
-      "institution": "Cambridge Regional College",
+      "subhead": "Cambridge Regional College",
       "date": "Sep 2016 - May 2018",
-      "desc": "Focused on foundational IT systems and software fundamentals."
+      "desc": ["Focused on foundational IT systems and software fundamentals."]
     }
   ],
   "awards": [
     {
       "title": "\"Ready for Muse Hub\" Award",
-      "host": "MuseHub",
+      "subhead": "MuseHub",
       "date": "Dec 2024",
-      "desc": "Won for 'Ambiful', a real-time granular synthesis plugin developed during a 24-hour hackathon in partnership with the Centre for Digital Music and supported by The Audio Programmer."
+      "desc": ["Won for 'Ambiful', a real-time granular synthesis plugin developed during a 24-hour hackathon in partnership with the Centre for Digital Music and supported by The Audio Programmer."]
     },
     {
       "title": "IET Year 3 CSE Prize",
-      "host": "University of East Anglia",
+      "subhead": "University of East Anglia",
       "date": "Jul 2021",
-      "desc": "Awarded for the best overall academic performance in the Computer Systems Engineering degree programme."
+      "desc": ["Awarded for the best overall academic performance in the Computer Systems Engineering degree programme."]
     },
     {
       "title": "Cambridgeshire Young Artist of the Year (CAYAC)",
-      "host": "CAYAC",
+      "subhead": "CAYAC",
       "date": "Jan 2014",
-      "desc": "Won the county-wide young artist award for a piece completed during GCSE Art."
+      "desc": ["Won the county-wide young artist award for a piece completed during GCSE Art."]
     },
     {
       "title": "UK Bebras Challenge Distinction",
-      "host": "Bebras",
+      "subhead": "Bebras",
       "date": "Feb 2017",
-      "desc": "Awarded a certificate of distinction in the national computing challenge testing computational thinking."
+      "desc": ["Awarded a certificate of distinction in the national computing challenge testing computational thinking."]
     }
   ],
   "experience": [
     {
-      "role": "Software Engineer",
-      "company": "Cambridge Electronic Design Limited",
+      "title": "Software Engineer",
+      "subhead": "Cambridge Electronic Design Limited",
       "date": "Nov 2021 - May 2022",
-      "highlights": [
+      "desc": [
         "Maintained and extended core C++ desktop applications using MFC, improving system stability and integrating new user features.",
         "Diagnosed and resolved critical bugs in complex data importers to preserve format compatibility with standard and proprietary formats.",
         "Enhanced UI reliability by debugging layout, alignment, and control configurations.",

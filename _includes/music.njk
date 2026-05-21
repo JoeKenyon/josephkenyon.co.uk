@@ -8,9 +8,11 @@ layout: base.njk
 <article class="page-content">
 
     {% if thumbnail %}
+    <div class="album-cover-wrapper">
         <figure class="album-cover">
             {% image thumbnail, title %}
         </figure>
+    </div>
     {% endif %}
 
     <div class="music-tracks">
