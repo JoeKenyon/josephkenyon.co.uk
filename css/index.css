@@ -296,6 +296,8 @@ pre[class*="language-"]
 .artwork-full
 {
     margin-bottom: var(--article-h1-vspace);
+    height: 100%;
+    height: 50svh;
 }
 
 .post-list 
