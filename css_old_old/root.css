@@ -1,0 +1,137 @@
+@font-face 
+{
+  font-family: 'BankPrinter';
+  src: url('/fonts/F25_Bank_Printer.otf') format('opentype'),
+       url('/fonts/F25_Bank_Printer.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face 
+{
+  font-family: 'BankPrinter';
+  src: url('/fonts/F25_Bank_Printer_Bold.otf') format('opentype'),
+       url('/fonts/F25_Bank_Printer_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face 
+{
+  font-family: 'VCR_OSD_Mono';
+  src: url('/fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+:root 
+{
+    /* core palette */
+    --background-color: #ffffffdf; 
+    --text-color: black;
+    --text-color-muted: black;
+    --text-background-color: #ffffff;
+    --heading-background-color: transparent;
+    
+    /* links & accents */
+    --link-text-color: #362b35;
+    --link-text-color-active: #ff74cc; 
+    --link-background-color: black;
+
+    /* typography */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-vcr: "BankPrinter", 'Courier New', Courier, monospace; 
+    
+    --navigation-font: var(--font-vcr);
+    --copyright-font: var(--font-vcr);
+    --body-font: var(--font-sans);
+
+    /* sizing & typography scale */
+    --article-font-size: 1.125rem; 
+    --nav-link-size: 1rem;
+    --article-h2-size: 1.5rem;
+    --article-h3-size: 1.25rem;
+    
+    --post-list-title-size: 1.25rem;
+    --post-list-desc-size: 1rem;
+    --article-code-size: 0.9em;
+
+    /* spacing & layout */
+    --max-site-width: 900px; 
+    --max-img-height: 75vh;
+    --video-height: 400px; 
+    
+    --article-h1-vspace: 2rem;
+    --article-h2-vspace: 1.5rem;
+
+    /* line heights */
+    --article-line-height-body: 1.6;
+    --article-line-height-heading: 1.2;
+}
+
+/* global resets & base */
+*, *::before, *::after 
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background-color: white;
+    font-size: 100%;
+    background-image: url("./UI-design.svg");
+    background-size: cover;
+    background-position: top left;
+}
+
+body 
+{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    line-height: var(--article-line-height-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+}
+
+/* headings */
+h1, h2, h3, h4, h5, h6 
+{
+    line-height: var(--article-line-height-heading);
+    margin-top: 0;
+    margin-bottom: var(--article-h2-vspace);
+    font-weight: 700;
+}
+
+/* links */
+a 
+{
+    color: var(--link-text-color);
+    transition: color 0.2s ease;
+}
+
+a:hover, a:focus 
+{
+    color: var(--link-text-color-active);
+}
+
+/* images */
+img, picture, svg, video 
+{
+    display: block;
+    max-width: 100%;
+}
+
+/* selection highlight */
+::selection 
+{
+    background-color: var(--link-text-color-active);
+    color: #fff;
+}
