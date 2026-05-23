@@ -454,7 +454,7 @@ pre[class*="language-"]
 /* post navigation */
 .post-navigation-list 
 {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr 1fr; 
     align-items: center;
     list-style: none;
