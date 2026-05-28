@@ -84,7 +84,7 @@ html
 {
     height: 100vh;
     height: 100svh;
-    overflow: hidden;
+    overflow: auto;
     background-color: transparent;
     font-size: 100%;
     background-image: url("./trustme.png");
@@ -94,16 +94,16 @@ html
 
 body 
 {
-    background-color: var(--background-color);
+    background-color: rgba(0, 0, 0, 0.35);
     color: var(--text-color);
     font-family: var(--body-font);
     line-height: var(--article-line-height-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100%; 
-    overflow-y: auto; 
+    overflow-y: auto;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-overflow-scrolling: touch;*/
     margin: 0;
 }
 

@@ -509,6 +509,8 @@ pre[class*="language-"]
         margin: 0;
         padding-left: 2rem;
         font-size: 0.9rem;
+        border: none;
+        box-shadow: none;
     }
 }
 
@@ -521,7 +523,7 @@ pre[class*="language-"]
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: var(--article-h3-size);
+    font-size: var(--article-h4-size);
     background-color: transparent;
     box-shadow: none;
     border: none;
