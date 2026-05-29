@@ -1,17 +1,19 @@
 ---
 layout: base.njk
 ---
+
 <div class="page-title-wrapper">
     <h1 class="page-title">{{ title }}</h1>
 </div>
 
+{% if video %}
+    <div class="project-video-wrapper">
+        <iframe class="project-video" src={{video}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
+        </iframe>
+    </div>
+{% endif %}
+
 <article class="page-content">
-    {% if video %}
-        <div class="project-video-wrapper">
-            <iframe class="project-video" src={{video}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-    {% endif %}
     {{ content | safe }}
 </article>
 

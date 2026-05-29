@@ -1,78 +1,3 @@
-@font-face 
-{
-  font-family: 'BankPrinter';
-  src: url('/fonts/F25_Bank_Printer.otf') format('opentype'),
-       url('/fonts/F25_Bank_Printer.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-@font-face 
-{
-  font-family: 'BankPrinter';
-  src: url('/fonts/F25_Bank_Printer_Bold.otf') format('opentype'),
-       url('/fonts/F25_Bank_Printer_Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-display: swap;
-}
-
-@font-face 
-{
-  font-family: 'VCR_OSD_Mono';
-  src: url('/fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
-  font-weight: normal;
-  font-display: swap;
-}
-
-:root 
-{
-    /* core palette */
-    --background-color: transparent;
-    --text-color: black;
-    --text-color-muted: black;
-    --text-background-color: white;
-    --heading-background-color: transparent;
-    --heading-text-color: white;
-    --text-box-shadow: 4pt 4pt var(--text-color);
-    --text-border: none;
-    
-    /* links & accents */
-    --link-text-color: #362b35;
-    --link-text-color-active: #ff74cc; 
-    --link-background-color: black;
-
-    /* typography */
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-vcr: "VCR_OSD_MONO", 'Courier New', Courier, monospace;
-    --font-printer: "BankPrinter";
-    
-    --navigation-font: var(--font-printer);
-    --copyright-font: var(--font-vcr);
-    --body-font: var(--font-printer);
-    --heading-font: var(--font-printer);
-
-    /* sizing & typography scale */
-    --article-font-size: 1.125rem; 
-    --nav-link-size: 1.42rem;
-    --article-h1-size: 2.5rem;
-    --article-h2-size: 1.5rem;
-    --article-h3-size: 1.25rem;
-    
-    --post-list-title-size: 1.4rem;
-    --post-list-desc-size: 1.2rem;
-    --article-code-size: 0.9em;
-
-    /* spacing & layout */
-    --max-site-width: 900px; 
-    --max-img-height: 75vh;
-    --video-height: 400px; 
-    
-    --article-h1-vspace: 2rem;
-    --article-h2-vspace: 1.5rem;
-
-    /* line heights */
-    --article-line-height-body: 1.3;
-    --article-line-height-heading: 1.2;
-}
 
 /* global resets & base */
 *, *::before, *::after 
@@ -80,80 +5,50 @@
     box-sizing: border-box;
 }
 
+body
+{
+    display: flex;
+    flex-direction: column;
+}
+
 html
 {
-    height: 100vh;
-    height: 100svh;
-    overflow: auto;
-    background-color: transparent;
-    font-size: 100%;
-    background-image: url("./trustme.png");
-    background-size: cover;
-    background-position: top left;
+    font-family: 'Courier New';
 }
 
-body 
+p,li,a
 {
-    background-color: rgba(0, 0, 0, 0.35);
-    color: var(--text-color);
-    font-family: var(--body-font);
-    line-height: var(--article-line-height-body);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100%; 
-    overflow-y: auto;
-    overflow-x: hidden;
-    /*-webkit-overflow-scrolling: touch;*/
-    margin: 0;
+    font-size: 11pt;
 }
 
-/* headings */
-h1{font-size: var(--article-h1-size);}
-h1, h2, h3, h4, h5, h6 
+pre[class*="language-"],
+code[class*="language-"] 
 {
-    line-height: var(--article-line-height-heading);
-    margin-top: 0;
-    margin-bottom: var(--article-h2-vspace);
-    font-weight: 700;
-    background-color: var(--heading-background-color);
-    color: var(--heading-text-color);
-    font-family: var(--font-printer);
-    text-shadow: 2pt 2pt black;
-    text-transform: uppercase;
-    transform: rotate(-0.5deg);
+    font-size: 9pt !important;            
+    border-radius: 0px !important;
+    font-family: 'Courier New' !important;
 }
 
-/* links */
-a 
+pre[class*="language-"] 
 {
-    color: var(--link-text-color);
-    transition: color 0.2s ease;
+    margin: 0 !important;
+    margin-block: 0 !important;
+    border: none;
 }
 
-a:hover, a:focus 
+h1,h2,h3,h4,h5,h6
 {
-    color: var(--link-text-color-active);
+    font-size: 12pt;
 }
 
-/* images */
 img, picture, svg, video 
 {
     display: block;
     max-width: 100%;
 }
 
-/* selection highlight */
-::selection 
+img
 {
-    background-color: var(--link-text-color-active);
-    color: #fff;
-}
-
-ol{padding-inline-start: 60px;}
-ul{padding-inline-start: 40px;}
-p,ul,ol
-{
-    background-color: var(--text-background-color);
-    box-shadow: var(--text-box-shadow);
-    border: var(--text-border);
+    object-fit: contain;
+    height: fit-content;
 }
