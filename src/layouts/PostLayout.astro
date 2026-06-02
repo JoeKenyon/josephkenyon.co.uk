@@ -1,0 +1,15 @@
+---
+import MainLayout from "@layouts/MainLayout.astro"
+import PostNavigation from "@components/PostNavigation.astro";
+import { type DataEntryMap } from 'astro:content';
+type Props = { title: string; collection: keyof DataEntryMap; }
+const { title, collection } = Astro.props as Props;
+---
+<MainLayout title={title}>
+	<div class="page-content">
+        <h1 class="page-title">{ title }</h1>
+    	<slot/>
+	</div>
+    <PostNavigation collection={collection}/>
+</MainLayout>
+

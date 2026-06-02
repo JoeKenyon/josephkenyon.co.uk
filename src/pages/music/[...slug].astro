@@ -1,0 +1,32 @@
+---
+import { render } from 'astro:content';
+import PostLayout from '@layouts/PostLayout.astro';
+import { getCollectionPaths } from "@lib";
+import { Image } from 'astro:assets';
+export const prerender = true;
+
+export async function getStaticPaths()
+{ 
+	return await getCollectionPaths('music');
+}
+
+const music = Astro.props;
+const { Content } = await render(music);
+---
+
+<PostLayout title={music.data.title} collection="music">
+	{music.data.thumbnail && (
+		<div class="album-cover-wrapper">
+            <Image class="album-cover" src={music.data.thumbnail} alt={music.data.title} />
+		</div>
+	)}
+	<div class="music-tracks">
+		{music.data.tracks.map(track => (
+			<iframe 
+			class="music-track-iframe" 
+			src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}
+			loading="lazy"
+			/>
+		))}
+    </div>
+</PostLayout>

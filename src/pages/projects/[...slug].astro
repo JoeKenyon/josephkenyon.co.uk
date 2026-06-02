@@ -1,0 +1,24 @@
+---
+import { render } from 'astro:content';
+import PostLayout from '@layouts/PostLayout.astro';
+import { getCollectionPaths } from "@lib";
+export const prerender = true;
+
+export async function getStaticPaths()
+{ 
+	return await getCollectionPaths('projects');
+}
+
+const project = Astro.props;
+const { Content } = await render(project);
+---
+
+<PostLayout title={project.data.title} collection="projects">
+	{project.data.video && (
+		<div class="project-video-wrapper">
+			<iframe class="project-video" src={project.data.video} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
+			</iframe>
+		</div>
+	)}
+	<Content/>
+</PostLayout>

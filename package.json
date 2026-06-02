@@ -1,27 +1,31 @@
 {
-  "name": "joseph-kenyon-portfolio",
-  "version": "1.0.0",
-  "description": "",
+ "name": "joseph-kenyon-portfolio",
   "type": "module",
-  "scripts": {
-    "dev": "rm -rf _site && npx @11ty/eleventy --serve",
-    "build": "rm -rf _site && npx @11ty/eleventy",
-    "deploy": "npm run build && wrangler --commit-dirty=true pages deploy _site",
-    "sync-music": "node scripts/fetch-music.js"
-  },
-  "keywords": [],
-  "author": "",
   "license": "SEE LICENSE IN LICENSE",
-  "dependencies": {
-    "@11ty/eleventy": "^3.1.5",
-    "@11ty/eleventy-img": "^6.0.4",
-    "@11ty/eleventy-navigation": "^1.0.5",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+  "version": "0.0.1",
+  "engines": 
+  {
+    "node": ">=22.12.0"
+  },
+  "scripts": 
+  {
+    "dev": "rm -rf _site && astro dev",
+    "build": "rm -rf _site && astro build",
+    "preview": "npm run build && astro preview",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler --commit-dirty=true pages deploy dist"
+  },
+  "dependencies": 
+  {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^6.4.2",
+    "image-size": "^2.0.2",
     "jsdom": "^29.1.1",
     "prettier": "^3.8.3",
     "puppeteer": "^25.0.2"
   },
-  "devDependencies": {
+  "devDependencies": 
+  {
     "wrangler": "^4.87.0"
   }
 }

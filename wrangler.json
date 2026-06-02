@@ -1,5 +1,5 @@
 {
   "name": "josephkenyon-co-uk",
-  "pages_build_output_dir": "_site",
+  "pages_build_output_dir": "dist",
   "compatibility_date": "2026-05-04"
 }

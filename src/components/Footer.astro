@@ -1,0 +1,32 @@
+---
+const socials = [
+    ["Email", "mailto:joekenyon72@gmail.com"],
+    ["LinkedIn", "https://www.linkedin.com/in/joe-kenyon/"],
+    ["Instagram", "https://instagram.com/kenyon_joe"],
+    ["GitHub", "https://github.com/JoeKenyon"]
+];
+---
+<footer class="site-footer">
+    <div class="site-footer-copy"><p>&copy; Joseph Kenyon</p></div>
+
+    <div class="site-footer-socials">
+
+        {socials.map((entry) => 
+        {
+            const socialName = entry[0];
+            const socialUrl = entry[1];
+
+            return (           
+                <a href={socialUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label={socialName} 
+                class="site-footer-link"
+                >{socialName}</a>
+            )
+        })
+        }
+
+    </div>
+
+</footer>

@@ -1,0 +1,33 @@
+---
+import { getCollection, type DataEntryMap } from 'astro:content';
+type Props = { collection: keyof DataEntryMap; }
+const { collection } = Astro.props as Props;
+const allPosts = await getCollection(collection);
+
+const curPostIdx = allPosts.findIndex(post => post.id === Astro.params.slug);
+
+const nextPost = ((curPostIdx >= 0) && (curPostIdx < allPosts.length - 1)) ?
+    allPosts[curPostIdx + 1]
+    : undefined;
+
+const previousPost = curPostIdx > 0 ?
+    allPosts[curPostIdx  - 1]
+    : undefined;
+
+---
+<nav class="post-navigation">
+    <ul class="post-navigation-list">
+        
+        <li class="post-navigation-item post-navigation-prev">
+            {previousPost && ( <a href={`/${collection}/${previousPost.id}/`} class="post-navigation-link">← Prev</a>)}
+        </li>
+
+        <li class="post-navigation-item post-navigation-index">
+            <a href={`/${collection}/`} class="post-navigation-link">Index</a>
+        </li>
+        
+        <li class="post-navigation-item post-navigation-next">
+            {nextPost && ( <a href={`/${collection}/${nextPost.id}/`} class="post-navigation-link">Next →</a>)}
+        </li>
+    </ul>
+</nav>
