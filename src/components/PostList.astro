@@ -1,17 +1,37 @@
 ---
 import { getCollection, type DataEntryMap } from 'astro:content';
 import { Image } from "astro:assets";
-type Props = { collection: keyof DataEntryMap; }
-const { collection } = Astro.props as Props;
+type Props = { collection: keyof DataEntryMap; thumbnails: boolean; }
+const { collection, thumbnails = true } = Astro.props as Props;
 const allPosts = await getCollection(collection);
 ---
+{thumbnails && (
 <ul class="post-list">
-	{allPosts.map(post => (
-		<a class="post-list-link" href={`/${collection}/${post.id}`}>
-			{post.data.thumbnail && ( <div class="thumbnail-wrapper"><Image class="post-list-thumbnail" src={post.data.thumbnail} alt={post.data.title} /></div>)}
-			<div class="post-list-content">
-			{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
-			</div>
-		</a>
-	))}
+
+		{
+			allPosts.map(post => (
+			<a class="post-list-link" href={`/${collection}/${post.id}`}>
+				{post.data.thumbnail && ( <div class="thumbnail-wrapper"><Image class="post-list-thumbnail" src={post.data.thumbnail} alt={post.data.title} /></div>)}
+				<div class="post-list-content">
+				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
+				</div>
+			</a>
+		))
+		}
 </ul>
+)}
+
+{!thumbnails && (
+<ul class="plain-post-list">
+
+		{
+			allPosts.map(post => (
+			<a class="post-list-link" href={`/${collection}/${post.id}`}>
+				<div class="post-list-content">
+				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
+				</div>
+			</a>
+		))
+		}
+</ul>
+)}

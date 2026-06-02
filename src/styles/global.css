@@ -42,13 +42,21 @@ p, li
     letter-spacing: -0.03rem;
     font-size: 1.1rem;
 }
-
+.plain-post-list
+{
+    padding: 0;
+}
 .post-list
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0;
     gap: 1.3rem;
+}
+
+.post-list,
+.plain-post-list
+{
 
     .post-list-link
     {
@@ -68,12 +76,27 @@ p, li
             }
         }
 
+        &:hover
+        {
+
+            .post-list-content
+            {
+                .post-list-title
+                {
+                    background-color: hotpink;
+                    color: white;
+                }
+            }
+        }
+
         .post-list-content
         {    
             .post-list-title
             {
+                width:fit-content;
                 text-decoration: none;
                 display: inline-block;
+                color: black;
             }
         }
     }
@@ -127,7 +150,6 @@ pre[class*="language-"]
     width: 100%;
     height: 100%;
     background-color: white;
-    max-width: 120ch;  
 }
 
 .site-main
@@ -204,12 +226,32 @@ pre[class*="language-"]
     width: 100%;
     height: 250pt;
 
+    margin-top: 0.8rem;
+
     .project-video
     {
         width: 100%;
         height: 100%;
         border: none;
     }
+}
+
+.album-cover-wrapper
+{
+    max-height: 650px;
+    min-height: 350px;
+    width: 100%;
+    height: 35svw;
+
+    .album-cover
+    {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 650px;
+    }
+    
 }
 
 .music-tracks 
@@ -232,6 +274,6 @@ pre[class*="language-"]
 
 .page-title
 {
-    font-size: 1.4rem;
-    padding-block: 1rem;
+    font-size: 1.3rem;
+    padding-top: 0.8rem;
 }
