@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import headerImage from "@assets/imgs/penis 2.png"; // Note: might want to double check this filename later!
-
+import headerImage from "@assets/imgs/penis 2.png";
 const pages = [
     ["Home", "/"],
     ["Projects", "/projects"],
@@ -9,70 +8,15 @@ const pages = [
     ["Music", "/music"],  
     ["About", "/about"]
 ];
-
-  function myFunction()
-  {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") 
-    {
-      x.style.display = "none";
-    } 
-    else
-    {
-      x.style.display = "block";
-    }
-  }
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<header class="topnav">
-
-  <div id="top-bar">
-    <a href="/" id="joe" class="site-logo active">
-      <Image src={headerImage} width={220} alt="Joe Logo" />
-    </a>
-
-    <a href="javascript:void(0);" class="icon" id="menuToggle">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-
-  <div id="myLinks">
-    {pages.map((page) => {
-    const pageName = page[0];
-    const pageUrl = page[1];
-    return (           
-      <a href={pageUrl} aria-label={pageName} class="site-nav-link">{pageName}</a>
-    )
-    })}
-  </div>
-  
+<header class="site-header">
+  <a href="/" class="site-logo">
+    <Image class="site-logo-img" src={headerImage} width={220} alt="Joe Logo"/>
+  </a>
+  <button id="site-nav-toggle" style="display: none">{"+"}</button>
+  <nav class="site-nav">
+    {
+      pages.map((page) => ( <a href={page[1]} aria-label={page[0]} class="site-nav-link">{page[0]}</a>))
+    }
+  </nav>
 </header>
-
-
-<style>
-/* Your existing styles remain exactly the same */
-.topnav { overflow: visible; background-color: white; position: sticky; top: 0; padding-top: var(--site-padding); padding-inline: var(--site-padding);}
-#top-bar {height: var(--header-height); display: flex; align-items: center; justify-content: space-between; width:100%; background-color: white;}
-.topnav #myLinks { display: none; gap: 0rem; position: absolute; background-color: white; gap: 0.5rem; width: 100%; left: 0; top: calc(var(--header-height) + var(--site-padding)); flex-direction: column; height: calc(100svh - var(--header-height) - var(--site-padding)); place-items: center; }
-.site-nav-link { color: black; width: fit-content; background-color: white; text-align: center; padding: 0.1rem; text-decoration: none; display: block; font-size: 1.3rem;}
-.site-nav-link:hover { background-color: hotpink; color: white;}
-.topnav #joe { width: auto; height: 100%; display: flex;}
-#joe img { height: 100%; width: fit-content; object-fit: contain; }
-.topnav #menuToggle { font-size: 1.5rem; background: transparent; display: block; color: black; text-align: center; text-decoration: none; height: 100%; aspect-ratio: 1/1; width: auto; align-items: center; justify-content: center; display: flex; }
-</style>
-
-<script>
-  // This script runs entirely in the browser
-  const toggleBtn = document.getElementById("menuToggle");
-  const linksContainer = document.getElementById("myLinks");
-
-  if (toggleBtn && linksContainer) {
-    toggleBtn.addEventListener("click", () => {
-      if (linksContainer.style.display === "flex") {
-        linksContainer.style.display = "none";
-      } else {
-        linksContainer.style.display = "flex";
-      }
-    });
-  }
-</script>

@@ -1,0 +1,109 @@
+@media (max-width: 650px) 
+{
+    :root
+    {
+        --header-height: 40px;
+        --footer-height: 20px;
+        --site-padding: 0rem;
+
+        --text-font: "Courier New";
+
+        --main-font-size: 100%;
+        --main-line-height: 100%;
+        --main-letter-spacing: -0.01rem;
+
+        --content-width: none;
+
+        --text-color: black;
+        --text-color-invert: hotpink;
+    }
+
+    .site-footer
+    {
+        padding-bottom: 1rem;
+    }
+
+    .site-header
+    {
+        height: var(--header-height);
+        flex-direction: row;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        background-color: hotpink;
+        width: 100%;
+        padding-inline: 1rem;
+        padding-block: 1.5rem;
+
+    }
+
+    .post-navigation
+    {
+        padding-top: 1rem;
+    }
+
+    .site-main
+    {
+        padding-inline: 1rem;
+    }
+
+    .site-logo
+    {
+        height: var(--header-height);
+        width: fit-content;
+        .site-logo-img
+        {
+            height: var(--header-height);
+            object-fit: contain;
+            width: auto;
+        }
+    }
+
+    #site-nav-toggle
+    {
+        display: flex !important;
+        border: none;
+        background-color: white;
+        font-size: 1rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        font-weight: 100;
+        font-family: monospace;
+        place-items: center;
+        place-content: center;
+        &:hover
+        {
+            background-color: hotpink;
+            color: white;
+        }
+    }
+
+    .site-nav
+    {
+        display: none;
+        flex-wrap: wrap;
+        position: absolute;
+        top: calc(var(--header-height) + 0.5rem);
+        left: 0;
+        background-color: white;
+        flex-direction: column;
+        width: 100%;
+        border-bottom: hotpink 0.2rem solid;
+        padding-block: 0.8rem;
+    }
+
+    .page-title
+    {
+        width: fit-content;
+    }
+
+    .site-footer-socials
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        flex-direction: column;
+        place-items: center;
+        word-break: break-all;
+        width: 100%;
+    }
+}

@@ -1,0 +1,65 @@
+*, *::before, *::after 
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: var(--main-font-size);
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--text-font);
+    line-height: var(--main-line-height);
+    letter-spacing: var(--main-letter-spacing);
+}
+
+body *
+{
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+* + p,
+* + img,
+* + ul,
+* + ol,
+* + pre,
+* + h1,
+* + h2,
+* + h3,
+* + h4
+{
+    margin-top: 0.8rem;
+}
+
+img
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a
+{
+    color: var(--text-color);
+    text-decoration: none;
+
+    &:hover
+    {
+        color: var(--text-color-invert);
+    }
+}
+
