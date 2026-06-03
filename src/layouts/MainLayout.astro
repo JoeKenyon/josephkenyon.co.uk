@@ -13,12 +13,14 @@ const { title } = Astro.props;
         <BaseHead title={title}/>
     }
     
-    <body>
+    <body transition:animate="slide">
         <Header/>
+        <div>
         <main class="site-main">
             <slot/>
         </main>
         <Footer/>
+        </div>
     </body>
 
     <script>

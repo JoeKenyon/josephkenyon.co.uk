@@ -1,7 +1,7 @@
 .site-header
 {
-    padding-top: 1rem;
-    height: fit-content;
+    padding-top: 0rem;
+    height: var(--header-height);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -26,12 +26,14 @@
 {
     display: flex;
     height: fit-content;
+    height: 100%;
 }
 .site-nav
 {
     display: flex;
     place-content: center;
     gap: 1rem;
+
 }
 
 .site-nav-link
@@ -49,7 +51,6 @@
 {
     width: 100%;
     text-align: center;
-    margin-top: 1rem;
 }
 
 .site-main
@@ -57,7 +58,7 @@
     width: 100%;
     max-width: var(--content-width);
 
-    padding-top: var(--header-height);
+    padding-top: 2rem;
     padding-inline: var(--site-padding);
 
     place-self: center;
@@ -71,13 +72,14 @@
 
 .site-footer
 {
-    margin-block: var(--header-height);
+    margin-block: 2rem;
     display: flex;
     flex-direction: column;
     width: 100%;
     place-items: center;
     gap: 1rem;
     padding-inline: var(--site-padding);
+    padding-bottom: 2rem;;
 }
 
 .site-footer-socials
@@ -98,13 +100,24 @@
 
 .post-list
 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: block;
+    columns: 2;
 }
 
 .post-list-link
 {
-    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    height: fit-content;
+    
+    .post-list-thumbnail
+    {
+        height: fit-content;
+        width: 100%;
+        object-fit: cover;
+    }
+
     &:hover
     {
         .post-list-thumbnail{
@@ -159,8 +172,17 @@
     height: 250px;
     border: none;
 }
-.album-cover-wrapper{}
-.album-cover{}
+.album-cover-wrapper
+{
+    margin-top: 0.8rem;
+    width: 100%;
+}
+.album-cover
+{
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
 
 
 .music-tracks 

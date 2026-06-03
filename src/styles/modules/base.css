@@ -16,10 +16,14 @@ html
     /*scrollbar-gutter: stable both-edges;*/
 }
 
-pre,code
+pre[data-language]
 {
-    line-height: revert;
-    font-family: revert;
+    letter-spacing: normal;
+    code
+    {
+        font-size: 0.8rem;
+        font-family: monospace;
+    }
 }
 
 img,picture,svg,video
@@ -32,11 +36,17 @@ img,picture,svg,video
 
 body
 {
-    min-height: 100vh;
     font-family: var(--text-font);
     line-height: var(--main-line-height);
     letter-spacing: var(--main-letter-spacing);
+    display: grid;
+    grid-template-rows: var(--header-height) 1fr;
+}
+
+body > div
+{
     display: flex;
+    width: 100svw;
     flex-direction: column;
 }
 

@@ -1,6 +1,8 @@
 ---
 import "@styles/global.css"
 
+import { ClientRouter } from "astro:transitions";
+
 type Props = { title: string; }
 const { title } = Astro.props;
 
@@ -20,4 +22,5 @@ const description = "";
   <link rel="icon" type="image/x-icon" href="/kesagians.svg">
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <ClientRouter />
 </head>

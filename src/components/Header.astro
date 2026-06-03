@@ -8,18 +8,19 @@ const pages = [
     ["Music", "/music"],  
     ["About", "/about"]
 ];
----
-<header class="site-header">
 
-	<button class="site-burger" style="display: none">
+---
+<header class="site-header" transition:persist>
+
+	<button class="site-burger" style="display: none" transition:animate="none">
 		<svg class="wFCWne" viewBox="0 0 24 24" stroke="currentColor" jsname="B1n9ub" focusable="false"><g transform="translate(12,12)"><path class="hlJH0" d="M-9 -5 L9 -5" fill="none" stroke-width="2"></path><path class="HBu6N" d="M-9 0 L9 0" fill="none" stroke-width="2"></path><path class="cLAGQe" d="M-9 5 L9 5" fill="none" stroke-width="2"></path></g></svg>
 	</button>
 
-	<a href="/" class="site-logo">
+	<a href="/" class="site-logo" transition:animate="none">
 		<Image class="site-logo-img" src={headerImage} width={220} alt="Joe Logo"/>
 	</a>
 
-	<div class="site-nav-wrapper">
+	<div class="site-nav-wrapper" transition:animate="none">
 		<nav class="site-nav">
 		{pages.map(page => (<a href={page[1]} class="site-nav-link">{page[0]}</a>))}
 		</nav>
@@ -31,9 +32,16 @@ const pages = [
 (function ()
 {
 	const header = document.querySelector('.site-header');
+	const link = document.querySelector('.site-nav-link');
 	const icon = document.querySelector('.site-burger');
+
 	icon.onclick = function () {
 		header.classList.toggle('menu-open');
 	}
+
 }());
+
+document.addEventListener("astro:page-load", () => {
+    document.querySelector(".site-header").classList.remove("menu-open");
+});
 </script>
