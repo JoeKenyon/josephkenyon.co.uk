@@ -1,16 +1,16 @@
 :root
 {
-    --header-height: 40px;
+    --header-height: 70px;
     --footer-height: 20px;
-    --site-padding: 1rem;
+    --site-padding: 1.25rem;
 
     --text-font: "Courier New";
 
     --main-font-size: 65%;
     --main-line-height: 100%;
-    --main-letter-spacing: -0.01rem;
+    --main-letter-spacing: -0.04rem;
 
-    --content-width: 90ch;
+    --content-width: 70ch;
 
     --text-color: black;
     --text-color-invert: hotpink;

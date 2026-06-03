@@ -4,34 +4,33 @@ import { Image } from "astro:assets";
 type Props = { collection: keyof DataEntryMap; thumbnails: boolean; }
 const { collection, thumbnails = true } = Astro.props as Props;
 const allPosts = await getCollection(collection);
+import PlaceHolderImg from "@assets/imgs/logo-hand.png";
 ---
 {thumbnails && (
-<ul class="post-list">
+<div class="post-list">
 
 		{
 			allPosts.map(post => (
 			<a class="post-list-link" href={`/${collection}/${post.id}`}>
-				{post.data.thumbnail && ( <div class="thumbnail-wrapper"><Image class="post-list-thumbnail" src={post.data.thumbnail} alt={post.data.title} /></div>)}
-				<div class="post-list-content">
+				{post.data.thumbnail && ( <Image class="post-list-thumbnail" src={post.data.thumbnail} alt={post.data.title} />)}
+				{!post.data.thumbnail && ( <Image class="post-list-thumbnail" src={PlaceHolderImg} alt={post.data.title} />)}
 				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
-				</div>
 			</a>
 		))
 		}
-</ul>
+</div>
 )}
 
 {!thumbnails && (
-<ul class="plain-post-list">
+<div class="post-list-plain">
 
 		{
 			allPosts.map(post => (
 			<a class="post-list-link" href={`/${collection}/${post.id}`}>
-				<div class="post-list-content">
 				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
-				</div>
+				{post.data.description && ( <summary class="post-list-description">{post.data.description}</summary> )}
 			</a>
 		))
 		}
-</ul>
+</div>
 )}

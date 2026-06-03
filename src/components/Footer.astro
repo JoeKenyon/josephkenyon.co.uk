@@ -7,26 +7,13 @@ const socials = [
 ];
 ---
 <footer class="site-footer">
-    <div class="site-footer-copy"><p>&copy; Joseph Kenyon</p></div>
+    <span class="site-footer-copy">
+        &copy; Joseph Kenyon
+    </span>
 
     <div class="site-footer-socials">
-
-        {socials.map((entry) => 
-        {
-            const socialName = entry[0];
-            const socialUrl = entry[1];
-
-            return (           
-                <a href={socialUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label={socialName} 
-                class="site-footer-link"
-                >{socialName}</a>
-            )
-        })
-        }
-
+        {socials.map((link) => (<a href={link[1]} aria-label={link[0]}>{link[0]}</a>))}
     </div>
-
+    
+  </nav>
 </footer>

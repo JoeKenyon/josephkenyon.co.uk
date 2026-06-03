@@ -15,19 +15,10 @@ const previousPost = curPostIdx > 0 ?
     : undefined;
 
 ---
-<nav class="post-navigation">
-    <ul class="post-navigation-list">
-        
-        <li class="post-navigation-item post-navigation-prev">
-            {previousPost && ( <a href={`/${collection}/${previousPost.id}/`} class="post-navigation-link">← Prev</a>)}
-        </li>
+<ul class="post-navigation-list">
 
-        <li class="post-navigation-item post-navigation-index">
-            <a href={`/${collection}/`} class="post-navigation-link">Index</a>
-        </li>
-        
-        <li class="post-navigation-item post-navigation-next">
-            {nextPost && ( <a href={`/${collection}/${nextPost.id}/`} class="post-navigation-link">Next →</a>)}
-        </li>
-    </ul>
-</nav>
+    <li class="post-navigation-prev" >{previousPost && ( <a class="post-navigation-link" href={`/${collection}/${previousPost.id}/`}>← Prev</a>)}</li>
+    <li class="post-navigation-index">{<a class="post-navigation-link"href={`/${collection}/`}>Index</a>}</li>
+    <li class="post-navigation-next" >{nextPost && ( <a class="post-navigation-link" href={`/${collection}/${nextPost.id}/`}>Next →</a>)}</li>
+
+</ul>

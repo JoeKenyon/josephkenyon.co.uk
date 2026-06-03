@@ -17,13 +17,13 @@ const { Content } = await render(music);
 <PostLayout title={music.data.title} collection="music">
 	{music.data.thumbnail && (
 		<div class="album-cover-wrapper">
-            <Image class="album-cover" src={music.data.thumbnail} alt={music.data.title} />
+			<Image class="album-cover" src={music.data.thumbnail} alt={music.data.title} />
 		</div>
 	)}
 	<div class="music-tracks">
 		{music.data.tracks.map(track => (
 			<iframe 
-			class="music-track-iframe" 
+			class="music-track-iframe"
 			src={`https://bandcamp.com/EmbeddedPlayer/track=${track.id}/size=medium/linkcol=333333/bgcol=ffffff/transparent=true/`}
 			loading="lazy"
 			/>

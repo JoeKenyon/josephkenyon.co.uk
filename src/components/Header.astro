@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import headerImage from "@assets/imgs/penis 2.png";
+import headerImage from "@assets/imgs/logo-hand.png";
 const pages = [
     ["Home", "/"],
     ["Projects", "/projects"],
@@ -10,13 +10,30 @@ const pages = [
 ];
 ---
 <header class="site-header">
-  <a href="/" class="site-logo">
-    <Image class="site-logo-img" src={headerImage} width={220} alt="Joe Logo"/>
-  </a>
-  <button id="site-nav-toggle" style="display: none">{"+"}</button>
-  <nav class="site-nav">
-    {
-      pages.map((page) => ( <a href={page[1]} aria-label={page[0]} class="site-nav-link">{page[0]}</a>))
-    }
-  </nav>
+
+	<button class="site-burger" style="display: none">
+		<svg class="wFCWne" viewBox="0 0 24 24" stroke="currentColor" jsname="B1n9ub" focusable="false"><g transform="translate(12,12)"><path class="hlJH0" d="M-9 -5 L9 -5" fill="none" stroke-width="2"></path><path class="HBu6N" d="M-9 0 L9 0" fill="none" stroke-width="2"></path><path class="cLAGQe" d="M-9 5 L9 5" fill="none" stroke-width="2"></path></g></svg>
+	</button>
+
+	<a href="/" class="site-logo">
+		<Image class="site-logo-img" src={headerImage} width={220} alt="Joe Logo"/>
+	</a>
+
+	<div class="site-nav-wrapper">
+		<nav class="site-nav">
+		{pages.map(page => (<a href={page[1]} class="site-nav-link">{page[0]}</a>))}
+		</nav>
+	</div>
+
 </header>
+
+<script>
+(function ()
+{
+	const header = document.querySelector('.site-header');
+	const icon = document.querySelector('.site-burger');
+	icon.onclick = function () {
+		header.classList.toggle('menu-open');
+	}
+}());
+</script>
