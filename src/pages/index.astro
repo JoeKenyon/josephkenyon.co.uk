@@ -1,10 +1,23 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro"
+import MainLayout from "@layouts/MainLayout.astro";
+import PostList from "@components/PostList.astro";
+import { SiteConfig } from "@config/SiteConfig";
+import { Icons } from "@config/Icons";
+import { getCollection } from "astro:content";
+
+// Fetch one featured item from each collection
+const featuredProject = (await getCollection('projects')).slice(0, 1);
+const featuredArt = (await getCollection('art')).slice(0, 1);
+const featuredMusic = (await getCollection('music')).slice(0, 1);
+
+const showcasePosts = [...featuredProject, ...featuredArt, ...featuredMusic];
 ---
 <MainLayout title="Home">
-	<p>
-		Welcome to my portfolio. I am an artist, musician, and developer. 
-		Explore my <a href="/projects">Projects</a>, listen to my <a href="/music">Music</a>, or 
-		browse my <a href="/art">Art Gallery</a>.
-	</p>
+    
+    <p>
+        Welcome to my portfolio. I am an artist, musician, and developer. 
+        Explore my <a href="/projects">Projects</a>, listen to my <a href="/music">Music</a>, or 
+        browse my <a href="/art">Art Gallery</a>.
+    </p>
+
 </MainLayout>

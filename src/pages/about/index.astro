@@ -1,8 +1,35 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import profileImage from "@assets/imgs/logo-hand.png"; // Replace with your actual photo
+import { SiteConfig } from "@config/SiteConfig";
+import { Icons } from "@config/Icons";
 ---
 <MainLayout title="About">
-	<p>
-	Nothing here atm.
-	</p>
+    <section class="about-layout">
+        <div class="about-image-wrapper">
+            <Image src={profileImage} alt="Joseph Kenyon" class="about-image" />
+        </div>
+        <div class="about-text">
+            <p>
+                Hi, I'm Joseph Kenyon. I am an artist, musician, and developer based in the UK. 
+                My work spans across digital and traditional mediums, from complex software engineering 
+                projects to experimental music and visual art.
+            </p>
+            <p>
+                I enjoy exploring the intersection of technology and creativity, always looking for 
+                new ways to express ideas and solve problems.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-socials">
+        <div class="intro-socials">
+            {SiteConfig.socials.map((social) => (
+                <a href={social.url} aria-label={social.name} class="intro-social-link">
+                    <Fragment set:html={Icons[social.name as keyof typeof Icons]}/>
+                </a>
+            ))}
+        </div>
+    </section>
 </MainLayout>

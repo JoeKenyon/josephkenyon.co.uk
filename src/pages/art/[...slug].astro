@@ -14,11 +14,10 @@ const art = Astro.props;
 const { Content } = await render(art);
 ---
 
-<MainLayout title={art.data.title} collection="art">
+<MainLayout title={art.data.title} seoTitle="Art" collection="art">
 	{art.data.thumbnail && (
 		<div class="artwork-full">
             <Image src={art.data.thumbnail} width={1200} alt={art.data.title} />
 		</div>
 	)}
-    <Content/>
 </MainLayout>

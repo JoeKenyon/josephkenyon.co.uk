@@ -1,5 +1,6 @@
 ---
 import "@styles/global.css"
+import { SiteConfig } from "@config/SiteConfig";
 
 import { ClientRouter } from "astro:transitions";
 
@@ -10,8 +11,8 @@ type Props = {
 }
 const { 
   title, 
-  description = "Joseph Kenyon's portfolio - Artist, Musician, Developer", 
-  keywords = "portfolio, artist, musician, developer" 
+  description = SiteConfig.description, 
+  keywords = SiteConfig.keywords 
 } = Astro.props;
 ---
 
@@ -19,13 +20,13 @@ const {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joseph Kenyon | {title} </title>
-  <meta name="author" content="Joseph Kenyon">
+  <title>{SiteConfig.title} | {title} </title>
+  <meta name="author" content={SiteConfig.author}>
   <meta name="keywords" content={keywords}>
   <meta name="description" content={description}>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/kesagians.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-<ClientRouter/>
+  <ClientRouter/>
 </head>

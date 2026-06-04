@@ -6,9 +6,12 @@ const projects = defineCollection({
 	loader: glob({ base: './src/content/projects/.', pattern: '**/*.{md,mdx}' }),
 	schema: ({ image }) => z.object({
 		title: z.string(),
+    date: z.date().optional(),
 		description: z.string().optional(),
     thumbnail: image().optional(),
-    video: z.string().optional()
+    video: z.string().optional(),
+    repoUrl: z.string().url().optional(),
+    siteUrl: z.string().url().optional()
 	}),
 });
 
@@ -17,6 +20,8 @@ const music = defineCollection({
   // Change schema to an arrow function! Astro will pass { image } into it.
   schema: ({ image }) => z.object({
     title: z.string(),
+    date: z.date().optional(),
+    description: z.string().optional(),
     id: z.string(),
     thumbnail: image(), // Now this works perfectly!
     url: z.string(),
@@ -35,6 +40,8 @@ const art = defineCollection({
   // Change schema to an arrow function! Astro will pass { image } into it.
   schema: ({ image }) => z.object({
     title: z.string(),
+    date: z.date().optional(),
+    description: z.string().optional(),
     thumbnail: image(), // Now this works perfectly!
     width: z.number(),
     height: z.number(),

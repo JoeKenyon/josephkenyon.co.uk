@@ -3,5 +3,11 @@ import MainLayout from "@layouts/MainLayout.astro";
 import PostList from "@components/PostList.astro";
 ---
 <MainLayout title="Projects">
-	<PostList collection="projects" thumbnails={true}/>
+
+    <p>
+This is an archive of my work in engineering and software development. It tracks projects across the stack, from real-time audio engines and memory architecture to modern web applications and interactive digital tools.
+    </p>
+
+	<PostList collection="projects" mode="list"/>
+
 </MainLayout>

@@ -1,21 +1,16 @@
 ---
-const socials = [
-    ["Email", "mailto:joekenyon72@gmail.com"],
-    ["LinkedIn", "https://www.linkedin.com/in/joe-kenyon/"],
-    ["Instagram", "https://instagram.com/kenyon_joe"],
-    ["GitHub", "https://github.com/JoeKenyon"]
-];
-
-import { Icons } from "src/config/icons";
+import { SiteConfig } from "@config/SiteConfig";
+import { Icons } from "src/config/Icons";
 ---
 <footer class="site-footer">
     <span class="site-footer-copy">
-        &copy; Joseph Kenyon
+        &copy; {SiteConfig.author}
     </span>
 
+    <!--
     <div class="site-footer-socials">
-        {socials.map((link) => (<a href={link[1]} aria-label={link[0]}>
-            <Fragment set:html={Icons[link[0]]}/>
+        {SiteConfig.socials.map((social) => (<a href={social.url} aria-label={social.name}>
+            <Fragment set:html={Icons[social.name as keyof typeof Icons]}/>
         </a>))}
-    </div>
+    </div>-->
 </footer>

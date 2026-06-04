@@ -1,16 +1,16 @@
 :root
 {
     --header-height: 75px;
-    --footer-height: 20px;
+    --footer-height: fit-content;
     --site-padding: 1.25rem;
 
     --text-font: "Arial";
 
-    --main-font-size: 19px;
+    --main-font-size: 15px;
     --main-line-height: 100%;
     --main-letter-spacing: -0.05rem;
 
-    --content-width: 70ch;
+    --content-width: 80ch;
 
     --text-color: black;
     --text-color-invert: hotpink;

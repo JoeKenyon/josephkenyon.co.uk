@@ -1,36 +1,46 @@
 ---
 import { getCollection, type DataEntryMap } from 'astro:content';
 import { Image } from "astro:assets";
-type Props = { collection: keyof DataEntryMap; thumbnails: boolean; }
-const { collection, thumbnails = true } = Astro.props as Props;
-const allPosts = await getCollection(collection);
+
+type Props = { 
+    collection: keyof DataEntryMap;
+    posts?: any[];
+    count?: number;
+}
+
+const {collection, count} = Astro.props as Props;
+
+let allPosts = await getCollection(collection);
+
+if (count) {
+    allPosts = allPosts.slice(0, count);
+}
+
 import PlaceHolderImg from "@assets/imgs/logo-hand.png";
 ---
-{thumbnails && (
-<div class="post-list">
 
-		{
-			allPosts.map(post => (
-			<a class="post-list-link" href={`/${collection}/${post.id}`}>
-				{post.data.thumbnail && ( <Image class="post-list-thumbnail" src={post.data.thumbnail} width={400} alt={post.data.title} />)}
-				{!post.data.thumbnail && ( <Image class="post-list-thumbnail" src={PlaceHolderImg} width={400} alt={post.data.title} />)}
-				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
-			</a>
-		))
-		}
+<div class={`post-list-${collection}`}>
+    {
+        allPosts.map(post => (
+            <a class="post-item" href={`/${post.collection}/${post.id}`}>
+                <div class="post-item-header">
+                    {post.data.title && ( <span class="post-item-title">{post.data.title}</span> )}
+                    {"repoUrl" in post.data && post.data.repoUrl && (<a href={post.data.repoUrl} class="post-item-repo" target="_blank" rel="noopener noreferrer">GitHub</a>)}
+                </div>
+                <div class="post-item-main">
+                    <div class="post-item-thumbnail-wrapper">
+                        {post.data.thumbnail && ( <Image class="post-item-thumbnail" src={post.data.thumbnail} width={800} alt={post.data.title} />)}
+                        {!post.data.thumbnail && ( <Image class="post-item-thumbnail" src={PlaceHolderImg} width={800} alt={post.data.title} />)}
+                    </div>
+                    <div class="post-item-details">
+                        {"description" in post.data && post.data.description && ( <summary class="post-item-description">{post.data.description}</summary> )}
+                        
+                        {collection == "projects" && (<span class="post-item-link">View Project →</span>)}
+                        {collection == "art" && (<span class="post-item-link">View Art →</span>)}
+                        {collection == "music" && (<span class="post-item-link">View Music →</span>)}
+                    </div>
+                </div>
+            </a>
+        ))
+    }
 </div>
-)}
-
-{!thumbnails && (
-<div class="post-list-plain">
-
-		{
-			allPosts.map(post => (
-			<a class="post-list-link" href={`/${collection}/${post.id}`}>
-				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
-				{post.data.description && ( <summary class="post-list-description">{post.data.description}</summary> )}
-			</a>
-		))
-		}
-</div>
-)}

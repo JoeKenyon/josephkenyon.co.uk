@@ -7,16 +7,17 @@ import { type DataEntryMap } from 'astro:content';
 
 type Props = { 
     title: string; 
+    seoTitle?: string;
     collection?: keyof DataEntryMap;
 }
-const { title, collection } = Astro.props;
+const { title, seoTitle, collection } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    <BaseHead title={title}/>
+    <BaseHead title={seoTitle || title}/>
     
-    <body transition:animate="slide">
-        <div class="site-wrapper">
+    <body transition:persist>
+        <div class="site-wrapper" transition:animate="slide">
             <Header/>
             <main class="site-main">
                 <div class="page-content">
@@ -24,8 +25,8 @@ const { title, collection } = Astro.props;
                     <slot/>
                 </div>
                 {collection && <PostNavigation collection={collection}/>}
-                <Footer/>
             </main>
+            <Footer/>
         </div>
     </body>
 </html>

@@ -3,5 +3,18 @@ import MainLayout from "@layouts/MainLayout.astro";
 import PostList from "@components/PostList.astro";
 ---
 <MainLayout title="Music">
-	<PostList collection="music"/>
+    
+    <p>
+This is an archive of my original music and audio experiments. The work is deeply rooted in a lo-fi, 4-track aesthetic, combining standard acoustic songwriting with chromatic chord progressions and deliberate harmonic tension. Features a mix of raw demos, multi-instrumental projects, and experimental tracks, mostly hosted on Bandcamp.
+    </p>
+
+	<PostList collection="music" mode="grid" />
+
 </MainLayout>
+
+<style>
+    .page-header 
+    {
+
+    }
+</style>

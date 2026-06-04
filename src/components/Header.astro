@@ -1,13 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import headerImage from "@assets/imgs/joe-sig-gen-better.png";
-const pages = [
-    ["Home", "/"],
-    ["Projects", "/projects"],
-    ["Art", "/art"],
-    ["Music", "/music"],  
-    ["About", "/about"]
-];
+import headerImage from "@assets/imgs/joe-sig-gen.png";
+import { SiteConfig } from "@config/SiteConfig";
 ---
 <header class="site-header-wrapper" transition:animate="none">
 	<div class="site-header" transition:persist>
@@ -22,7 +16,7 @@ const pages = [
 
 		<div class="site-nav-wrapper" transition:animate="none">
 			<nav class="site-nav">
-			{pages.map(page => (<a href={page[1]} class="site-nav-link">{page[0]}</a>))}
+			{SiteConfig.nav.map(page => (<a href={page.url} class="site-nav-link">{page.name}</a>))}
 			</nav>
 		</div>
 

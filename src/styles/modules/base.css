@@ -14,6 +14,9 @@ html
 {
     font-size: var(--main-font-size);
     /*scrollbar-gutter: stable both-edges;*/
+    background-image: url("/graf-bg.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 pre[data-language]
@@ -42,9 +45,8 @@ body
     font-family: var(--text-font);
     line-height: var(--main-line-height);
     letter-spacing: var(--main-letter-spacing);
-    background-image: url("/graf-bg.png");
-    background-size: cover;
-    background-attachment: fixed;
+    min-height: 100svh;
+    background-color: rgba(255, 255, 255, 0.94);
 }
 
 h1,h2,h3,h4,h5,h6
