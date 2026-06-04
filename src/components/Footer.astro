@@ -5,6 +5,8 @@ const socials = [
     ["Instagram", "https://instagram.com/kenyon_joe"],
     ["GitHub", "https://github.com/JoeKenyon"]
 ];
+
+import { Icons } from "src/config/icons";
 ---
 <footer class="site-footer">
     <span class="site-footer-copy">
@@ -12,7 +14,9 @@ const socials = [
     </span>
 
     <div class="site-footer-socials">
-        {socials.map((link) => (<a href={link[1]} aria-label={link[0]}>{link[0]}</a>))}
+        {socials.map((link) => (<a href={link[1]} aria-label={link[0]}>
+            <Fragment set:html={Icons[link[0]]}/>
+        </a>))}
     </div>
     
   </nav>

@@ -18,11 +18,14 @@ html
 
 pre[data-language]
 {
-    letter-spacing: normal;
-    code
+    letter-spacing: normal !important;
+    width: 100% !important;
+
+    span
     {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         font-family: monospace;
+        white-space: pre-wrap;
     }
 }
 
@@ -39,15 +42,9 @@ body
     font-family: var(--text-font);
     line-height: var(--main-line-height);
     letter-spacing: var(--main-letter-spacing);
-    display: grid;
-    grid-template-rows: var(--header-height) 1fr;
-}
-
-body > div
-{
-    display: flex;
-    width: 100svw;
-    flex-direction: column;
+    background-image: url("/UI-design.svg");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1,h2,h3,h4,h5,h6

@@ -14,33 +14,16 @@ const { title } = Astro.props;
     }
     
     <body transition:animate="slide">
-        <Header/>
-        <div>
-        <main class="site-main">
-            <slot/>
-        </main>
-        <Footer/>
+        <div class="site-wrapper">
+            <Header/>
+            <main class="site-main">
+                <slot/>
+                <Footer/>
+            </main>
         </div>
     </body>
 
-    <script>
-        /*
-        var btn = document.getElementById("site-nav-toggle");
-        btn.addEventListener("click", (e) => 
-        {
-            var nav = document.querySelector("nav.site-nav");
-            if (nav.style.display === "flex")
-            {
-                nav.style.display = "none";
-                btn.innerHTML = "+";
-            }
-            else
-            {
-                nav.style.display = "flex";
-                btn.innerHTML = "x";
-            }
-                
-        });*/
-    </script>
+    <script src="https:///prismjs@v1.x/components/prism-core.min.js"></script>
+    <script src="https:///prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
 </html>
 
