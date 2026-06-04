@@ -1,0 +1,95 @@
+---
+// src/pages/playground.astro
+import BaseHead from "@components/BaseHead.astro"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Kenyon | Playground</title>
+</head>
+<body style="margin: 0; padding: 0; overflow: hidden; width: 100vw; height: 100vh; position: relative; font-family: sans-serif; background-image: url('/graf-bg.webp'); ">
+
+    <div style="
+        position: absolute; 
+        top: 0px; 
+        left: 0px; 
+        z-index: 99;
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+        gap: 1rem;
+    ">
+    <a href="/" style="
+        text-decoration: none;
+        border: 2px solid hotpink;
+        background-color: black;
+        color: white;
+    ">
+    ← Back to Main Site
+    </a>
+    <button id="play-btn" style="
+        text-decoration: none;
+        border: 2px solid hotpink;
+        background-color: black;
+        color: white;
+    ">
+    Start Animation
+    </button>
+    </div>
+
+    <canvas id="creative-sandbox" style="width: 100%; height: 100%; display: block;"></canvas>
+    <script>
+        const canvas = document.getElementById('creative-sandbox') as HTMLCanvasElement;
+        const ctx = canvas.getContext('2d');
+        const btn = document.getElementById('play-btn');
+
+        let isPlaying = false;
+        let animationFrameId: number | null = null;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function animate() {
+            if (!ctx) return;
+
+            // Calculate bouncing path
+            const x = canvas.width / 2 + Math.sin(Date.now() * 0.002) * (canvas.width * 0.25);
+            const y = canvas.height / 2 + Math.cos(Date.now() * 0.003) * (canvas.height * 0.25);
+            
+            ctx.beginPath();
+            ctx.arc(x, y, 40, 0, Math.PI * 2);
+            ctx.fillStyle = 'hotpink'; // Signature pink
+            ctx.fill();
+
+            // Loop the animation
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        if (btn) {
+            btn.onclick = function () {
+                if (isPlaying) {
+                    // STOP THE ANIMATION
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                        ctx?.clearRect(0,0,canvas.width, canvas.height);
+                    }
+                    btn.innerText = "Start Animation";
+                    isPlaying = false;
+                } else {
+                    // START THE ANIMATION
+                    animate();
+                    btn.innerText = "Stop Animation";
+                    isPlaying = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

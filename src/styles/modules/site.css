@@ -419,3 +419,10 @@
 
     }
 }
+
+.playground-link
+{
+    text-transform: capitalize;
+    font-variant-caps: petite-caps;
+    font-style: italic;
+}
