@@ -1,6 +1,6 @@
 ---
 title: "unknown"
-thumbnail: "../../assets/imgs/art/unknown.png"
+thumbnail: "./assets/unknown.png"
 width: 1026
 height: 769
 ratio: "0.7495"

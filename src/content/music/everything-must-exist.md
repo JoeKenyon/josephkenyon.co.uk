@@ -1,7 +1,7 @@
 ---
 title: "Everything Must Exist"
 id: "album-743768567"
-thumbnail: "../../assets/imgs/music/everything-must-exist.jpg"
+thumbnail: "./assets/everything-must-exist.jpg"
 url: "https://joekenyon72.bandcamp.com/album/everything-must-exist"
 source: "Bandcamp"
 tracks:

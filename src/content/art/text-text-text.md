@@ -1,6 +1,6 @@
 ---
 title: "text_text_text"
-thumbnail: "../../assets/imgs/art/text_text_text.png"
+thumbnail: "./assets/text_text_text.png"
 width: 960
 height: 540
 ratio: "0.5625"

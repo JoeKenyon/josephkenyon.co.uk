@@ -2,28 +2,31 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
+import PostNavigation from "../components/PostNavigation.astro";
+import { type DataEntryMap } from 'astro:content';
 
-type Props = { title: string; }
-const { title } = Astro.props;
+type Props = { 
+    title: string; 
+    collection?: keyof DataEntryMap;
+}
+const { title, collection } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    {Astro.url.pathname.includes("art") ? 
-        <BaseHead title="Art"/> : 
-        <BaseHead title={title}/>
-    }
+    <BaseHead title={title}/>
     
     <body transition:animate="slide">
         <div class="site-wrapper">
             <Header/>
             <main class="site-main">
-                <slot/>
+                <div class="page-content">
+                    <h1 class="page-title">{ title }</h1>
+                    <slot/>
+                </div>
+                {collection && <PostNavigation collection={collection}/>}
                 <Footer/>
             </main>
         </div>
     </body>
-
-    <script src="https:///prismjs@v1.x/components/prism-core.min.js"></script>
-    <script src="https:///prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
 </html>
 

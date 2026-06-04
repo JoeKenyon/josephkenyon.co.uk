@@ -1,6 +1,6 @@
 ---
 title: "agfainmile"
-thumbnail: "../../assets/imgs/art/agfainmile.png"
+thumbnail: "./assets/agfainmile.png"
 width: 1656
 height: 2208
 ratio: "1.3333"

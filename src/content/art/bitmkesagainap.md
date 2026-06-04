@@ -1,6 +1,6 @@
 ---
 title: "bitmkesagainap"
-thumbnail: "../../assets/imgs/art/bitmkesagainap.png"
+thumbnail: "./assets/bitmkesagainap.png"
 width: 1123
 height: 794
 ratio: "0.7070"

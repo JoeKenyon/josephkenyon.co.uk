@@ -1,6 +1,6 @@
 ---
 title: "wtf1"
-thumbnail: "../../assets/imgs/art/wtf1.png"
+thumbnail: "./assets/wtf1.png"
 width: 4235
 height: 1796
 ratio: "0.4241"

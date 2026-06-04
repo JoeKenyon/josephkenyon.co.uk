@@ -1,6 +1,6 @@
 ---
 title: "idmttt"
-thumbnail: "../../assets/imgs/art/idmttt.png"
+thumbnail: "./assets/idmttt.png"
 width: 794
 height: 182
 ratio: "0.2292"

@@ -74,7 +74,8 @@ async function run() {
             }
 
             const REAL_MUSIC_DIR = path.join(MUSIC_DIR, slug , "/");
-            if (!fs.existsSync(REAL_MUSIC_DIR)) fs.mkdirSync(REAL_MUSIC_DIR, { recursive: true });
+            const MUSIC_ASSETS_DIR = path.join(REAL_MUSIC_DIR, "assets/");
+            if (!fs.existsSync(MUSIC_ASSETS_DIR)) fs.mkdirSync(MUSIC_ASSETS_DIR, { recursive: true });
 
 
             let imageUrl = img?.getAttribute('data-original') || img?.getAttribute('src');
@@ -83,7 +84,7 @@ async function run() {
                 imageUrl = imageUrl.replace('2.jpg', '10.jpg'); // 10.jpg is usually higher res than 1.jpg
                 const imageExt = path.extname(imageUrl.split('?')[0]) || '.jpg';
                 const imageFileName = `${slug}${imageExt}`;
-                const imagePath = path.join(REAL_MUSIC_DIR, imageFileName);
+                const imagePath = path.join(MUSIC_ASSETS_DIR, imageFileName);
 
                 try 
                 {
@@ -91,7 +92,7 @@ async function run() {
                     await downloadImage(imageUrl, imagePath);
                 
                     // Now use the LOCAL filename for the frontmatter instead of the URL
-                    imageUrl = imageFileName; 
+                    imageUrl = "./assets/" + imageFileName; 
                 } 
                 catch (err) 
                 {

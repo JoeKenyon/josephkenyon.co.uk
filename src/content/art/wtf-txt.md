@@ -1,6 +1,6 @@
 ---
 title: "wtf_txt"
-thumbnail: "../../assets/imgs/art/wtf_txt.png"
+thumbnail: "./assets/wtf_txt.png"
 width: 2805
 height: 2218
 ratio: "0.7907"

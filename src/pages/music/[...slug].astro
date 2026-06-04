@@ -1,6 +1,6 @@
 ---
 import { render } from 'astro:content';
-import PostLayout from '@layouts/PostLayout.astro';
+import MainLayout from '@layouts/MainLayout.astro';
 import { getCollectionPaths } from "@lib";
 import { Image } from 'astro:assets';
 export const prerender = true;
@@ -14,10 +14,10 @@ const music = Astro.props;
 const { Content } = await render(music);
 ---
 
-<PostLayout title={music.data.title} collection="music">
+<MainLayout title={music.data.title} collection="music">
 	{music.data.thumbnail && (
 		<div class="album-cover-wrapper">
-			<Image class="album-cover" src={music.data.thumbnail} alt={music.data.title} />
+			<Image class="album-cover" src={music.data.thumbnail} width={1000} alt={music.data.title} />
 		</div>
 	)}
 	<div class="music-tracks">
@@ -29,4 +29,5 @@ const { Content } = await render(music);
 			/>
 		))}
     </div>
-</PostLayout>
+    <Content/>
+</MainLayout>

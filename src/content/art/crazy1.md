@@ -1,6 +1,6 @@
 ---
 title: "crazy1"
-thumbnail: "../../assets/imgs/art/crazy1.png"
+thumbnail: "./assets/crazy1.png"
 width: 1400
 height: 1400
 ratio: "1.0000"

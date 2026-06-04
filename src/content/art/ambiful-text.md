@@ -1,6 +1,6 @@
 ---
 title: "ambiful_text"
-thumbnail: "../../assets/imgs/art/ambiful_text.svg"
+thumbnail: "./assets/ambiful_text.svg"
 width: 7267
 height: 2467
 ratio: "0.3395"

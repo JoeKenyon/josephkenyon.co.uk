@@ -12,8 +12,8 @@ import PlaceHolderImg from "@assets/imgs/logo-hand.png";
 		{
 			allPosts.map(post => (
 			<a class="post-list-link" href={`/${collection}/${post.id}`}>
-				{post.data.thumbnail && ( <Image class="post-list-thumbnail" src={post.data.thumbnail} alt={post.data.title} />)}
-				{!post.data.thumbnail && ( <Image class="post-list-thumbnail" src={PlaceHolderImg} alt={post.data.title} />)}
+				{post.data.thumbnail && ( <Image class="post-list-thumbnail" src={post.data.thumbnail} width={400} alt={post.data.title} />)}
+				{!post.data.thumbnail && ( <Image class="post-list-thumbnail" src={PlaceHolderImg} width={400} alt={post.data.title} />)}
 				{post.data.title && ( <span class="post-list-title">{post.data.title}</span> )}
 			</a>
 		))

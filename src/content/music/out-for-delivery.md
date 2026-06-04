@@ -1,7 +1,7 @@
 ---
 title: "Out for Delivery"
 id: "album-239181185"
-thumbnail: "../../assets/imgs/music/out-for-delivery.jpg"
+thumbnail: "./assets/out-for-delivery.jpg"
 url: "https://joekenyon72.bandcamp.com/album/out-for-delivery-2"
 source: "Bandcamp"
 tracks:

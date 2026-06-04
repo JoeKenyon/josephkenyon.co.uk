@@ -1,6 +1,6 @@
 ---
 title: "convolution13"
-thumbnail: "../../assets/imgs/art/convolution13.png"
+thumbnail: "./assets/convolution13.png"
 width: 2699
 height: 2304
 ratio: "0.8536"

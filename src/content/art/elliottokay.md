@@ -1,6 +1,6 @@
 ---
 title: "elliottokay"
-thumbnail: "../../assets/imgs/art/elliottokay.png"
+thumbnail: "./assets/elliottokay.png"
 width: 450
 height: 600
 ratio: "1.3333"

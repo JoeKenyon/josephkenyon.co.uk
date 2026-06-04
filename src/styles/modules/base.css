@@ -42,7 +42,7 @@ body
     font-family: var(--text-font);
     line-height: var(--main-line-height);
     letter-spacing: var(--main-letter-spacing);
-    background-image: url("/UI-design.svg");
+    background-image: url("/graf-bg.png");
     background-size: cover;
     background-attachment: fixed;
 }

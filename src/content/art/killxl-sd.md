@@ -1,6 +1,6 @@
 ---
 title: "killxl_sd"
-thumbnail: "../../assets/imgs/art/killxl_sd.png"
+thumbnail: "./assets/killxl_sd.png"
 width: 938
 height: 625
 ratio: "0.6663"

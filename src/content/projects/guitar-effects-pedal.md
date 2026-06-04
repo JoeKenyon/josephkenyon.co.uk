@@ -1,7 +1,7 @@
 ---
 title: "Guitar Effects Pedal"
 description: "Digital signal processing on STM32 hardware."
-thumbnail: "../../assets/imgs/projects/param_gtr.png"
+thumbnail: "./assets/param_gtr.png"
 ---
 This project focuses on the development of a digital **guitar effects pedal** using a **micro-controller**. 
 
@@ -14,9 +14,9 @@ I explored **digital signal processing** techniques to apply a variety of effect
 * Multiple concurrent effects.
 * Simple, reprogrammable system architecture.
 
-![Parameter Control Interface](../../assets/imgs/projects/param_gtr.png)
+![Parameter Control Interface](./assets/param_gtr.png)
 
-![Main Effects Menu](../../assets/imgs/projects/menu_gtr.png)
+![Main Effects Menu](./assets/menu_gtr.png)
 
 The hardware core is the **STM32F746NG** board with an **ARM Cortex-M7** processor for **DSP**. The integrated **WM8994** handles **A/D** and **D/A** conversion. 
 

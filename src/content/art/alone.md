@@ -1,6 +1,6 @@
 ---
 title: "alone"
-thumbnail: "../../assets/imgs/art/alone.png"
+thumbnail: "./assets/alone.png"
 width: 768
 height: 448
 ratio: "0.5833"

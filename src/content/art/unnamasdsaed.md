@@ -1,6 +1,6 @@
 ---
 title: "unnamasdsaed"
-thumbnail: "../../assets/imgs/art/unnamasdsaed.png"
+thumbnail: "./assets/unnamasdsaed.png"
 width: 2480
 height: 2480
 ratio: "1.0000"

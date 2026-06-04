@@ -1,6 +1,6 @@
 ---
 title: "Talk_to_us_4"
-thumbnail: "../../assets/imgs/art/Talk_to_us_4.png"
+thumbnail: "./assets/Talk_to_us_4.png"
 width: 1400
 height: 1400
 ratio: "1.0000"

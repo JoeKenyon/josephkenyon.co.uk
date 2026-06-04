@@ -2,7 +2,7 @@
 title: "Digital Box"
 description: "A hybrid acoustic-digital string instrument."
 video: "https://www.youtube.com/embed/VjRkfHHMrPk"
-thumbnail: "../../assets/imgs/projects/Pasted image 20260219175142.png"
+thumbnail: "./assets/digital-box-design-1.png"
 ---
 I have a deep interest in the guitar, which inspired me to design a string-based instrument. I wanted to build an instrument that blends acoustic textures with synthesised digital sounds. To achieve this, I created both a physical and a digital component. 
 
@@ -12,7 +12,7 @@ I wanted my instrument to produce a slow moving ambient drone, with the strings 
 
 ### Box
 
-![Design View 1](../../assets/imgs/projects/Pasted%20image%2020260219175142.png)
+![Design View 1](./assets/digital-box-design-1.png)
 
 The physical component of the instrument is a slab of wood fitted with strings tuned to Ab minor sus4 (an open tuning) and includes a pickup, along with tone and volume controls. This design comprised of 5 main components:
 
@@ -24,16 +24,16 @@ The physical component of the instrument is a slab of wood fitted with strings t
 
 This is the final design of the digital_box with labels... the design was also very portable, making it easy to setup for performance.
 
-![Design View 2](../../assets/imgs/projects/Pasted%20image%2020260219175156.png)
+![Design View 2](./assets/digital-box-design-2.png)
 
 ### Max-MSP
 The digital component was created using MAX-MSP, a visual programming language used to create audio and multimedia applications. The parameters of the various synth layers are changed to create an ambient drone that responds to the way you play the box.
 
-![Max MSP Patch](../../assets/imgs/projects/Pasted%20image%2020260219175003.png)
+![Max MSP Patch](./assets/digital-box-max-patch.png)
 
 ### Conclusion
 My primary goal was to create a drone instrument inspired by Indian classical music that allows for melodies to be played on-top, I believe this was successfully achieved. 
 
 Overall, this project gave me a deeper understanding of musical instruments and how when designing them, the ability to express ones self is very important.
 
-![Design View 3](../../assets/imgs/projects/Pasted%20image%2020260219175229.png)
+![Design View 3](./assets/digital-box-design-3.png)

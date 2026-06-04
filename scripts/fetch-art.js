@@ -2,9 +2,9 @@ import fs from 'fs';
 import sizeOf from 'image-size';
 import path from 'path';
 
-const ART_ASSETS_DIR = '../src/assets/imgs/art';
+const ART_ASSETS_DIR = '../src/content/art/assets';
 const ART_CONTENT_DIR = '../src/content/art';
-const ART_IMG_DIR_REL = '../../assets/imgs/art'; //releative to the md post
+const ART_IMG_DIR_REL = './assets'; //releative to the md post
 
 // Ensure the content directory exists
 if (!fs.existsSync(ART_CONTENT_DIR)) {

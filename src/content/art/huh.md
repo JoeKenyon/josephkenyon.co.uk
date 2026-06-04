@@ -1,6 +1,6 @@
 ---
 title: "huh"
-thumbnail: "../../assets/imgs/art/huh.png"
+thumbnail: "./assets/huh.png"
 width: 2823
 height: 1750
 ratio: "0.6199"

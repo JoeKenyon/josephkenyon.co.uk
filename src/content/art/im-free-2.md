@@ -1,6 +1,6 @@
 ---
 title: "im free 2"
-thumbnail: "../../assets/imgs/art/im free 2.png"
+thumbnail: "./assets/im free 2.png"
 width: 1152
 height: 648
 ratio: "0.5625"

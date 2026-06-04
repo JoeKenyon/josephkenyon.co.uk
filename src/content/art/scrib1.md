@@ -1,6 +1,6 @@
 ---
 title: "scrib1"
-thumbnail: "../../assets/imgs/art/scrib1.png"
+thumbnail: "./assets/scrib1.png"
 width: 1400
 height: 1400
 ratio: "1.0000"

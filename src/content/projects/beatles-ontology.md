@@ -1,7 +1,7 @@
 ---
 title: "Beatles Music Ontology"
 description: "Metadata exploration of Beatles music using RDF and SPARQL."
-thumbnail: "../../assets/imgs/projects/Pasted image 20260219174401.png"
+thumbnail: "./assets/beatles-ontology-thumbnail.png"
 ---
 
 This project presents an ontology (IRI: `http://example.org/beatles/`) designed to represent and explore metadata related to The Beatles’ music.
@@ -12,7 +12,7 @@ The **A-Box** was populated using **Python**, primarily with the help of the `rd
 
 The primary objective was to build an ontology capable of combining information from multiple external sources and making it easily queryable. To achieve this, data was collected from the **WASABI SPARQL endpoint** and enriched using the **MusicBrainz** and **AcousticBrainz** API. 
 
-![Ontology Class Hierarchy](../../assets/imgs/projects/Pasted%20image%2020260219174401.png)
+![Ontology Class Hierarchy](./assets/beatles-ontology-thumbnail.png)
 
 This enabled the integration of the following types of data:
 * Track and Album data (title, tracklist, duration)
@@ -22,4 +22,4 @@ This enabled the integration of the following types of data:
 * Studio and location information (recording, mixing, editing)
 * Acoustic and tonal metadata (BPM, key, tuning frequency, danceability)
 
-![SPARQL Query Results](../../assets/imgs/projects/Pasted%20image%2020260219174415.png)
+![SPARQL Query Results](./assets/beatles-sparql-results.png)

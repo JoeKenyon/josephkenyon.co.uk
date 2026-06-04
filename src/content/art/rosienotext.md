@@ -1,6 +1,6 @@
 ---
 title: "rosieNoText"
-thumbnail: "../../assets/imgs/art/rosieNoText.png"
+thumbnail: "./assets/rosieNoText.png"
 width: 1400
 height: 1400
 ratio: "1.0000"

@@ -1,6 +1,6 @@
 ---
 title: "hold on 2"
-thumbnail: "../../assets/imgs/art/hold on 2.png"
+thumbnail: "./assets/hold on 2.png"
 width: 1125
 height: 521
 ratio: "0.4631"

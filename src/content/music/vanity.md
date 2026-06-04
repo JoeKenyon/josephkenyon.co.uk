@@ -1,7 +1,7 @@
 ---
 title: "Vanity"
 id: "album-3456158827"
-thumbnail: "../../assets/imgs/music/vanity.jpg"
+thumbnail: "./assets/vanity.jpg"
 url: "https://joekenyon72.bandcamp.com/album/vanity"
 source: "Bandcamp"
 tracks:
