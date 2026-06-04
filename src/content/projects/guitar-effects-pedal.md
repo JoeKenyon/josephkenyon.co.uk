@@ -14,9 +14,9 @@ I explored **digital signal processing** techniques to apply a variety of effect
 * Multiple concurrent effects.
 * Simple, reprogrammable system architecture.
 
-{% image "./param_gtr.png", "Parameter Control Interface" %}
+![Parameter Control Interface](../../assets/imgs/projects/param_gtr.png)
 
-{% image "./menu_gtr.png", "Main Effects Menu" %}
+![Main Effects Menu](../../assets/imgs/projects/menu_gtr.png)
 
 The hardware core is the **STM32F746NG** board with an **ARM Cortex-M7** processor for **DSP**. The integrated **WM8994** handles **A/D** and **D/A** conversion. 
 

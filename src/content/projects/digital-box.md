@@ -12,7 +12,7 @@ I wanted my instrument to produce a slow moving ambient drone, with the strings 
 
 ### Box
 
-{% image "./Pasted image 20260219175142.png", "Design View 1" %}
+![Design View 1](../../assets/imgs/projects/Pasted%20image%2020260219175142.png)
 
 The physical component of the instrument is a slab of wood fitted with strings tuned to Ab minor sus4 (an open tuning) and includes a pickup, along with tone and volume controls. This design comprised of 5 main components:
 
@@ -24,16 +24,16 @@ The physical component of the instrument is a slab of wood fitted with strings t
 
 This is the final design of the digital_box with labels... the design was also very portable, making it easy to setup for performance.
 
-{% image "./Pasted image 20260219175156.png", "Design View 2" %}
+![Design View 2](../../assets/imgs/projects/Pasted%20image%2020260219175156.png)
 
 ### Max-MSP
 The digital component was created using MAX-MSP, a visual programming language used to create audio and multimedia applications. The parameters of the various synth layers are changed to create an ambient drone that responds to the way you play the box.
 
-{% image "./Pasted image 20260219175003.png", "Max MSP Patch" %}
+![Max MSP Patch](../../assets/imgs/projects/Pasted%20image%2020260219175003.png)
 
 ### Conclusion
 My primary goal was to create a drone instrument inspired by Indian classical music that allows for melodies to be played on-top, I believe this was successfully achieved. 
 
 Overall, this project gave me a deeper understanding of musical instruments and how when designing them, the ability to express ones self is very important.
 
-{% image "./Pasted image 20260219175229.png", "Design View 3" %}
+![Design View 3](../../assets/imgs/projects/Pasted%20image%2020260219175229.png)
