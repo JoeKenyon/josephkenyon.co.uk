@@ -53,6 +53,7 @@ const { title, seoTitle, collection } = Astro.props;
         max-height: 100vh;
         margin: 0;
         overflow: hidden;
+        cursor: pointer;
     }
     
     .lightbox[open] {
@@ -86,6 +87,44 @@ const { title, seoTitle, collection } = Astro.props;
         cursor: pointer;
         z-index: 10;
     }
+    .lightbox-close:focus,
+    .lightbox-close:focus-visible {
+        outline: none;
+    }
+</style>
+
+<style>
+.site-wrapper {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.site-main {
+    width: 100%;
+    max-width: var(--content-width);
+    padding: 1rem;
+    place-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+
+    p a {
+        font-weight: 800;
+        text-decoration: underline;
+    }
+}
+
+.page-title {
+    width: 100%;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+}
+
+.page-content {
+    width: 100%; 
+}
 </style>
 
 <script>
@@ -152,6 +191,14 @@ const { title, seoTitle, collection } = Astro.props;
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
       }
+    }
+
+    if (modalImg) 
+    {
+        modalImg.style.cursor = 'pointer';
+        
+        // Close the modal when the image is clicked
+        modalImg.onclick = () => modal.close();
     }
   });
 </script>

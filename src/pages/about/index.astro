@@ -33,3 +33,57 @@ import { Icons } from "@config/Icons";
         </div>
     </section>
 </MainLayout>
+
+<style>
+.about-layout {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    gap: 1rem;
+
+    .about-image-wrapper {
+        width: 100%;
+        height: 100%;
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.about-socials {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+
+    .intro-socials {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        
+        .intro-social-link {
+            &:hover {
+                svg { fill: hotpink; }
+            }
+            svg {
+                height: 3rem;
+                width: 3rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-socials .intro-socials .intro-social-link svg {
+        height: 2rem;
+        width: 2rem;
+    }
+}
+</style>

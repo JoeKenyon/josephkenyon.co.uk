@@ -6,8 +6,8 @@ import { SiteConfig } from "@config/SiteConfig";
 <header class="site-header-wrapper" transition:animate="none">
 	<div class="site-header" transition:persist>
 
-		<button class="site-burger" style="display: none" transition:animate="none">
-			<svg class="wFCWne" viewBox="0 0 24 24" stroke="currentColor" jsname="B1n9ub" focusable="false"><g transform="translate(12,12)"><path class="hlJH0" d="M-9 -5 L9 -5" fill="none" stroke-width="2"></path><path class="HBu6N" d="M-9 0 L9 0" fill="none" stroke-width="2"></path><path class="cLAGQe" d="M-9 5 L9 5" fill="none" stroke-width="2"></path></g></svg>
+		<button class="site-burger" transition:animate="none">
+			<svg class="wFCWne" viewBox="0 0 24 24" stroke="currentColor" focusable="false"><g transform="translate(12,12)"><path class="hlJH0" d="M-9 -5 L9 -5" fill="none" stroke-width="2"></path><path class="HBu6N" d="M-9 0 L9 0" fill="none" stroke-width="2"></path><path class="cLAGQe" d="M-9 5 L9 5" fill="none" stroke-width="2"></path></g></svg>
 		</button>
 
 		<a href="/" class="site-logo" transition:animate="none">
@@ -24,20 +24,167 @@ import { SiteConfig } from "@config/SiteConfig";
 
 </header>
 
+<style>
+.site-header-wrapper {
+    display: flex;
+    background-color: black;
+    width: 100%;
+    place-content: center;
+    top: 0;
+    left: 0;
+    position: sticky;
+    z-index: 100;
+    border-bottom: hotpink 3px solid;
+}
+
+.site-header {
+    padding-top: 0rem;
+    padding-inline: 0rem;
+    height: var(--header-height);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    max-width: var(--content-width);
+    justify-content: space-between;
+}
+
+.site-logo {   
+    display: inline;
+    height: 100%;
+    margin-top: 1.5rem;
+    width: fit-content;
+
+    .site-logo-img {
+        height: 100%;
+        width: fit-content;
+        object-fit: contain;
+    }
+}
+
+.site-burger {
+    display: none;
+    height: fit-content;
+    width: 2.5rem;
+    background-color: transparent;
+    flex-direction: column;
+    justify-content: space-around;
+    border: none;
+    transform: rotate(0deg);
+    transition: all 0.2s ease-in-out;
+    color: white;
+
+    svg {
+        fill: white;
+    }
+}
+
+.site-nav-wrapper {
+    display: flex;
+    height: fit-content;
+}
+
+.site-nav {
+    display: flex;
+    place-content: center;
+    gap: 1rem;
+    height: fit-content;
+}
+
+.site-nav-link {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+        color: var(--text-color-invert);
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header-wrapper {
+        position: sticky;
+        top: 0;
+    }
+
+    .site-header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background-color: black;
+        justify-content: space-between;
+        padding: 0.5rem;
+    }
+
+    .site-logo {
+        margin-top: 1%;
+        display: inline;
+        width: 100%;
+        height: 100%;
+        margin-left: 20px;
+        z-index: 200;
+
+        .site-logo-img {
+            height: 135%;
+            width: fit-content;
+        }
+    }
+
+    .site-burger {
+        display: flex;
+    }
+
+    .site-nav-wrapper {
+        position: fixed;
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: all 0.2s ease-in-out;
+        width: 0%;
+        height: 100%;
+        top: calc(var(--header-height) + 3px);
+        left: -100%;
+        margin: 0;
+        overflow: hidden;
+        place-content: start;
+    }
+
+    .site-nav {
+        flex-direction: column;
+        height: 100%;
+        width: fit-content;
+        background-color: white;
+        justify-content: start;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .site-nav-link {
+        font-size: 1.4rem;
+        letter-spacing: -0.1rem;
+        color: black;
+    }
+
+    /* Target global menu-open class applied to .site-header */
+    :global(.menu-open) .site-nav-wrapper {
+        left: 0%;
+        width: 100%;
+    }
+
+    :global(.menu-open) .site-burger {
+        transform: rotate(90deg);
+    }
+}
+</style>
+
 <script>
-(function ()
-{
-	const header = document.querySelector('.site-header');
-	const link = document.querySelector('.site-nav-link');
-	const icon = document.querySelector('.site-burger');
-
-	icon.onclick = function () {
-		header.classList.toggle('menu-open');
-	}
-
-}());
-
 document.addEventListener("astro:page-load", () => {
-    document.querySelector(".site-header").classList.remove("menu-open");
+    const header = document.querySelector('.site-header') as HTMLElement;
+    const icon = document.querySelector('.site-burger') as HTMLElement;
+
+    if (icon && header) 
+    {
+        header.classList.remove('menu-open');
+        icon.onclick = () => header.classList.toggle('menu-open');
+    }
 });
 </script>

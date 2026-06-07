@@ -22,3 +22,34 @@ const previousPost = curPostIdx > 0 ?
     <li class="post-navigation-next" >{nextPost && ( <a class="post-navigation-link" href={`/${collection}/${nextPost.id}/`}>Next →</a>)}</li>
 
 </ul>
+
+<style>
+.post-navigation-list {
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    height: var(--footer-height);
+    margin-top: 1.5rem;
+
+    .post-navigation-prev { justify-self: flex-start; text-align: left; }
+    .post-navigation-index { justify-self: center; text-align: center; }
+    .post-navigation-next { justify-self: flex-end; text-align: right; }
+}
+
+@media (max-width: 700px) {
+    .post-navigation-list {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        height: auto;
+        
+        .post-navigation-prev, .post-navigation-index, .post-navigation-next {
+            justify-self: center;
+            text-align: center;
+        }
+    }
+}
+</style>

@@ -1,45 +1,195 @@
 ---
 import { getCollection, type DataEntryMap } from 'astro:content';
 import { Image } from "astro:assets";
+import PlaceHolderImg from "@assets/imgs/logo-hand.png";
 
 type Props = { 
     collection: keyof DataEntryMap;
-    posts?: any[];
     count?: number;
+    mode?: "list" | "grid" | "gallery";
 }
 
-const {collection, count} = Astro.props as Props;
+const { collection, count, mode } = Astro.props as Props;
 
 let allPosts = await getCollection(collection);
+
+// Sort posts by date, descending, if date is available
+allPosts = allPosts.sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).valueOf() : 0;
+    const dateB = b.data.date ? new Date(b.data.date).valueOf() : 0;
+    return dateB - dateA;
+});
 
 if (count) {
     allPosts = allPosts.slice(0, count);
 }
-
-import PlaceHolderImg from "@assets/imgs/logo-hand.png";
 ---
 
 <div class={`post-list-${collection}`}>
     {
-        allPosts.map(post => (
-            <a class="post-item" href={`/${post.collection}/${post.id}`}>
-                <div class="post-item-header">
-                    {post.data.title && ( <span class="post-item-title">{post.data.title}</span> )}
-                    {"repoUrl" in post.data && post.data.repoUrl && (<a href={post.data.repoUrl} class="post-item-repo" target="_blank" rel="noopener noreferrer">GitHub</a>)}
-                </div>
-                <div class="post-item-main">
-                    <div class="post-item-thumbnail-wrapper">
-                        {post.data.thumbnail && ( <Image class="post-item-thumbnail" src={post.data.thumbnail} width={800} alt={post.data.title} />)}
-                        {!post.data.thumbnail && ( <Image class="post-item-thumbnail" src={PlaceHolderImg} width={800} alt={post.data.title} />)}
+        allPosts.map(post => {
+            const Wrapper = collection === "art" ? "div" : "a";
+            const wrapperProps = collection === "art" 
+                ? { class: "post-item", id: post.id } 
+                : { class: "post-item", href: `/${post.collection}/${post.id}` };
+
+            return (
+                <Wrapper {...wrapperProps}>
+                    <div class="post-item-header">
+                        {post.data.title && ( <span class="post-item-title">{post.data.title}</span> )}
+                        {"repoUrl" in post.data && post.data.repoUrl && (<a href={post.data.repoUrl} class="post-item-repo" target="_blank" rel="noopener noreferrer">GitHub</a>)}
                     </div>
-                    <div class="post-item-details">
-                        {"description" in post.data && post.data.description && ( <summary class="post-item-description">{post.data.description}</summary> )}
-                        
-                        {collection == "projects" && (<span class="post-item-link">View Project →</span>)}
-                        {collection == "music" && (<span class="post-item-link">View Music →</span>)}
+                    <div class="post-item-main">
+                        <div class="post-item-thumbnail-wrapper">
+                            {post.data.thumbnail ? (
+                                <Image class="post-item-thumbnail" src={post.data.thumbnail} width={800} alt={post.data.title} />
+                            ) : (
+                                <Image class="post-item-thumbnail" src={PlaceHolderImg} width={800} alt={post.data.title} />
+                            )}
+                        </div>
+                        {collection !== "art" && (
+                            <div class="post-item-details">
+                                {"description" in post.data && post.data.description && ( <summary class="post-item-description">{post.data.description}</summary> )}
+                                {collection === "projects" && (<span class="post-item-link">View Project →</span>)}
+                                {collection === "music" && (<span class="post-item-link">View Music →</span>)}
+                            </div>
+                        )}
                     </div>
-                </div>
-            </a>
-        ))
+                </Wrapper>
+            );
+        })
     }
 </div>
+
+<style>
+.post-list-art, .post-list-music, .post-list-projects {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 5000px;
+}
+
+.post-list-art {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0.8rem;
+    gap: 0.8rem;
+
+    .post-item {
+        height: fit-content;
+        width: 100%;
+        &:hover { opacity: 0.6; }
+    }
+
+    .post-item-thumbnail-wrapper {
+        aspect-ratio: 8/6;
+        width: 100%;
+        height: 100%;
+
+        .post-item-thumbnail {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .post-item-header {
+        color: hotpink;
+        margin-bottom: 0.8rem;
+        padding-left: 0rem;
+
+        .post-item-title {
+            width: 100%;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            line-break: anywhere;
+        }
+    }
+}
+
+.post-list-music {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 0.8rem;
+    gap: 0.8rem;
+
+    .post-item {
+        height: fit-content;
+        &:hover { opacity: 0.6; }
+    }
+
+    .post-item-thumbnail-wrapper {
+        aspect-ratio: 1/1;
+
+        .post-item-thumbnail {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.post-list-projects {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .post-item {
+        padding-bottom: 0.8rem;
+        margin-top: 0.8rem;
+        border-bottom: 1pt rgba(0, 0, 0, 0.153) solid;
+
+        &:hover { opacity: 0.6; }
+    }
+
+    .post-item-header {
+        color: hotpink;
+        margin-bottom: 0.8rem;
+        padding-left: 0rem;
+
+        .post-item-title { font-weight: 500; }
+    }
+
+    .post-item-main {
+        padding: 0rem;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 0.8rem;
+        width: 100%;
+        align-items: start;
+        
+        &:last-child { border-bottom: none; }
+    }
+
+    .post-item-thumbnail-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .post-item-thumbnail {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .post-item-details {
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+
+        .post-item-description { font-size: 100%; }
+
+        .post-item-link {
+            font-size: 90%;
+            color: hotpink;
+            margin-top: 5pt;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .post-list-art { grid-template-columns: 1fr; }
+    .post-list-music { grid-template-columns: 1fr 1fr; }
+    .post-list-projects .post-item-main { grid-template-columns: 1fr; }
+}
+</style>

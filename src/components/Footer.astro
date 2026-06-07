@@ -14,3 +14,35 @@ import { Icons } from "src/config/Icons";
         </a>))}
     </div>-->
 </footer>
+
+<style>
+.site-footer {
+    max-width: var(--content-width);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0rem;
+    place-self: center;
+    padding: 1rem;
+}
+
+.site-footer-copy {
+    height: 100%;
+}
+
+.site-footer-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    a {
+        &:hover {
+            svg { fill: hotpink; }
+        }
+        svg {
+            height: 1.5rem;
+        }
+    }
+}
+</style>

@@ -1,16 +1,5 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import PostList from "@components/PostList.astro";
-import { SiteConfig } from "@config/SiteConfig";
-import { Icons } from "@config/Icons";
-import { getCollection } from "astro:content";
-
-// Fetch one featured item from each collection
-const featuredProject = (await getCollection('projects')).slice(0, 1);
-const featuredArt = (await getCollection('art')).slice(0, 1);
-const featuredMusic = (await getCollection('music')).slice(0, 1);
-
-const showcasePosts = [...featuredProject, ...featuredArt, ...featuredMusic];
 ---
 <MainLayout title="Home">
     
