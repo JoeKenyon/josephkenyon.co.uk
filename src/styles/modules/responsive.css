@@ -118,8 +118,10 @@
         transform: rotate(90deg);
     }
 
-    /*html :has(.menu-open),
-    body :has(.menu-open)
-    { overflow: hidden}*/
+    html:has(.menu-open),
+    body:has(.menu-open),
+    body.menu-open {
+        overflow: hidden;
+    }
 
 }

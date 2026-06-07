@@ -27,6 +27,11 @@ const { title, seoTitle, collection } = Astro.props;
                 {collection && <PostNavigation collection={collection}/>}
             </main>
             <Footer/>
+            
+            <dialog id="image-modal" class="lightbox">
+                <button id="close-modal" class="lightbox-close" type="button">&times;</button>
+                <img id="modal-image" src="" alt="Full screen image" />
+            </dialog>
         </div>
     </body>
 </html>
@@ -36,4 +41,117 @@ const { title, seoTitle, collection } = Astro.props;
         width: 100vw;
         overflow-x: hidden;
     }
+
+    /* Global Lightbox Modal Styles */
+    .lightbox {
+        padding: 0;
+        border: none;
+        background: transparent;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
+    
+    .lightbox[open] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox::backdrop {
+        background: rgba(0, 0, 0, 0.85);
+        cursor: zoom-out;
+    }
+
+    #modal-image {
+        max-width: 95vw;
+        max-height: 95vh;
+        object-fit: contain;
+        display: block;
+        margin: auto;
+        background-color: white;
+    }
+
+    .lightbox-close {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        background: transparent;
+        color: white;
+        border: none;
+        font-size: 3rem;
+        cursor: pointer;
+        z-index: 10;
+    }
 </style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const modal = document.getElementById('image-modal') as HTMLDialogElement;
+    const modalImg = document.getElementById('modal-image') as HTMLImageElement;
+    const closeBtn = document.getElementById('close-modal');
+
+    if (!modal || !modalImg) return;
+
+    // Target all images inside the main page content area
+    const contentImages = document.querySelectorAll('.page-content img');
+
+    contentImages.forEach((img) => {
+      // Ignore images that are inside links (like project thumbnails in the PostList)
+      if (img.closest('a')) return;
+
+      // Give standard images a zoom-in cursor so users know they are clickable
+      (img as HTMLElement).style.cursor = 'zoom-in';
+
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalImg.src = (img as HTMLImageElement).src;
+        modal.showModal();
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+
+        // Check if the image belongs to a specific art piece to update the URL
+        const artItem = img.closest('.post-item');
+        if (artItem && artItem.id) {
+          history.pushState(null, '', `?piece=${artItem.id}`);
+        }
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => modal?.close());
+    
+    // Close if the user clicks anywhere on the backdrop (outside the image)
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) modal.close();
+    });
+
+    // Reset scrolling and clear query params when the modal closes
+    modal?.addEventListener('close', () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      
+      const url = new URL(window.location.href);
+      if (url.searchParams.has('piece')) {
+        url.searchParams.delete('piece');
+        history.pushState(null, '', url.toString() || window.location.pathname);
+      }
+    });
+
+    // Check the URL on load and open the specific art piece if present
+    const params = new URLSearchParams(window.location.search);
+    const piece = params.get('piece');
+    if (piece) {
+      const targetItem = document.getElementById(piece);
+      const img = targetItem?.querySelector('img');
+      if (img) {
+        modalImg.src = img.src;
+        modal.showModal();
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      }
+    }
+  });
+</script>

@@ -1,6 +1,10 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import PostList from "@components/PostList.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import PlaceHolderImg from "@assets/imgs/logo-hand.png";
+
+let allPosts = await getCollection('art');
 ---
 <MainLayout title="Art">
 
@@ -8,6 +12,27 @@ import PostList from "@components/PostList.astro";
 This is a collection of my personal artwork and design projects. The work displayed here spans various formats, focusing on anti-style aesthetics, abstract compositions, and digital illustration.
     </p>
 
-	<PostList collection="art" mode="grid" />
-
+	<div class="post-list-art">
+    {
+        allPosts.map(post => (
+            <div class="post-item" id={post.id}>
+                <div class="post-item-header">
+                    {post.data.title && ( <span class="post-item-title">{post.data.title}</span> )}
+                </div>
+                <div class="post-item-main">
+                    <div class="post-item-thumbnail-wrapper">
+                        {post.data.thumbnail && ( <Image class="post-item-thumbnail" src={post.data.thumbnail} width={800} alt={post.data.title} />)}
+                        {!post.data.thumbnail && ( <Image class="post-item-thumbnail" src={PlaceHolderImg} width={800} alt={post.data.title} />)}
+                    </div>
+                </div>
+            </div>
+        ))
+    }
+  </div> 
 </MainLayout>
+
+<style>
+  .post-item {
+    cursor: pointer;
+  }
+</style>
