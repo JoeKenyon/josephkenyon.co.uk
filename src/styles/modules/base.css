@@ -8,17 +8,9 @@
     font: inherit;
 }
 
-html {
+html
+{
     font-size: var(--main-font-size);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background-image: url("/graf-bg.webp");
-    background-size: cover;
-    background-position: center;
 }
 
 pre[data-language] {
@@ -43,7 +35,10 @@ body {
     line-height: var(--main-line-height);
     letter-spacing: var(--main-letter-spacing);
     min-height: 100dvh;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/graf-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
