@@ -108,7 +108,86 @@ ul:has(li h1)
     }
 }
 
+pre {
+    background: #f4f4f433;
+    border: 0px solid #ddd;
+    border-left: 3px solid rgba(255, 105, 180, 0.156);
+    color: rgb(0, 0, 0);
+    page-break-inside: avoid;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.1;
+    font-size: 1rem;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
 .eleventy-plugin-youtube-embed
 {
     margin-bottom: 3.5rem;
+}
+
+@media (max-width: 600px) 
+{
+    html
+    {
+        font-size: 82.5%;
+    }
+
+    .header
+    {
+        width: 100%;
+        justify-content: left;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0rem;;
+    }
+
+    nav
+    {
+        justify-content: space-around;
+        display: flex;
+        width: 100%;
+    }
+
+    main
+    {
+        width: 100%;
+    }
+
+    ul:has(li h1)
+    {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        text-transform: lowercase;
+
+        a
+        {
+            font-size: 1.2rem;
+        }
+
+        h1
+        {
+            margin: 0;
+            width: fit-content;
+        }
+
+
+        li
+        {
+            width: fit-content;
+            margin: 0.1rem;
+        }
+    }
 }
