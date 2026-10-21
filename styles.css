@@ -1,0 +1,114 @@
+img
+{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+html
+{
+    scrollbar-gutter: stable;
+    font-size: 62.5%;
+}
+
+body
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: -0.3px;
+    line-height: 11.88px;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    line-height: 108%;
+    padding-inline: 0.2rem;
+
+    &:hover
+    {
+        background-color: hotpink;
+        color: white;
+    }
+
+    &.active
+    {
+        background-color: none;
+        font-weight: 700;
+    }
+}
+
+nav
+{
+    margin-top: 1rem;
+    font-size: small;
+    text-transform: lowercase;
+    width: fit-content;
+}
+
+.header
+{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;;
+}
+
+main
+{
+    max-width: 700px;
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo
+{
+    height: 90px;
+    width: auto;
+}
+
+p
+{
+    margin-top: 0;
+}
+
+ul:has(li h1)
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 300px;
+    place-self: center;
+    width: fit-content;
+
+    a
+    {
+        font-size: 1.1rem;
+    }
+
+    h1
+    {
+        margin: 0;
+        width: fit-content;
+    }
+
+
+    li
+    {
+        width: fit-content;
+    }
+}
+
+.eleventy-plugin-youtube-embed
+{
+    margin-bottom: 3.5rem;
+}

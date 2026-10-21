@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+
+    <div class="header">
+      <img class="logo" src="/g36.png"></img>
+
+      <nav>
+        <a href="/" class="{% if page.url == '/' %}active{% endif %}">home</a> 
+        <a href="/projects/" class="{% if page.url.startsWith('/projects') %}active{% endif %}">projects</a>
+        <a href="/music/" class="{% if page.url.startsWith('/music') %}active{% endif %}">music</a>
+        <a href="/art/" class="{% if page.url.startsWith('/art') %}active{% endif %}">art</a>
+      </nav>
+    </div>
+
+    <main>
+
+    {% if video %}
+      <div class="eleventy-plugin-youtube-embed" style="position:relative;width:100%;padding-top: 56.25%;">
+        <iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" 
+        width="100%" height="100%" frameborder="0" 
+        title="{{ title }}" 
+        src="{{ video }}" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen="">
+        </iframe>
+      </div>
+    {% endif %}
+      {{ content | safe }}
+    </main>
+    
+  </body>
+</html>

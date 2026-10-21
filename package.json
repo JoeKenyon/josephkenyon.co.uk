@@ -1,31 +1,20 @@
 {
- "name": "joseph-kenyon-portfolio",
+  "name": "joseph-kenyon-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "type": "module",
-  "license": "SEE LICENSE IN LICENSE",
-  "version": "0.0.1",
-  "engines": 
-  {
-    "node": ">=22.12.0"
-  },
-  "scripts": 
-  {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "npm run build && astro preview",
-    "astro": "astro",
-    "deploy": "npm run build && wrangler --commit-dirty=true pages deploy dist"
-  },
-  "dependencies": 
-  {
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.4.2"
-  },
-  "devDependencies": 
-  {
-    "image-size": "^2.0.2",
-    "jsdom": "^29.1.1",
-    "prettier": "^3.8.3",
-    "puppeteer": "^25.0.2",
-    "wrangler": "^4.87.0"
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "eleventy-plugin-embed-everything": "^1.21.2",
+    "eleventy-plugin-youtube-embed": "^1.13.2"
   }
 }
