@@ -8,20 +8,13 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
   </head>
   <body>
-
-    <div class="header">
-      <img class="logo" src="/g36.png"></img>
-
-      <nav>
-        <a href="/" class="{% if page.url == '/' %}active{% endif %}">home</a> 
-        <a href="/projects/" class="{% if page.url.startsWith('/projects') %}active{% endif %}">projects</a>
-        <a href="/music/" class="{% if page.url.startsWith('/music') %}active{% endif %}">music</a>
-        <a href="/art/" class="{% if page.url.startsWith('/art') %}active{% endif %}">art</a>
-      </nav>
-    </div>
+    
+    <header>
+      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    </header>
 
     <main>
-
+    <h1>{{title}}</h1>
     {% if video %}
       <div class="eleventy-plugin-youtube-embed" style="position:relative;width:100%;padding-top: 56.25%;">
         <iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" 
@@ -35,6 +28,14 @@
     {% endif %}
       {{ content | safe }}
     </main>
+
+    <footer>
+      <ul>
+        <li><a href="mailto:joekenyon72@gmail.com" target="_blank">Email</a></li>
+        <li><a href="https://www.youtube.com/@joekenyon" target="_blank">YouTube</a></li>
+        <li><a href="https://joekenyon72.bandcamp.com" target="_blank">Bandcamp</a></li>
+      </ul>
+    </footer>
     
   </body>
 </html>

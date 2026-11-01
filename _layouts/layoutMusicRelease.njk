@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  </head>
+  <body>
+
+    <header>
+      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    </header>
+
+    <main>
+      <h1>{{title}}</h1>
+      <img class="music-img" src="/music/assets/{{thumbnail}}" height="210px"/>
+        <h1 class="post-list-title">Tracks</h1>
+        <ul class="post-list">
+        {% for track in tracks %}
+        <li>
+        <a href="{{ track.url }}">{{ track.title }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+
+    </main>
+
+    <footer>
+      <ul>
+        <li><a href="mailto:joekenyon72@gmail.com" target="_blank">Email</a></li>
+        <li><a href="https://www.youtube.com/@joekenyon" target="_blank">YouTube</a></li>
+        <li><a href="https://joekenyon72.bandcamp.com" target="_blank">Bandcamp</a></li>
+      </ul>
+    </footer>
+    
+  </body>
+</html>

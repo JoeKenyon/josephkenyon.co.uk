@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: layoutMusic.njk
 title: Music
 ---
 https://www.youtube.com/playlist?list=OLAK5uy_ny55mwH7wd6S7_uZcinjUyEZNDz9r5NEY

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  </head>
+  <body>
+
+    <header>
+      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    </header>
+
+    <main>
+        <h1>Music</h1>
+          <ul class="post-list">
+          {% for m in collections.music %}
+            <li>
+            <a href="{{ m.url }}">{{ m.data.title }}</a>
+            </li>
+          {% endfor %}
+
+          {% for m in collections.misc_music %}
+            <li>
+              <audio class="player" controls preload="metadata">
+                <source src="{{ m.url }}">
+              </audio>
+            </li>
+          {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+      <ul>
+        <li><a href="mailto:joekenyon72@gmail.com" target="_blank">Email</a></li>
+        <li><a href="https://www.youtube.com/@joekenyon" target="_blank">YouTube</a></li>
+        <li><a href="https://joekenyon72.bandcamp.com" target="_blank">Bandcamp</a></li>
+      </ul>
+    </footer>
+    
+  </body>
+
+        <script>
+      (() => {
+          const fmt = s => {
+              if (!isFinite(s)) return '0:00';
+              const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+              return m + ':' + String(sec).padStart(2, '0');
+          };
+
+          const players = [...document.querySelectorAll('audio.player')];
+
+          players.forEach(audio => {
+              audio.removeAttribute('controls');
+
+              const ui = document.createElement('div');
+              ui.className = 'player-ui';
+              ui.innerHTML =
+                  '<button type="button" aria-label="play">play</button>' +
+                  '<input type="range" min="0" max="1000" step="1" value="0" aria-label="seek">' +
+                  '<span class="time">0:00 / 0:00</span>';
+              audio.after(ui);
+
+              const btn = ui.querySelector('button');
+              const seek = ui.querySelector('input');
+              const time = ui.querySelector('.time');
+
+              const render = () => {
+                  const d = audio.duration, t = audio.currentTime;
+                  const frac = isFinite(d) && d > 0 ? t / d : 0;
+                  seek.value = frac * 1000;
+                  seek.style.setProperty('--p', (frac * 100) + '%');
+                  time.textContent = fmt(t) + ' / ' + fmt(d);
+              };
+
+              btn.addEventListener('click', () => audio.paused ? audio.play() : audio.pause());
+
+              seek.addEventListener('input', () => {
+                  if (isFinite(audio.duration)) audio.currentTime = (seek.value / 1000) * audio.duration;
+                  render();
+              });
+
+              audio.addEventListener('play', () => {
+                  players.forEach(o => { if (o !== audio) o.pause(); });
+                  btn.textContent = 'pause';
+                  btn.setAttribute('aria-label', 'pause');
+              });
+              const stopped = () => {
+                  btn.textContent = 'play';
+                  btn.setAttribute('aria-label', 'play');
+              };
+              audio.addEventListener('pause', stopped);
+              audio.addEventListener('ended', stopped);
+              audio.addEventListener('timeupdate', render);
+              audio.addEventListener('loadedmetadata', render);
+              audio.addEventListener('durationchange', render);
+              render();
+          });
+      })();
+      </script>
+</html>

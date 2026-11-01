@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  </head>
+  <body>
+
+    <header>
+      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    </header>
+    
+    <main>
+        <h1 class="post-list-title">Projects</h1>
+        <ul class="post-list">
+          {% for project in collections.projects %}
+            <li>
+            <a href="{{ project.url }}">{{ project.data.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+    </main>
+    
+  </body>
+</html>
