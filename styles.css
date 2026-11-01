@@ -26,7 +26,7 @@ body
     align-items: center;
     letter-spacing: -0.3px;
     line-height: 1.02rem;
-    margin: 3rem;
+    margin: 1rem;
     letter-spacing: -0.048rem;
 }
 
@@ -85,10 +85,13 @@ header
 main
 {
     width: 100%;
-    max-width: none;
     margin-top: 0rem;
-    display: flex;
-    flex-direction: column;
+    max-width: 750px;
+}
+
+.home-section
+{
+    width: 100%;
 }
 
 .logo
@@ -268,7 +271,6 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 0;
     list-style: none;
     width: 100%;
-    width: fit-content;
     align-items: left;
     display: flex;
     flex-direction: column;
@@ -280,6 +282,7 @@ body::-webkit-scrollbar-thumb:hover {
     {
         /*font-size: 1.2rem;*/
         padding: 0;
+        background-color: #eeeeee4e;
     }
 
     h1
@@ -294,6 +297,11 @@ body::-webkit-scrollbar-thumb:hover {
         width: fit-content;
         margin: 0.0rem;
     }
+
+    li:has(.player)
+    {
+        width:100%;
+    }
 }
 
 .post-list-title
@@ -306,7 +314,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    width: 400px;
+    width: 100%;
     max-width: 100%;
     /*font-size: 1.1rem;*/
     line-height: 1;
@@ -320,7 +328,7 @@ body::-webkit-scrollbar-thumb:hover {
     border: 0px solid rgba(0, 0, 0, 0.195);
     border-radius: 0;
     padding: 0.4rem 0.8rem;
-    min-width: 5.5rem;
+    min-width: 5rem;
     cursor: pointer;
     text-transform: lowercase;
 
@@ -389,8 +397,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .player-ui .time
 {
-    min-width: 9ch;
-    text-align: right;
+    min-width: 12ch;
+    text-align: center;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
 }
@@ -458,4 +466,8 @@ p:not(:last-child), .music-img
 ul,ol
 {
     padding-left: 3rem;
+}
+#art
+{
+    width: 100%;
 }
