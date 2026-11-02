@@ -10,19 +10,16 @@
   <body>
 
     <header>
-      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
-      Joseph Kenyon
+    <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <nav>
+    <a href="/projects" {% if page.url == '/' or page.url.startsWith('/projects') %}class="active"{% endif %}>projects</a>
+    <a href="/art" {% if page.url.startsWith('/art') %}class="active"{% endif %}>art</a>
+    <a href="/music" {% if page.url.startsWith('/music') %}class="active"{% endif %}>music</a>
+    </nav>
     </header>
-
-    <ul>
-    <li><a href="mailto:joekenyon72@gmail.com" target="_blank">Email</a></li>
-    <li><a href="https://www.youtube.com/@joekenyon" target="_blank">YouTube</a></li>
-    <li><a href="https://joekenyon72.bandcamp.com" target="_blank">Bandcamp</a></li>
-    </ul>
 
     <main>
         <section id="projects" class="home-section">
-          <h2>Projects</h2>
           <ul class="post-list">
           {% for project in collections.projects %}
           <li class="{% if project.data.external %}is-external{% else %}is-writeup{% endif %}">
@@ -34,38 +31,6 @@
           </li>
           {% endfor %}
           </ul>
-        </section>
-
-        <section id="music" class="home-section">
-          <h2>music</h2>
-          <ul class="post-list">
-            {% for m in collections.music %}
-              <li>
-                <a href="{{ m.url }}">{{ m.data.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-
-          <ul class="post-list">
-            {% for m in collections.misc_music %}
-              <li>
-                <audio class="player" controls preload="metadata">
-                  <source src="{{ m.url }}">
-                </audio>
-              </li>
-            {% endfor %}
-          </ul>
-        </section>
-
-        <section id="art" class="home-section">
-          <h2>art</h2>
-          <div class="art-tiles-main">
-            <div class="art-tiles">
-              {% for image in collections.artImages %}
-                <img src="{{ image.url }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
-              {% endfor %}
-            </div>
-          </div>
         </section>
     </main>
 

@@ -10,16 +10,24 @@
   <body>
 
     <header>
-      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <nav>
+    <a href="/projects" {% if page.url == '/' or page.url.startsWith('/projects') %}class="active"{% endif %}>projects</a>
+    <a href="/art" {% if page.url.startsWith('/art') %}class="active"{% endif %}>art</a>
+    <a href="/music" {% if page.url.startsWith('/music') %}class="active"{% endif %}>music</a>
+    </nav>
     </header>
 
     <main class="art-tiles-main">
-        <div class="art-tiles">
-            {{ content | safe }}
-            {% for image in collections.artImages %}
+        <section id="art" class="home-section">
+          <div class="art-tiles-main">
+            <div class="art-tiles">
+              {% for image in collections.artImages %}
                 <img src="{{ image.url }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
-            {% endfor %}
-        </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
     </main>
     
   </body>

@@ -10,20 +10,27 @@
   <body>
 
     <header>
-      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <nav>
+    <a href="/projects" {% if page.url == '/' or page.url.startsWith('/projects') %}class="active"{% endif %}>projects</a>
+    <a href="/art" {% if page.url.startsWith('/art') %}class="active"{% endif %}>art</a>
+    <a href="/music" {% if page.url.startsWith('/music') %}class="active"{% endif %}>music</a>
+    </nav>
     </header>
 
     <main>
+      <section>
       <h1>{{title}}</h1>
-      <img class="music-img" src="/music/assets/{{thumbnail}}" height="210px"/>
-        <h1 class="post-list-title">Tracks</h1>
+      <img class="music-img" src="/music/assets/{{thumbnail}}"/>
+        <h2 class="post-list-title">Tracks</h2>
         <ul class="post-list">
         {% for track in tracks %}
         <li>
-        <a href="{{ track.url }}">{{ track.title }}</a>
+        <a href="{{ track.url }}" target="_blank">{{ track.title }}</a>
         </li>
         {% endfor %}
         </ul>
+      </section>
 
     </main>
 

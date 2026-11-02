@@ -64,11 +64,25 @@ a
     }
 }
 
+header
+{
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a.active
+{
+    font-weight: 900;
+}
+
 h1,h2,h3
 {
     font-size:revert;
     margin-block: 0.5rem;
-    font-size-adjust: 0.4;
+    font-size-adjust: 0.38;
+    line-height: 1.5rem;
 }
 
 p
@@ -80,7 +94,7 @@ p
 .eleventy-plugin-youtube-embed
 {
     max-width: 90ch;
-    height: 40ch;
+    height: 300px;
     padding-top: 0 !important;
 }
 
@@ -95,8 +109,33 @@ section ul
     padding-left: 0;
 }
 
+.music-img
+{
+    max-width: 50ch;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
 
 
+footer
+{
+    ul
+    {
+
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+
+    }
+}
 
 
 
@@ -207,6 +246,31 @@ pre
     font-variant-numeric: tabular-nums;
 }
 
+.art-tiles-main
+{
+    max-width: none;
+    width: 100%;
+}
+
+.art-tiles
+{
+    column-count: 4;
+    column-gap: 0px;
+    padding: 0px;
+    width: 100%;
+
+    img 
+    {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 0px;
+        break-inside: avoid;
+        border-radius: 0px;
+        object-fit: cover;
+    }
+}
+
 @media (max-width: 600px) 
 {
     *
@@ -215,11 +279,11 @@ pre
         padding: 0;
         max-width: 100ch;
         max-width: 100%;
-        line-height: 1.4rem;
-        letter-spacing: -2%;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        line-height: 0.8rem;
+        letter-spacing: -10%;
+        font-family:'Courier New', Courier, monospace;
         color: black;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     body::-webkit-scrollbar 
@@ -236,4 +300,22 @@ pre
     {
         border-right: 12px solid #aaa;
     }
+
+    .art-tiles
+    {
+        column-count: 1;
+    }
+    main
+    {
+        width: 100%;
+    }
+
+    .post-list
+    {
+        li *
+        {
+            line-height: 1.5rem;
+        }
+    }
+
 }

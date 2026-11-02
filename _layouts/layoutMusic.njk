@@ -10,11 +10,16 @@
   <body>
 
     <header>
-      <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <a href="{{ '/' | url }}"><img class="logo" src="/g36.png" alt="logo"></a>
+    <nav>
+    <a href="/projects" {% if page.url == '/' or page.url.startsWith('/projects') %}class="active"{% endif %}>projects</a>
+    <a href="/art" {% if page.url.startsWith('/art') %}class="active"{% endif %}>art</a>
+    <a href="/music" {% if page.url.startsWith('/music') %}class="active"{% endif %}>music</a>
+    </nav>
     </header>
 
     <main>
-        <h1>Music</h1>
+      <section>
           <ul class="post-list">
           {% for m in collections.music %}
             <li>
@@ -30,6 +35,7 @@
             </li>
           {% endfor %}
         </ul>
+      </section>
     </main>
 
     <footer>
