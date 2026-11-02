@@ -1,5 +1,4 @@
 ---
-layout: layout.njk
 title: "Beatles Music Ontology"
 description: "Metadata exploration of Beatles music using RDF and SPARQL."
 thumbnail: "../assets/beatles-ontology-thumbnail.png"

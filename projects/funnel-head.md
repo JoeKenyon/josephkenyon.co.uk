@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
 title: "Funnel Head"
 description: "Real-time guitar amplifier VST plugin with JUCE."
 video: "https://www.youtube.com/embed/iBvjCU5gCls"
 thumbnail: "../assets/funnel-head-thumbnail.png"
+github: "https://github.com/JoeKenyon/Funnel-Head"
 ---
 `"In the Industry, you're what we call a Funnel Head"`
 

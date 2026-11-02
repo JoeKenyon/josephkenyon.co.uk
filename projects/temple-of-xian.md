@@ -1,5 +1,4 @@
 ---
-layout: layout.njk
 title: "Audio Redesign - Temple of Xian"
 description: "Sound redesign for Tomb Raider II level."
 video: "https://www.youtube.com/embed/nVwzv8HauBs"

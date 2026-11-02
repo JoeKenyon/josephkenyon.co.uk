@@ -104,7 +104,6 @@ async function run() {
             let frontmatter = "---\n";
 
             // append top-level keys (no indentation)
-            frontmatter += `layout: layoutMusicRelease.njk\n`
             frontmatter += `title: "${title.replace(/"/g, '\\"')}"\n`;
             frontmatter += `id: "${item.getAttribute('data-item-id')}"\n`;
             frontmatter += `thumbnail: "${imageUrl}"\n`;

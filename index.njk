@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: "Projects"
+---
+<header>
+    <h1>{{title}}</h1>
+</header>
+
+<ul>
+    {%- for p in collections.projects %}
+        {%- set ext = p.data.external %}
+        <li class="{{ 'is-external' if ext else 'is-writeup' }}">
+        <a href="{{ ext or p.url }}"{% if ext %} target="_blank" rel="noopener"{% endif %}>{{ p.data.title | lower }}{% if ext %} ↗{% endif %}</a>
+        </li>
+    {%- endfor %}
+</ul>

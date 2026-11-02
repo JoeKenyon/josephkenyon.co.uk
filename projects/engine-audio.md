@@ -1,5 +1,4 @@
 ---
-layout: layout.njk
 title: Engine Audio
 video: https://www.youtube.com/embed/DyfLkTeAsn4?si=k7Pa6HTe4oPhSYSy
 thumbnail: "../assets/engine-audio-max-logic.png"

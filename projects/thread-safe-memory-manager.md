@@ -1,7 +1,7 @@
 ---
-layout: layout.njk
 title: "Thread-Safe Memory Manager"
 description: "A bare-metal C memory allocator featuring boundary-tag mechanics and pluggable allocation algorithms."
+github: "https://github.com/JoeKenyon/Thread-Safe-Memory-Manager"
 ---
 For this project, I built a custom heap memory manager in C from scratch to see exactly how pointer geometry, memory allocation, and thread safety work under the hood. Instead of relying on `malloc` and `free`, this system runs on its own pre-allocated memory buffer and handles tracking, block splitting, and neighbor merging manually.
 

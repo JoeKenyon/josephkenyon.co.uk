@@ -1,5 +1,4 @@
 ---
-layout: layoutMusicRelease.njk
 title: "Out for Delivery"
 id: "album-239181185"
 thumbnail: "out-for-delivery.jpg"

@@ -1,0 +1,5 @@
+[
+  { "label": "projects", "url": "/projects"},
+  { "label": "art",      "url": "/art" },
+  { "label": "music",    "url": "/music" }
+]

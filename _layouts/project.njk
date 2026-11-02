@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+<header>
+    <h1>{{title}}</h1>
+    {%- if github or date %}
+        <p class="meta">
+            {%- if date %}<span>{{ date }}</span>{% endif %}
+            {%- if github %} <a href="{{ github }}" target="_blank" rel="noopener">github ↗</a>{% endif %}
+        </p>
+    {%- endif %}
+</header>
+
+<article>
+    {% if video %}
+        <div class="eleventy-plugin-youtube-embed" style="position:relative;width:100%;padding-top: 56.25%;">
+            <iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" 
+            width="100%" height="100%" frameborder="0" 
+            title="{{ title }}" 
+            src="{{ video }}" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen="">
+            </iframe>
+        </div>
+    {% endif %}
+
+  {{ content | safe }}
+
+  <p><a href="/projects/">← projects</a></p>
+</article>

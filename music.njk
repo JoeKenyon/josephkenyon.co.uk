@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: "Music"
+---
+<header>
+    <h1>{{title}}</h1>
+</header>
+
+<ul>
+    {% for m in collections.music %}
+        <li>
+            <a href="{{ m.url }}">{{ m.data.title }}</a>
+        </li>
+    {% endfor %}
+
+    {% for m in collections.misc_music %}
+        <li>
+            <audio class="player" controls preload="metadata">
+                <source src="{{ m.url }}">
+            </audio>
+        </li>
+    {% endfor %}
+</ul>

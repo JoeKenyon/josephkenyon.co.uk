@@ -1,5 +1,4 @@
 ---
-layout: layoutMusicRelease.njk
 title: "Vanity"
 id: "album-3456158827"
 thumbnail: "vanity.jpg"

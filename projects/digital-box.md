@@ -1,5 +1,4 @@
 ---
-layout: layout.njk
 title: "Digital Box"
 description: "A hybrid acoustic-digital string instrument."
 video: "https://www.youtube.com/embed/VjRkfHHMrPk"

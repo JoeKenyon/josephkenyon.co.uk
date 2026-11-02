@@ -1,8 +1,8 @@
 ---
-layout: layout.njk
 title: "Guitar Effects Pedal"
 description: "Digital signal processing on STM32 hardware."
 thumbnail: "../assets/param_gtr.png"
+github: "https://github.com/JoeKenyon/GuitarEffectsPedal"
 ---
 This project focuses on the development of a digital **guitar effects pedal** using a **micro-controller**. 
 

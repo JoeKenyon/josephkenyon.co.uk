@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<header>
+    <h1><a href="{{url}}">{{title}}↗</a></h1>
+</header>
+<img class="music-img" src="/music/assets/{{thumbnail}}"/>
+
+<h2>Tracks</h2>
+<ol>
+{% for track in tracks %}
+    <li>
+        <a href="{{ track.url }}" target="_blank">{{ track.title }}</a>
+    </li>
+{% endfor %}
+</ol>
+
+<p><a href="/music/">← back</a></p>

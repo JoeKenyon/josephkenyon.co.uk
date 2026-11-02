@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: "Art"
+---
+<header>
+    <h1>{{title}}</h1>
+</header>
+
+<div class="moe-zay-ick">
+    {% for image in collections.artImages %}
+    <img src="{{ image.url }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+    {% endfor %}
+</div>

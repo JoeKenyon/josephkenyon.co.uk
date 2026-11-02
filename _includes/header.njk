@@ -1,0 +1,12 @@
+<header>
+  <div>
+    <a href="{{ '/' | url }}"><img class="logo" src="/joe-sig-gen.png" alt="home"></a>
+    <!--<a href="{{ '/projects' | url }}">joseph kenyon</a>-->
+  </div>
+  <nav>
+  {%- for item in nav %}
+    {%- set active = (page.url == item.url) if item.url == '/' else page.url.startsWith(item.url) %}
+    <a href="{{ item.url | url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
+  {%- endfor %}
+  </nav>
+</header>
