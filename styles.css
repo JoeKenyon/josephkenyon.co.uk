@@ -2,12 +2,36 @@
 {
     margin: 0;
     padding: 0;
-    max-width: 800px;
+    max-width: 100ch;
+    max-width: 100%;
     line-height: 1.1rem;
     letter-spacing: -4%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     color: black;
+    font-size: 12px;
 }
+
+body
+{
+    margin: 1ch;
+}
+
+body::-webkit-scrollbar 
+{
+  width: 2ch;
+}
+
+body::-webkit-scrollbar-thumb 
+{
+  border-right: 2ch solid #000000;
+}
+
+body::-webkit-scrollbar-thumb:hover 
+{
+  border-right: 2ch solid #aaa;
+}
+
 
 img
 {
@@ -16,9 +40,21 @@ img
 
 html
 {
-    font-size: 180%;
 }
 
+a:has(.logo)
+{
+    img
+    {
+        height: 90px;
+        width: auto;
+    }
+
+    &:hover
+    {
+        background-color: transparent;
+    }
+}
 a
 {
     &:hover
@@ -30,17 +66,27 @@ a
 
 h1,h2,h3
 {
+    font-size:revert;
     margin-block: 0.5rem;
+    font-size-adjust: 0.4;
 }
 
 p
 {
     margin-block: 1rem;
+    max-width: 90ch;
 }
 
-ul
+.eleventy-plugin-youtube-embed
 {
-    padding-left: 1.7rem;
+    max-width: 90ch;
+    height: 40ch;
+    padding-top: 0 !important;
+}
+
+ul,ol
+{
+    padding-left: 4ch;
 }
 
 section ul
@@ -52,18 +98,142 @@ section ul
 
 
 
+
+
 /* code snippets */
 pre
 {
-    background: #f4f4f433;
-    border: 0px solid #ddd;
-    border-left: 0px solid rgba(255, 105, 180, 0.156);
-    color: rgb(0, 0, 0);
+    max-width: 90ch;
+    background: black;
     page-break-inside: avoid;
-    line-height: 1.1;
-    margin-block: 0.5rem;
-    max-width: 100%;
+    line-height: 0.5rem;
+    margin-block: 0.6rem;
     overflow: auto;
     display: block;
     word-wrap: break-word;
+    code
+    {
+        background-color: transparent;
+        color: white;
+        font-family: monospace;
+        font-size: 1rem;
+    }
+}
+
+/* music player */
+.player-ui
+{
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+    max-width: 90ch;
+}
+
+.player-ui button
+{
+    color: black;
+    background: white;
+    border: none;
+    border-radius: 0;
+    min-width: 5ch;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus-visible
+    {
+        color: white;
+        background-color: hotpink;
+    }
+}
+
+.player-ui input[type=range]
+{
+    --p: 0%;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-webkit-slider-runnable-track
+    {
+        height: 3px;
+        background: linear-gradient(to right, hotpink var(--p), #ddd var(--p));
+    }
+    &::-webkit-slider-thumb
+    {
+        -webkit-appearance: none;
+        width: 9px;
+        height: 9px;
+        margin-top: -3px;
+        background: hotpink;
+        border: 0;
+        border-radius: 0;
+    }
+    &::-moz-range-track
+    {
+        height: 3px;
+        background: #ddd;
+    }
+    &::-moz-range-progress
+    {
+        height: 3px;
+        background: hotpink;
+    }
+    &::-moz-range-thumb
+    {
+        width: 9px;
+        height: 9px;
+        background: hotpink;
+        border: 0;
+        border-radius: 0;
+    }
+    &:focus-visible
+    {
+        outline: 1px dotted hotpink;
+        outline-offset: 2px;
+    }
+}
+
+.player-ui .time
+{
+    min-width: 9ch;
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) 
+{
+    *
+    {
+        margin: 0;
+        padding: 0;
+        max-width: 100ch;
+        max-width: 100%;
+        line-height: 1.4rem;
+        letter-spacing: -2%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: black;
+        font-size: 18px;
+    }
+
+    body::-webkit-scrollbar 
+    {
+        width: 12px;
+    }
+
+    body::-webkit-scrollbar-thumb 
+    {
+        border-right: 12px solid #000000;
+    }
+
+    body::-webkit-scrollbar-thumb:hover 
+    {
+        border-right: 12px solid #aaa;
+    }
 }
