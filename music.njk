@@ -12,11 +12,14 @@ title: "Music"
             <a href="{{ m.data.url }}" target="_blank">{{ m.data.title }} ↗</a>
         </li>
     {% endfor %}
-{%- for d in collections.misc_music %}
-    <li>
-        <audio class="player" controls preload="metadata">
-            <source src="{{ d.url }}">
-        </audio>
-    </li>
-{% endfor %}
+
+    <hr>
+
+    {%- for d in collections.misc_music %}
+        <li>
+            <audio class="player" controls preload="metadata">
+                <source src="{{ d.url }}">
+            </audio>
+        </li>
+    {% endfor %}
 </ul>
