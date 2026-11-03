@@ -1,283 +1,81 @@
-/* ---------- tokens ---------- */
 *
 {
     margin: 0;
     padding: 0;
 }
 
-:root
-{
-    --text-color: black;
-    --background-color: white;
-    --accent-color: hotpink;
-    --accent-text-color: white;
-    --line-color: var(--text-color);
-}
-
-/* dark mode, uncomment to enable */
-@media (prefers-color-scheme: dark)
-{
-    :root
-    {
-        --text-color: whitesmoke;
-        --background-color: #0a0a09;
-        --line-color: rgba(255, 255, 255, 0.2);
-    }
-}
-
-/* ---------- page ---------- */
 html
 {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font: 13px/1.5 monospace;
-    letter-spacing: -0.019rem;
-    scrollbar-gutter: stable;
-}
-
-body
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4rem;
-    max-width: 800px;
-    min-height: 100dvh;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-}
-
-main
-{
-    flex: 1;
+    max-width: none;
     width: 100%;
-}
-footer, body > header
-{
-    width: 100%;
-}
-
-::selection
-{
-    background-color: var(--accent-color);
-    color: var(--accent-text-color);
+    scrollbar-gutter: stable both-edges;
+    font-family: arial;
+    font-size: 30px;
 }
 
-@view-transition
+main a
 {
-    navigation: auto;
-}
-
-/* ---------- links ---------- */
-a
-{
-    color: var(--text-color);
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a:not(:has(.logo)):is(:hover, :focus-visible)
+a:has(.logo)
 {
-    color: var(--accent-text-color);
-    background-color: var(--accent-color);
-    outline: none;
-}
-
-a.active,
-a[aria-current="page"]
-{
-    font-weight: 900;
-    border-bottom: 1px solid var(--text-color);
-}
-
-/* ---------- header / footer ---------- */
-body > header
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-
-    nav
+    &:hover
     {
-        display: flex;
-        gap: 2rem;
-    }
-
-    a:has(.logo)
-    {
-        display: flex;
-    }
-
-    .logo
-    {
-        display: block;
-        height: 50px;
+        background-color: transparent;
     }
 }
 
-footer
+img
 {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 1rem;
-
-    a
-    {
-        text-decoration: underline;
-    }
-
-    div
-    {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 2rem;
-    }
-}
-
-/* ---------- main ---------- */
-main
-{
-    max-width: 75ch;
-    h1, h2, h3, h4, h5, h6
-    {
-        margin-bottom: 1rem;
-    }
-
-    ul:not(:last-child)
-    {
-        margin-bottom: 1rem;
-    }
-}
-
-main > header
-{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin-bottom: 1.5rem;
-
-    h1
-    {
-        margin-bottom: 0.25rem;
-    }
-}
-
-/* project / music lists */
-main > ul
-{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    max-width: 100%;
 }
 
 hr
 {
+    margin-block: 0rem;
     border: none;
-    border-top: 1px dashed var(--line-color);
-    margin-block: 1rem;
+    border-bottom: 0pt black solid;
 }
 
-/* ---------- media ---------- */
-img
-{
-    max-width: 100%;
-    height: auto;
-}
-
-p:has(img)
-{
-    display: flex;
-    flex-direction: column;
-}
-
-.music-img
-{
-    height: 250px;
-    width: auto;
-    object-fit: cover;
-}
-
-.video
-{
-    aspect-ratio: 16 / 9;
-    margin: 1.5rem 0;
-}
-
-.video :is(iframe, video)
-{
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-li:has(audio)
-{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 0.25rem;
-
-    audio
-    {
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-/* art grid, 3 columns on desktop, 2 on phones */
 .moe-zay-ick
 {
-    columns: 2 150px;
+    column-count: 2;
     column-gap: 0;
-
-    > *
-    {
-        break-inside: avoid;
-        background-color: white;
-    }
-
-    img
-    {
-        display: block;
-        width: 100%;
-    }
+    row-gap: 0;
+    gap: 0;
 }
 
-/* ---------- write-ups ---------- */
+main > ul
+{
+    list-style-type: none;
+}
+
 article
 {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    max-width: 75ch;
-
-    ol, ul
-    {
-        padding-left: 5ch;
-    }
-
-    h2, h3
-    {
-        margin-top: 1rem;
-    }
+    gap: 1rem;
+    font-size: 20px;
 }
 
-.eleventy-plugin-youtube-embed,
-.music-img,
-article > :is(p, ol, ul, pre):not(:last-child)
+a:hover
 {
-    margin-bottom: 1rem;
+    background-color: hotpink;
+    color: white;
+
+}
+
+article ul, article ol
+{
+    padding-left: 4.25ch;
 }
 
 pre
 {
-    background: var(--text-color);
-    color: var(--background-color);
+    background: black;
+    color: white;
     line-height: 1.4;
-    padding: 0.75rem;
     overflow: auto;
     break-inside: avoid;
 }
@@ -289,61 +87,88 @@ pre code
     font: 1rem monospace;
 }
 
-/* ---------- desktop only ---------- */
-@media (min-width: 771px)
+.logo
 {
-    body > header .logo
-    {
-        transform: translateX(0%);
-    }
+    height: 80px;
 }
 
-/* ---------- mobile ---------- */
-@media (max-width: 770px)
+body
 {
-    html
-    {
-        font-size: 16px;
-        line-height: 1.4;
-        letter-spacing: 0.01rem;
-    }
 
-    body
-    {
-        gap: 3rem;
-        padding: 2rem 1rem;
-    }
-
-    body > header nav
-    {
-        gap: 1.25rem;
-    }
-
-    footer
-    {
-        flex-direction: column;
-    }
-
-    main > ul
-    {
-        gap: 0.7rem;
-    }
-
-    article
-    {
-        max-width: none;
-    }
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("art/rosieNoText.png");
 }
 
-@media (prefers-reduced-motion: reduce)
+h1,h2,h3,h4,h5,h6,h6
 {
+    max-width: 15.5ch;
+    display:inline-block;
+    transform: translateX(50%) scale(2,1); /* W3C */
+    background-color: blue;
+    color: white;
+    width:fit-content;
+    margin-block: 0.0%;
+    line-height: 1;
+    z-index: 1000;
+}
+body > header
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;;
+}
+body > header > nav
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
     a
     {
-        transition: none;
+        text-decoration: none;
+            color: black;
+    }
+    a.active
+    {
+        font-weight: 900;
+    }
+}
+
+main
+{
+    max-width: 75ch;
+    width: 100%;
+}
+
+main > ul > li 
+{
+    transform: translateX(50%) scale(2,1); /* W3C */
+    background-color: rgb(0, 0, 0);
+    width:fit-content;
+    height: fit-content;
+    padding: 0;
+    line-height: 1;
+    a
+    {
+        color: white;
     }
 
-    @view-transition
-    {
-        navigation: none;
-    }
+}
+
+article ol,
+article ul,
+article p,
+article img
+{
+    background-color: white;
+}
+
+article
+{
+    width: 100%;
 }
