@@ -4,7 +4,7 @@ import { JSDOM } from 'jsdom';
 import puppeteer from 'puppeteer';
 
 const BANDCAMP_URL = "https://joekenyon72.bandcamp.com/music";
-const MUSIC_DIR = "../music";
+const MUSIC_DIR = "../src/music";
 
 async function downloadImage(url, dest) 
 {
