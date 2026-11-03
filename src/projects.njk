@@ -2,7 +2,7 @@
 layout: base.njk
 title: "Projects"
 ---
-<header>
+<header class="ticker">
     <h1>{{ title }}</h1>
 </header>
 
@@ -10,7 +10,7 @@ title: "Projects"
     {%- for p in collections.projects -%}
         {%- if not p.data.external -%}
             <li class="is-writeup">
-                <a href="{{ p.url }}">{{ p.data.title | lower }}</a>
+                <a class="" href="{{ p.url }}">{{ p.data.title | lower }}</a>
             </li>
         {%- endif -%}
     {%- endfor -%}

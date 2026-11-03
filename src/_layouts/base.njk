@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Joseph Kenyon | {{ title | lower }}</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+
+    {% include "header.njk" %}
+
+    <main>{{ content | safe }}</main>
+
+    {% include "footer.njk" %}
+
+    <script src="/ticker.js"></script>
+    <script>
+      document.querySelectorAll(".ticker").forEach((el, i) => ticker(el, 
+      {
+        speed: +el.dataset.speed || 100,
+        reverse: "reverse" in el.dataset,
+        gap: +el.dataset.gap || 100
+      }));
+    </script>
+    
+  </body>
+</html>

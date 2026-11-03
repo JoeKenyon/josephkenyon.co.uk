@@ -5,22 +5,30 @@ import path from 'node:path';
 
 export default async function(eleventyConfig) 
 {
-	// Configure Eleventy
-    eleventyConfig.setOutputDirectory("dist");
-    eleventyConfig.setIncludesDirectory("_includes");
-    eleventyConfig.setLayoutsDirectory("_layouts");
-    eleventyConfig.addPlugin(embedEverything);
-    eleventyConfig.addPlugin(embedYouTube);
-    eleventyConfig.addPassthroughCopy("art");
-    eleventyConfig.addPassthroughCopy("styles.css");
-    eleventyConfig.addPassthroughCopy("./projects/assets");
-    eleventyConfig.addPassthroughCopy("./music/assets");
-    eleventyConfig.addPassthroughCopy("./music/demos");
-    eleventyConfig.addWatchTarget("./styles.css");
+  // Configure Eleventy directories
+  eleventyConfig.setInputDirectory("src");
+  eleventyConfig.setOutputDirectory("dist");
+  eleventyConfig.setIncludesDirectory("_includes");
+  eleventyConfig.setLayoutsDirectory("_layouts");
 
+  // Plugins
+  eleventyConfig.addPlugin(embedEverything);
+  eleventyConfig.addPlugin(embedYouTube);
+
+  // Passthrough Copies
+  eleventyConfig.addPassthroughCopy("./src/art/*");
+  eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
+  eleventyConfig.addPassthroughCopy("src/projects/assets/*");
+  eleventyConfig.addPassthroughCopy("src/music/assets/*");
+  eleventyConfig.addPassthroughCopy("src/music/misc/*");
+
+  // Watch targets
+  eleventyConfig.addWatchTarget("styles.css");
+
+  // Collections
   eleventyConfig.addCollection("artImages", function(collectionApi) 
   {
-    const artDir = "./art"; // update this path if your art folder is located elsewhere
+    const artDir = "./src/art";
     if (!fs.existsSync(artDir)) return [];
     
     return fs.readdirSync(artDir)
@@ -36,17 +44,18 @@ export default async function(eleventyConfig)
 
   eleventyConfig.addCollection("projects", function(collectionApi) 
   {
-    return collectionApi.getFilteredByGlob("./projects/**/*.{md,njk,html}");
+    // Since inputDir is "src", glob paths are relative to "src"
+    return collectionApi.getFilteredByGlob("./src/projects/**/*.md");
   });
 
   eleventyConfig.addCollection("music", function(collectionApi) 
   {
-    return collectionApi.getFilteredByGlob("./music/**/*.{md,njk,html}");
+    return collectionApi.getFilteredByGlob("./src/music/**/*.md");
   });
 
   eleventyConfig.addCollection("misc_music", function(collectionApi) 
   {
-    const musicDir = "./music/misc";
+    const musicDir = "./src/music/misc";
     if (!fs.existsSync(musicDir)) return [];
     
     return fs.readdirSync(musicDir)
@@ -60,11 +69,6 @@ export default async function(eleventyConfig)
       });
   });
 
-    // Copy the contents of the `public` folder to the output folder
-	// For example, `./public/css/` ends up in `_site/css/`
-  eleventyConfig
-		.addPassthroughCopy({
-			"./public/": "/"
-		});
+  // Copy root public folder assets directly to dist root
+  eleventyConfig.addPassthroughCopy({ "public": "." });
 };
-

@@ -2,8 +2,8 @@
 layout: base.njk
 title: "Music"
 ---
-<header>
-    <h1>{{title}}</h1>
+<header class="ticker">
+    <h1>{{ title }}</h1>
 </header>
 
 <ul>
@@ -13,7 +13,7 @@ title: "Music"
         </li>
     {% endfor %}
 
-    <hr>
+<h1>Demos</h1>
 
     {%- for d in collections.misc_music %}
         <li>

@@ -1,16 +1,15 @@
 ---
 layout: base.njk
 ---
-<header>
+<header class="ticker">
     <h1>{{title}}</h1>
     {%- if github or date %}
+    {%- endif %}
+</header>
         <p class="meta">
             {%- if date %}<span>{{ date }}</span>{% endif %}
             {%- if github %} <a href="{{ github }}" target="_blank" rel="noopener">github ↗</a>{% endif %}
         </p>
-    {%- endif %}
-</header>
-
 <article>
     {% if video %}
         <div class="eleventy-plugin-youtube-embed" style="position:relative;width:100%;padding-top: 56.25%;">
