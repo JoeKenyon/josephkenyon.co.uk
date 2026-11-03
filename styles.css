@@ -11,16 +11,17 @@
     --background-color: white;
     --accent-color: hotpink;
     --accent-text-color: white;
-    --line-accent-color: var(--text-color);
+    --line-color: var(--text-color);
 }
 
+/* dark mode, uncomment to enable */
 @media (prefers-color-scheme: dark)
 {
     :root
     {
         --text-color: whitesmoke;
         --background-color: #0a0a09;
-        --line-accent-color: rgba(255, 255, 255, 0.1);
+        --line-color: rgba(255, 255, 255, 0.2);
     }
 }
 
@@ -29,7 +30,7 @@ html
 {
     background-color: var(--background-color);
     color: var(--text-color);
-    font: 13px monospace;
+    font: 13px/1.5 monospace;
     letter-spacing: -0.019rem;
     scrollbar-gutter: stable;
 }
@@ -38,10 +39,28 @@ body
 {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 4rem;
     max-width: 800px;
+    min-height: 100dvh;
     margin: 0 auto;
-    padding-block: 3rem;
+    padding: 3rem 1.5rem;
+}
+
+main
+{
+    flex: 1;
+    width: 100%;
+}
+footer, body > header
+{
+    width: 100%;
+}
+
+::selection
+{
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
 }
 
 @view-transition
@@ -54,7 +73,7 @@ a
 {
     color: var(--text-color);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a:not(:has(.logo)):is(:hover, :focus-visible)
@@ -64,7 +83,8 @@ a:not(:has(.logo)):is(:hover, :focus-visible)
     outline: none;
 }
 
-a.active
+a.active,
+a[aria-current="page"]
 {
     font-weight: 900;
     border-bottom: 1px solid var(--text-color);
@@ -76,6 +96,7 @@ body > header
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 
     nav
     {
@@ -110,14 +131,16 @@ footer
     div
     {
         display: flex;
-        gap: 5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem 2rem;
     }
 }
 
 /* ---------- main ---------- */
 main
 {
-    h2, h3, h4, h5, h6
+    max-width: 75ch;
+    h1, h2, h3, h4, h5, h6
     {
         margin-bottom: 1rem;
     }
@@ -134,6 +157,11 @@ main > header
     flex-direction: column;
     align-items: start;
     margin-bottom: 1.5rem;
+
+    h1
+    {
+        margin-bottom: 0.25rem;
+    }
 }
 
 /* project / music lists */
@@ -148,14 +176,15 @@ main > ul
 hr
 {
     border: none;
-    border-top: 1pt dashed var(--line-accent-color);
-    margin-block: 0.5rem;
+    border-top: 1px dashed var(--line-color);
+    margin-block: 1rem;
 }
 
 /* ---------- media ---------- */
 img
 {
     max-width: 100%;
+    height: auto;
 }
 
 p:has(img)
@@ -189,33 +218,31 @@ li:has(audio)
     display: flex;
     flex-direction: column;
     align-items: start;
-
-    p
-    {
-        margin: 0;
-    }
+    gap: 0.25rem;
 
     audio
     {
         width: 100%;
+        max-width: 400px;
     }
 }
 
-/* art grid */
+/* art grid, 3 columns on desktop, 2 on phones */
 .moe-zay-ick
 {
-    column-count: 3;
+    columns: 2 150px;
     column-gap: 0;
 
     > *
     {
         break-inside: avoid;
+        background-color: white;
     }
 
     img
     {
         display: block;
-        background-color: var(--accent-text-color);
+        width: 100%;
     }
 }
 
@@ -225,15 +252,16 @@ article
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    max-width: 75ch;
 
     ol, ul
     {
         padding-left: 5ch;
     }
 
-    img
+    h2, h3
     {
-        background-color: var(--text-color);
+        margin-top: 1rem;
     }
 }
 
@@ -248,7 +276,7 @@ pre
 {
     background: var(--text-color);
     color: var(--background-color);
-    line-height: 1.1rem;
+    line-height: 1.4;
     padding: 0.75rem;
     overflow: auto;
     break-inside: avoid;
@@ -257,7 +285,7 @@ pre
 pre code
 {
     background: transparent;
-    color: var(--background-color);
+    color: inherit;
     font: 1rem monospace;
 }
 
@@ -266,7 +294,7 @@ pre code
 {
     body > header .logo
     {
-        transform: translateX(-20%);
+        transform: translateX(0%);
     }
 }
 
@@ -276,13 +304,19 @@ pre code
     html
     {
         font-size: 16px;
-        line-height: 1;
+        line-height: 1.4;
         letter-spacing: 0.01rem;
     }
 
     body
     {
+        gap: 3rem;
         padding: 2rem 1rem;
+    }
+
+    body > header nav
+    {
+        gap: 1.25rem;
     }
 
     footer
@@ -295,8 +329,21 @@ pre code
         gap: 0.7rem;
     }
 
-    .moe-zay-ick
+    article
     {
-        column-count: 2;
+        max-width: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+    a
+    {
+        transition: none;
+    }
+
+    @view-transition
+    {
+        navigation: none;
     }
 }
