@@ -8,10 +8,10 @@ title: "Projects"
 
 <ul>
     {%- for p in collections.projects %}
-        {%- set ext = p.data.external %}
-        {%- set targetUrl = p.data.url or p.url %}
-        <li class="{{ 'is-external' if ext else 'is-writeup' }}">
-        <a href="{{ targetUrl }}"{% if ext %} target="_blank" rel="noopener"{% endif %}>{{ p.data.title | lower }}{% if ext %} ↗{% endif %}</a>
+        {%- set extUrl = p.data.external %}
+        {%- set targetUrl = extUrl or p.url %}
+        <li class="{{ 'is-external' if extUrl else 'is-writeup' }}">
+        <a href="{{ targetUrl }}"{% if extUrl %} target="_blank" rel="noopener"{% endif %}>{{ p.data.title | lower }}{% if extUrl %} ↗{% endif %}</a>
         </li>
     {%- endfor %}
 </ul>

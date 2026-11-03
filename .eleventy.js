@@ -15,7 +15,7 @@ export default async function(eleventyConfig)
     eleventyConfig.addPassthroughCopy("styles.css");
     eleventyConfig.addPassthroughCopy("./projects/assets");
     eleventyConfig.addPassthroughCopy("./music/assets");
-    eleventyConfig.addPassthroughCopy("./music/misc");
+    eleventyConfig.addPassthroughCopy("./music/demos");
     eleventyConfig.addWatchTarget("./styles.css");
 
   eleventyConfig.addCollection("artImages", function(collectionApi) 
@@ -36,37 +36,7 @@ export default async function(eleventyConfig)
 
   eleventyConfig.addCollection("projects", function(collectionApi) 
   {
-    // 1. grab markdown write-ups from /projects
-    const markdownProjects = collectionApi.getFilteredByGlob("./projects/**/*.{md,njk,html}");
-
-    // 2. read raw github links from misc-projects.txt
-    let miscProjects = [];
-    const txtPath = "./misc-projects.txt";
-    
-    if (fs.existsSync(txtPath)) 
-    {
-      const fileContent = fs.readFileSync(txtPath, 'utf8');
-      miscProjects = fileContent
-        .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0 && line.startsWith('http'))
-        .map(url => 
-        {
-          const segments = url.split('/');
-          const repoName = segments[segments.length - 1];
-          
-          return {
-            url: url,
-            data: {
-              title: repoName,
-              external: true
-            }
-          };
-        });
-    }
-
-    // 3. return combined list
-    return [...markdownProjects, ...miscProjects];
+    return collectionApi.getFilteredByGlob("./projects/**/*.{md,njk,html}");
   });
 
   eleventyConfig.addCollection("music", function(collectionApi) 

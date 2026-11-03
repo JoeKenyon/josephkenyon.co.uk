@@ -1,11 +1,14 @@
 <header>
-  <div>
-    <a href="{{ '/' | url }}"><img class="logo" src="/joe-sig-gen.png" alt="home"></a>
-    <!--<a href="{{ '/projects' | url }}">joseph kenyon</a>-->
-  </div>
+  <a href="{{ '/' | url }}"><img class="logo" src="/joe-sig-gen.png" alt="home"></a>
   <nav>
+  {%- set here = page.url or "" %}
   {%- for item in nav %}
-    {%- set active = (page.url == item.url) if item.url == '/' else page.url.startsWith(item.url) %}
+    {%- set isProjects = item.url and item.url.includes('projects') %}
+    {%- if isProjects %}
+      {%- set active = (here == '/' or here.startsWith(item.url)) %}
+    {%- else %}
+      {%- set active = (here == item.url) if item.url == '/' else here.startsWith(item.url) %}
+    {%- endif %}
     <a href="{{ item.url | url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
   {%- endfor %}
   </nav>
