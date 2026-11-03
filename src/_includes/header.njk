@@ -1,15 +1,11 @@
 <header>
   <a href="{{ '/' | url }}"><img class="logo" src="/joe-sig-gen.png" alt="home"></a>
-  <nav>
-  {%- set here = page.url or "" %}
-  {%- for item in nav %}
-    {%- set isProjects = item.url and item.url.includes('projects') %}
-    {%- if isProjects %}
-      {%- set active = (here == '/' or here.startsWith(item.url)) %}
-    {%- else %}
-      {%- set active = (here == item.url) if item.url == '/' else here.startsWith(item.url) %}
-    {%- endif %}
-    <a href="{{ item.url | url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
-  {%- endfor %}
-  </nav>
+
+      <div>
+        <a class="" href="https://www.youtube.com/@joekenyon" target="_blank">YouTube</a>
+        <a class="" href="https://joekenyon72.bandcamp.com" target="_blank">Bandcamp</a>
+        <a class="" href="https://open.spotify.com/artist/6sUGdqO5gMEYlSLHyzYo0f" target="_blank" rel="noopener">Spotify</a>
+        <a class="" href="mailto:joekenyon72@gmail.com" target="_blank">Email</a>
+        <a class="" href="https://github.com/joekenyon" target="_blank" rel="noopener">GitHub</a>
+      </div>
 </header>

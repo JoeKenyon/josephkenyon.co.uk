@@ -18,7 +18,7 @@ title: "Projects"
     {%- for p in collections.projects -%}
         {%- if p.data.external -%}
             <li class="is-external">
-                <a href="{{ p.data.external }}" target="_blank" rel="noopener">{{ p.data.title | lower }} ↗</a>
+                <a href="{{ p.data.external }}" target="_blank" rel="noopener">{{ p.data.title | lower }}.</a>
             </li>
         {%- endif -%}
     {%- endfor -%}

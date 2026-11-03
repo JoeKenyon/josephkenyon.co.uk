@@ -41,9 +41,4 @@ function ticker(el, { speed = 80, reverse = false, pauseOnHover = true, gap = 0 
   window.addEventListener("load", build);
   let t;
   window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(build, 150); });
- 
-  if (pauseOnHover) {
-    el.addEventListener("mouseenter", () => anim && anim.pause());
-    el.addEventListener("mouseleave", () => anim && anim.play());
-  }
 }

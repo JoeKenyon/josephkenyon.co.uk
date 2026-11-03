@@ -2,10 +2,7 @@
 layout: base.njk
 title: "Home"
 ---
-<header class="ticker">
-    <h1>Projects</h1>
-</header>
-
+<h1>Projects</h1>
 <ul>
     {%- for p in collections.projects -%}
         {%- if not p.data.external -%}
@@ -14,12 +11,38 @@ title: "Home"
             </li>
         {%- endif -%}
     {%- endfor -%}
-    <hr>
     {%- for p in collections.projects -%}
         {%- if p.data.external -%}
             <li class="is-external">
-                <a href="{{ p.data.external }}" target="_blank" rel="noopener">{{ p.data.title | lower }} ↗</a>
+                <a href="{{ p.data.external }}" target="_blank" rel="noopener">{{ p.data.title | lower }}</a>
             </li>
         {%- endif -%}
     {%- endfor -%}
 </ul>
+
+<h1>Music</h1>
+<ul>
+    {% for m in collections.music %}
+        <li>
+            <a href="{{ m.data.url }}" target="_blank">{{ m.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h1>Demos</h1>
+<ul>
+    {%- for d in collections.misc_music %}
+        <li>
+            <audio class="player" controls preload="metadata">
+                <source src="{{ d.url }}">
+            </audio>
+        </li>
+    {% endfor %}
+</ul>
+
+<h1>Art</h1>
+<div class="moe-zay-ick">
+    {% for image in collections.artImages %}
+    <img src="{{ image.url }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+    {% endfor %}
+</div>
